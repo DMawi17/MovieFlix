@@ -1,0 +1,12 @@
+  {
+    "new movies": [
+      {
+        "title": "Saw",
+        "Genre": "Horror"
+      },
+      {}
+    ],
+    "trending": [
+      {}
+    ]
+  }
