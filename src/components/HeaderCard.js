@@ -63,11 +63,11 @@ const HeaderCard = () => {
                     </div>
                 </Card.Body>
             </Card>
-            <div>
+            {/* <div>
                 {movie.map((m) => (
                     <li>{m.category}</li>
                 ))}
-            </div>
+            </div> */}
         </>
     );
 };

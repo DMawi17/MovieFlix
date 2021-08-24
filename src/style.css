@@ -4,9 +4,10 @@
 
 .Main {
     position: absolute;
-    top: 30vh;
+    margin-top: 5rem;
     left: 0;
     height: 50vh;
+    color: #fff;
 }
 
 .Main .gallery img {

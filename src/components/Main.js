@@ -1,4 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useMovie } from "../context/movie-hooks";
 import Carousel from 'react-bootstrap/Carousel';
 import Alien from '../Img/Alien-Ancestors.jpg';
 import Anette from '../Img/Annette.jpg';
@@ -30,12 +31,12 @@ import TheSwarm from '../Img/The-Swarm.jpg';
 import Vivo from '../Img/Vivo.jpg';
 
 const imageGallery = ['../Img/Alien-Ancestors.jpg', '../Img/Annette.jpg', '../Img/Black-Widow.jpg', '../Img/CODA.jpg', '../Img/Cryptozoo.jpg', '../Img/Demonic.jpg', '../Img/Extinct.jpg', '../Img/Fast-&-Furious-9.jpg' ];
-import { useMovie } from "../context/movie-hooks";
 
-const Main = ({category, movie}) => {
+
+const Main = () => {
     const { movie } = useMovie();
-
-    const categoryParts = category.split("-");
+    console.log(movie);
+    const categoryParts = movie[0].category.split("-");
     const categoryUI = 
         categoryParts.map( part => part[0].toUpperCase() + part.substring(1))
         .join(" "); 
@@ -43,11 +44,11 @@ const Main = ({category, movie}) => {
     return (  
         <div className="Main">
             <h2>{categoryUI}</h2>
-            {movie.map(m => {
+            {/* {movie[0].movie.map(m => {
                 return (
                     <div>{m.title}</div>
                 )
-            })}
+            })} */}
             <div className="d-flex gap-2 gallery">
                 {/* {imageGallery.map(image => {
                     return (

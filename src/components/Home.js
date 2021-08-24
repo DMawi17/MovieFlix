@@ -1,11 +1,11 @@
 import Main from "./Main";
+import Header from "./Header";
 
-
-const Home = ({ category, movie }) => {
+const Home = () => {
     return (
         <div>
             <Header />
-            <Main category={category} movie={movie}/>
+            <Main />
         </div>
     );
 };
