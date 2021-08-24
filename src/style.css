@@ -1,12 +1,16 @@
+* {
+    /* outline: 2px solid red; */
+}
 :root {
     background: #aaa;
 }
 
 .Main {
     position: absolute;
-    margin-top: 5rem;
+    margin-top: 1rem;
     left: 0;
     height: 50vh;
+    width: 100vw;
     color: #fff;
 }
 

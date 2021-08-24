@@ -1,11 +1,8 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button, Card } from "react-bootstrap";
 import { BsFillPlayFill, BsPlus } from "react-icons/bs";
-import { useMovie } from "../context/movie-hooks";
 
 const HeaderCard = () => {
-    const { movie } = useMovie();
-
     return (
         <>
             <Card className="bg-dark text-muted">
@@ -63,11 +60,6 @@ const HeaderCard = () => {
                     </div>
                 </Card.Body>
             </Card>
-            {/* <div>
-                {movie.map((m) => (
-                    <li>{m.category}</li>
-                ))}
-            </div> */}
         </>
     );
 };
