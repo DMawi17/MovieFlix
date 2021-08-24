@@ -1,5 +1,6 @@
 import "./style.css";
 import Home from "./components/Home";
+<<<<<<< HEAD
 import { useState } from "react";
 import Footer from "./components/Footer";
 
@@ -15,6 +16,15 @@ function App({ data }) {
       <Footer />
     </div>
   );
+=======
+
+function App() {
+    return (
+        <div className="App">
+            <Home />
+        </div>
+    );
+>>>>>>> maxie
 }
 
 export default App;
