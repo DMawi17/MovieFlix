@@ -1,5 +1,5 @@
 import Header from "./Header";
-const Home = ({ category, movie }) => {
+const Home = () => {
     return (
         <div>
             <Header />

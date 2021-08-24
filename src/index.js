@@ -1,13 +1,12 @@
 import React from "react";
 import { render } from "react-dom";
-import data from "./data/data.json";
-
+import { MovieProvider } from "./context/movie-hooks";
 import App from "./App";
 
 render(
-    <React.StrictMode>
-        <App data={data} />
-    </React.StrictMode>,
+    <MovieProvider>
+        <App />
+    </MovieProvider>,
     document.getElementById("root")
 );
 
