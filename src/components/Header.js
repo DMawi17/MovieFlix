@@ -3,7 +3,7 @@ import HeaderCard from "./HeaderCard";
 
 const Header = () => {
     return (
-        <div style={{ height: "30vh", outline: "1px solid red" }}>
+        <div style={{ height: "30vh", background: "#1f2529" }}>
             <HeaderNav />
             <HeaderCard />
         </div>
