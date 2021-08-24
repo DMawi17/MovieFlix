@@ -1,15 +1,15 @@
 import "./style.css";
-// import Login from "./components/Login";
 import Home from "./components/Home";
+import { useState } from "react";
 
-function App() {
+function App({ data }) {
+    const [movie] = useState(data);
+
     return (
         <div className="App">
-            {/* <Login /> */}
-            <Home/>
-            {/* <Login /> */}
-            {/* <SignUp /> */}
-            {/* <MoviePage/> */}
+            {movie.map((m) => (
+                <Home key={m.category} {...m} />
+            ))}
         </div>
     );
 }
