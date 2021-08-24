@@ -1,3 +1,20 @@
 :root {
     background: #aaa;
 }
+
+.Main {
+    position: absolute;
+    top: 30vh;
+    left: 0;
+    height: 50vh;
+}
+
+.Main .gallery img {
+    width: 150px;
+    height: 275px;
+}
+
+.Main .gallery img:hover,
+.Main .gallery img:active {
+    transform: scale(1.5, 1.5);
+}
