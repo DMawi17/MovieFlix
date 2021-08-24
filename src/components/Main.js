@@ -30,8 +30,11 @@ import TheSwarm from '../Img/The-Swarm.jpg';
 import Vivo from '../Img/Vivo.jpg';
 
 const imageGallery = ['../Img/Alien-Ancestors.jpg', '../Img/Annette.jpg', '../Img/Black-Widow.jpg', '../Img/CODA.jpg', '../Img/Cryptozoo.jpg', '../Img/Demonic.jpg', '../Img/Extinct.jpg', '../Img/Fast-&-Furious-9.jpg' ];
+import { useMovie } from "../context/movie-hooks";
 
 const Main = ({category, movie}) => {
+    const { movie } = useMovie();
+
     const categoryParts = category.split("-");
     const categoryUI = 
         categoryParts.map( part => part[0].toUpperCase() + part.substring(1))

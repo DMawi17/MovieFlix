@@ -1,15 +1,10 @@
 import "./style.css";
 import Home from "./components/Home";
-import { useState } from "react";
 
-function App({ data }) {
-    const [movie] = useState(data);
-
+function App() {
     return (
         <div className="App">
-            {movie.map((m) => (
-                <Home key={m.category} {...m} />
-            ))}
+            <Home />
         </div>
     );
 }
