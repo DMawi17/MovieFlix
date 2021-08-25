@@ -1,15 +1,17 @@
 // import Main from "./Main";
-// import Header from "./Header/Header";
+import HeaderCard from "./Header/HeaderCard";
+import HeaderNav from "./Header/HeaderNav";
 // import Footer from "./Footer"
-import MoviePage from "./MoviePage/MoviePage";
+// import MoviePage from "./MoviePage/MoviePage";
 
 const Home = () => {
     return (
         <div>
-            {/* <Header /> */}
+            <HeaderNav />
+            <HeaderCard />
             {/* <Main /> */}
             {/* <Footer /> */}
-            <MoviePage />
+            {/* <MoviePage /> */}
         </div>
     );
 };

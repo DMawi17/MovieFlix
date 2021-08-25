@@ -1,5 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
 
 const HeaderNav = () => {
     return (
@@ -13,10 +14,18 @@ const HeaderNav = () => {
                         style={{ maxHeight: "100px" }}
                         navbarScroll
                     >
-                        <Nav.Link href="#action1">Home</Nav.Link>
-                        <Nav.Link href="#action2">Films</Nav.Link>
-                        <Nav.Link href="#action3">Series</Nav.Link>
-                        <Nav.Link href="#action3">My List</Nav.Link>
+                        <Nav.Link as={NavLink} exact to="/">
+                            Home
+                        </Nav.Link>
+                        <Nav.Link as={NavLink} to="movie-page">
+                            Films
+                        </Nav.Link>
+                        <Nav.Link as={NavLink} to="action3">
+                            Series
+                        </Nav.Link>
+                        <Nav.Link as={NavLink} to="action3">
+                            My List
+                        </Nav.Link>
                     </Nav>
                     <Form className="d-flex">
                         <FormControl

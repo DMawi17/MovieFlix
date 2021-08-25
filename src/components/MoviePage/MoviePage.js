@@ -1,9 +1,9 @@
-import HeaderNav from "../Header/HeaderNav";
+// import HeaderCard from "../Header/HeaderCard";
 const MoviePage = () => {
     return (
-        <>
-            <HeaderNav />
-        </>
+        <div>
+            <h2>Movie page</h2>
+        </div>
     );
 };
 
