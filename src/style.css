@@ -1,0 +1,44 @@
+:root {
+    background-color: #212529;
+}
+
+.Home {
+    background-color: #212529;
+
+}
+
+.Main {
+    position: absolute;
+    margin-top: 5rem;
+    left: 0;
+    height: 50vh;
+    color: #fff;
+    background-color: #212529;
+}
+
+.Main .gallery img {
+    width: 150px;
+    height: 275px;
+}
+
+.Main .gallery img:hover,
+.Main .gallery img:active {
+    transform: scale(1.5, 1.5);
+}
+
+.SignUp {
+    width: 50%;
+    margin: 2rem auto;
+    color: #fff;
+    background-color: #212529;
+}
+
+.SignUp > h1,
+.SignUp > h2 {
+    text-align: center;
+    color: #dc3545;
+}
+
+.SignUp .button {
+    width: 100%;
+}
