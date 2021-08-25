@@ -4,23 +4,26 @@ import Reminiscence from "../Img/Reminiscence.jpg";
 import SnakeEyes from "../Img/Snake-Eyes.jpg";
 import Vivo from "../Img/Vivo.jpg";
 
+// import { v4 } from "uuid";
+
 const gallery = [Cryptozoo, Demonic, Reminiscence, SnakeEyes, Vivo];
 
-const Movie = ({ title }) => {
-    const movieTitle = title.split("-").join(" ");
+const Movie = ({ title, image }) => {
+    // const movieTitle = title.split("-").join(" ");
+    // console.log(image);
 
     return (
         <div>
-            {gallery.map((pic) => (
+            {gallery.map((l) => (
                 <>
                     <img
-                        src={pic}
+                        src={l}
                         width="150"
                         height="200"
-                        alt={movieTitle}
+                        // alt={movieTitle}
                         style={{ margin: 10 }}
                     />
-                    <h3>{movieTitle}</h3>
+                    {/* <h3>{movieTitle}</h3> */}
                 </>
             ))}
         </div>

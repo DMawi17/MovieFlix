@@ -1,12 +1,15 @@
 import React from "react";
 import { render } from "react-dom";
 import { MovieProvider } from "./context/movie-hooks";
+import { UserProvider } from "./context/userContext";
 import App from "./App";
 
 render(
-    <MovieProvider>
-        <App />
-    </MovieProvider>,
+    <UserProvider>
+        <MovieProvider>
+            <App />
+        </MovieProvider>
+    </UserProvider>,
     document.getElementById("root")
 );
 

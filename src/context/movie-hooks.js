@@ -1,12 +1,11 @@
 import { createContext, useContext, useState } from "react";
-import data from "../data/data";
-// import { v4 } from "uuid";
+import { movieData } from "../data/movieData";
 
 const MovieContext = createContext();
 export const useMovie = () => useContext(MovieContext);
 
 export const MovieProvider = ({ children }) => {
-    const [movie] = useState(data);
+    const [movie] = useState(movieData);
 
     return (
         <MovieContext.Provider value={{ movie }}>
