@@ -1,9 +1,9 @@
-import Category from "./Category";
+import Categories from "./Categories";
 
 const Main = () => {
     return (
         <div className="Main">
-            <Category />
+            <Categories />
         </div>
     );
 };
