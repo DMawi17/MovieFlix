@@ -1,8 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Form from 'react-bootstrap/Form';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Button from 'react-bootstrap/Button';
+import { Form, Row, Col, Button, Nav } from 'react-bootstrap';
 import { RiNetflixFill } from 'react-icons/ri';
 // import { useUser } from "../context/UserContext";
 import { useState } from 'react';
@@ -17,6 +14,9 @@ const SignUp = () => {
     const [ email, setEmail ] = useState("");
     const [ password, setPassword ] = useState("");
     const [ confirmPassword, setConfirmPassword ] = useState("");
+    
+    const terms = (<a href="https://www.websitepolicies.com/blog/what-are-terms-and-conditions">I've read the Terms and Conditions</a>);
+    const login = null;
     
     
     const doSignUp = (e) => {
@@ -80,7 +80,7 @@ const SignUp = () => {
                 <Form.Check 
                     className="mb-3"
                     type="checkbox" 
-                    label={`I've read the Terms & Conditions.`}
+                    label={terms}
                 />
                 <Button 
                     className="mb-3 button"
