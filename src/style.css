@@ -1,21 +1,28 @@
 :root {
-    background: #aaa;
+  background: #aaa;
 }
 
 .Main {
-    position: absolute;
-    margin-top: 5rem;
-    left: 0;
-    height: 50vh;
-    color: #fff;
+  position: absolute;
+  margin-top: 5rem;
+  left: 0;
+  height: 50vh;
+  color: #fff;
 }
 
 .Main .gallery img {
-    width: 150px;
-    height: 275px;
+  width: 150px;
+  height: 275px;
 }
 
 .Main .gallery img:hover,
 .Main .gallery img:active {
-    transform: scale(1.5, 1.5);
+  transform: scale(1.5, 1.5);
+}
+
+/*  Log In User  */
+
+.loginuser button {
+  width: 80%;
+  border: none;
 }

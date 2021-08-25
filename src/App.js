@@ -1,30 +1,17 @@
 import "./style.css";
 import Home from "./components/Home";
-<<<<<<< HEAD
-import { useState } from "react";
-import Footer from "./components/Footer";
 
-function App({ data }) {
-  const [movie] = useState(data);
+import { useState } from "react";
+
+function App() {
+  const [user, setUser] = useState(null);
+  const contextValue = { user, setUser };
 
   return (
     <div className="App">
-      {movie.map((m) => (
-        <Home key={m.category} {...m} />
-      ))}
-
-      <Footer />
+      <Home />
     </div>
   );
-=======
-
-function App() {
-    return (
-        <div className="App">
-            <Home />
-        </div>
-    );
->>>>>>> maxie
 }
 
 export default App;

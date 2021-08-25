@@ -1,0 +1,34 @@
+.loginform {
+  background: aquamarine;
+  height: 500px;
+  width: 450px;
+}
+
+.loginform input {
+  background: blue;
+  border: 1px solid black;
+  color: aliceblue;
+  width: 80%;
+  margin: 1em auto;
+  display: block;
+}
+
+.loginform button {
+  width: 80%;
+  margin: 1em auto;
+  padding: 10px;
+  display: block;
+  color: aliceblue;
+  background: #f7412c;
+  border: none;
+}
+
+.loginuser button {
+  width: 80%;
+  margin: 1em auto;
+  padding: 10px;
+  display: block;
+  color: aliceblue;
+  background: #f7412c;
+  border: none;
+}

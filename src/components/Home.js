@@ -1,15 +1,17 @@
 import Main from "./Main";
 import Header from "./Header";
-import Footer from "./Footer"
+import Footer from "./Footer";
+import Login from "./Login";
 
 const Home = () => {
-    return (
-        <div>
-            <Header />
+  return (
+    <div>
+      <Login />
+      {/* <Header />
             <Main />
-            <Footer />
-        </div>
-    );
+            <Footer /> */}
+    </div>
+  );
 };
 
 export default Home;

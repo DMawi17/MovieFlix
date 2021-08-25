@@ -6,13 +6,24 @@ import { fab } from "@fortawesome/free-brands-svg-icons";
 
 library.add(fab);
 
+var style = {
+  padding: "20px",
+  position: "fixed",
+  bottom: "0",
+  width: "100%",
+};
+
 function Footer() {
   return (
-    <Row xs={1} md={3} className="bg-dark">
+    <Row xs={1} md={3} className="bg-dark" style={style}>
       <Col>
         <Card bg={"dark"} text={"light"} style={{ height: "100%" }}>
           <Card.Body>
+            <FontAwesomeIcon icon={["fab", "facebook"]} />
             <FontAwesomeIcon icon={["fab", "instagram"]} />
+            <FontAwesomeIcon icon={["fab", "twitter"]} />
+
+            <br />
             <Card.Title>Terms and Conditions</Card.Title>
             <Card.Link
               className="text-white"
