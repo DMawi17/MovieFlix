@@ -1,6 +1,9 @@
-/* k0
+* {
+    /* outline: 2px solid red; */
+}
+
 :root {
-    background: #aaa;
+    background: #1f2529;
 }
 
 .Main {
@@ -21,4 +24,3 @@
 .Main .gallery img:active {
     transform: scale(1.5, 1.5);
 }
-*/

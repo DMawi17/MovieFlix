@@ -17,7 +17,6 @@ export const movieData = [
                     "Iko Uwais",
                     "Takehiro Hira",
                 ],
-
                 image: "../Img/Snake-Eyes.jpg",
             },
             {

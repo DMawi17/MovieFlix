@@ -8,7 +8,7 @@ const Home = () => {
     return (
         <div>
             <HeaderNav />
-            <HeaderCard />
+            {/* <HeaderCard /> */}
             {/* <Main /> */}
             {/* <Footer /> */}
             {/* <MoviePage /> */}

@@ -1,4 +1,4 @@
-// import "./style.css";
+import "./style.css";
 import Home from "./components/Home";
 import { Route, Switch } from "react-router-dom";
 import MoviePage from "./components/MoviePage/MoviePage";

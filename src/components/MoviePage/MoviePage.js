@@ -1,8 +1,11 @@
-// import HeaderCard from "../Header/HeaderCard";
+import MoviePlayer from "./MoviePlayer";
+import HeaderCard from "../Header/HeaderCard";
+
 const MoviePage = () => {
     return (
-        <div>
-            <h2>Movie page</h2>
+        <div className="d-flex flex-column" style={{ background: "#212529" }}>
+            <HeaderCard />
+            <MoviePlayer />
         </div>
     );
 };
