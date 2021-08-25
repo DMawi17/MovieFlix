@@ -7,6 +7,8 @@ import Whoops404 from "./components/Whoops404";
 function App() {
     return (
         <div className="App">
+            {/* {user && <Home />} */}
+            {/* {!user && <Login />} */}
             <Home />
             <Switch>
                 <Route path="/movie-page" component={MoviePage} />
