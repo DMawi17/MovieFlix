@@ -1,5 +1,8 @@
 // import Iframe from "react-iframe";
-const src = ["https://www.youtube.com/embed/_BggT--yxf0?autoplay=1&mute=1"];
+const src = [
+    // "https://www.youtube.com/embed/_BggT--yxf0?autoplay=1&mute=1"
+    "https://www.youtube.com/embed/_BggT--yxf0",
+];
 
 const MoviePlayer = () => {
     return (
