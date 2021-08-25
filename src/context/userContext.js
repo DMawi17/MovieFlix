@@ -16,7 +16,7 @@ export const UserProvider = ({ children }) => {
             alert("Invalid email");
             return;
         }
-        setUser({ id: 1, email, name: "Joel Nenotlep", role: "admin" });
+        setUser({ id: 1, email, name: "Lea", role: "admin" });
     };
     //..
 
