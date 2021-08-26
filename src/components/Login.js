@@ -22,14 +22,10 @@ function Login() {
 
   return (
     <div className="LoginUser">
+      <h1>C o n n e c t</h1>
+      <h2>Connect to your account</h2>
       <Form className="mb-4 bg-dark" text={"light"}>
-        <Form.Text>C o n n e x i o n</Form.Text>
         <Form.Group className="mb-4" controlId="formBasicEmail">
-          <Form.Label
-          // size="lg"
-          >
-            Connect to your account
-          </Form.Label>
           <Form.Control
             className="bg-light"
             type="email"
