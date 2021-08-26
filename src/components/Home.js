@@ -8,8 +8,8 @@ import MoviePage from "./MoviePage/MoviePage";
 const Home = () => {
     return (
         <div>
-            <HeaderNav />
-            <HeaderCard />
+            {/* <HeaderNav /> */}
+            {/* <HeaderCard /> */}
             {/* <Main /> */}
             {/* <Footer /> */}
             {/* <MoviePage /> */}

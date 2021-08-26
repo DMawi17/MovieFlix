@@ -17,7 +17,7 @@ const HeaderNav = () => {
                         <Nav.Link as={NavLink} exact to="/">
                             Home
                         </Nav.Link>
-                        <Nav.Link as={NavLink} to="movie-page">
+                        <Nav.Link as={NavLink} to="moviepage">
                             Films
                         </Nav.Link>
                         <Nav.Link as={NavLink} to="action3">

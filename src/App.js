@@ -12,17 +12,16 @@ function App() {
 
     return (
         <div className="App">
-            <Switch>
+            <Home />
+            {/* <Switch>
                 {user && <Route path="/" component={Home} />}
                 {!user && <Route path="/signup" component={SignUp} />}
                 {!user && <Route path="/" component={Login} />}
-
                 <Route path="/moviepage" component={MoviePage} />
                 <Route path="*" component={Whoops404} />
-            </Switch>
+            </Switch> */}
         </div>
     );
 }
 
 export default App;
-
