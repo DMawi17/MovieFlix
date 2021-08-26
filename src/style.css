@@ -1,5 +1,9 @@
 :root {
-  background: #aaa;
+  background-color: #212529;
+}
+
+.Home {
+  background-color: #212529;
 }
 
 .Main {
@@ -8,6 +12,7 @@
   left: 0;
   height: 50vh;
   color: #fff;
+  background-color: #212529;
 }
 
 .Main .gallery img {
@@ -22,7 +27,23 @@
 
 /*  Log In User  */
 
-.LoginUser button {
-  width: 80%;
-  border: none;
+.SignUp,
+.LoginUser {
+  width: 50%;
+  margin: 2rem auto;
+  color: #fff;
+  background-color: #212529;
+}
+
+.SignUp > h1,
+.SignUp > h2,
+.LoginUser > h1,
+.LoginUser > h2 {
+  text-align: center;
+  color: #dc3545;
+}
+
+.SignUp .button,
+.LoginUser .button {
+  width: 100%;
 }

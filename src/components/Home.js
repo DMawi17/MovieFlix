@@ -1,15 +1,16 @@
 import Main from "./Main";
 import Header from "./Header";
 import Footer from "./Footer";
+import SignUp from "./SignUp";
 import Login from "./Login";
 
 const Home = () => {
   return (
-    <div>
-      <Login />
+    <div className="Home">
       {/* <Header />
-      <Main />
-      <Footer /> */}
+            <Main />
+            <Footer /> */}
+      <Login />
     </div>
   );
 };

@@ -35,11 +35,16 @@ const imageGallery = ['../Img/Alien-Ancestors.jpg', '../Img/Annette.jpg', '../Im
 
 const Main = () => {
     const { movie } = useMovie();
-    console.log(movie);
+
     const categoryParts = movie[0].category.split("-");
     const categoryUI = 
         categoryParts.map( part => part[0].toUpperCase() + part.substring(1))
         .join(" "); 
+
+    const newMoviesImages = [SnakeEyes, Vivo, Cryptozoo, Reminiscence, Demonic];
+    const trendingImages = [SweetGirl, CODA, PosterBoys, MonsterHunter, TheGirlWho, OutOfTime, ShinyFlakes];
+    const popularImages = [JurassicHunt, BlackWidow, Alien, TheKissingBoothe, JungleCruise, Risen, FastFurious9];
+    const featuredImages = [HitmansWife, TheSwarm, PAWPatrol, TheSuicideSquad, LoudHouse, Extinct, Stillwater];
 
     return (  
         <div className="Main">
@@ -55,11 +60,12 @@ const Main = () => {
                         <img src={`../Img/${image}`} />
                     )
                 })} */}
-                <img src={SnakeEyes} />
-                <img src={Vivo} />
-                <img src={Cryptozoo} />
-                <img src={Reminiscence} />
-                <img src={Demonic} />
+                {newMoviesImages.map(image => {
+                    return (
+                        <img src={image} alt="" />
+                    )
+                })}
+                
 
             </div>
             
