@@ -1,5 +1,5 @@
 // import Main from "./Main";
-import HeaderCard from "./Header/HeaderCard";
+// import HeaderCard from "./Header/HeaderCard";
 import HeaderNav from "./Header/HeaderNav";
 // import Footer from './Footer';
 // import Footer from "./Footer"
