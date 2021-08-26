@@ -5,7 +5,7 @@ const Category = () => {
     const { data } = useMovie();
 
     return (
-        <div>
+        <div style={{ display: "flex" }}>
             {data.map((movie) => (
                 <Movie key={movie.id} {...movie} />
             ))}
