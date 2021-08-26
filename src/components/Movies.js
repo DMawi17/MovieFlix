@@ -1,31 +1,27 @@
-import Cryptozoo from "../Img/Cryptozoo.jpg";
-import Demonic from "../Img/Demonic.jpg";
-import Reminiscence from "../Img/Reminiscence.jpg";
-import SnakeEyes from "../Img/Snake-Eyes.jpg";
-import Vivo from "../Img/Vivo.jpg";
+import { useMovie } from "../context/movie-hooks";
 
-// import { v4 } from "uuid";
-
-const gallery = [Cryptozoo, Demonic, Reminiscence, SnakeEyes, Vivo];
-
-const Movie = ({ title, image }) => {
-    // const movieTitle = title.split("-").join(" ");
-    // console.log(image);
+const Movie = ({
+    title,
+    vote_average,
+    release_date,
+    poster_path,
+    overview,
+}) => {
+    const { IMG } = useMovie();
 
     return (
         <div>
-            {gallery.map((l) => (
-                <>
-                    <img
-                        src={l}
-                        width="150"
-                        height="200"
-                        // alt={movieTitle}
-                        style={{ margin: 10 }}
-                    />
-                    {/* <h3>{movieTitle}</h3> */}
-                </>
-            ))}
+            <img
+                src={IMG + poster_path}
+                width="150"
+                height="200"
+                alt={title}
+                style={{ margin: 10 }}
+            />
+            <h2>Title: {title}</h2>
+            <h4>Release Date: {release_date}</h4>
+            <p>{overview}</p>
+            <h5>Ratings: {vote_average}</h5>
         </div>
     );
 };

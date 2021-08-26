@@ -1,18 +1,14 @@
-import Movies from "./Movies";
-import { v4 } from "uuid";
 import { useMovie } from "../context/movie-hooks";
+import Movie from "./Movies";
 
 const Category = () => {
-    const { movie } = useMovie();
+    const { data } = useMovie();
 
     return (
         <div>
-            {/* {movie.map((m) =>
-                m.movie.map((o) => <Movies {...o} key={v4()} />)
-            )} */}
-            <Movies/>
-            <Movies/>
-
+            {data.map((movie) => (
+                <Movie key={movie.id} {...movie} />
+            ))}
         </div>
     );
 };
