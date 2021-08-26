@@ -1,80 +1,49 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useContext, useState } from "react";
-import UserContext from "../UserContext";
+import { useUser } from "../context/userContext";
 import { Form, Button, Nav } from "react-bootstrap";
-
-import "../style.css";
-
-var style = {
-    padding: "20px",
-    width: "50%",
-};
+import { NavLink } from "react-router-dom";
+import { RiNetflixFill } from "react-icons/ri";
 
 function Login() {
-    // const { user, setUser } = useContext(UserContext);
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-
-    function doLogin(e) {
-        e.preventDefault();
-
-        // if (email !== "example@email.com") {
-        //   alert("Invalid email");
-        //   return;
-        // }
-
-        // setUser({ id: 1, email, name: "Example User" });
-    }
+    const { email, setEmail, password, setPassword, doLogin } = useUser();
 
     return (
-        <Form style={style} className="loginuser mb-4 bg-dark" text={"light"}>
-            <Form.Text>C o n n e x i o n</Form.Text>
-            <Form.Group className="mb-4" controlId="formBasicEmail">
-                <Form.Label
-                // size="lg"
-                >
-                    Connect to your account
-                </Form.Label>
+        <div className="Login">
+            <h1>
+                <RiNetflixFill size="45" />
+            </h1>
+            <h2>Connect to your account</h2>
+            <Form onSubmit={doLogin} className="mb-3">
                 <Form.Control
-                    className="bg-light"
+                    className="mb-3"
                     type="email"
                     placeholder="Enter email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                 />
-            </Form.Group>
-
-            <Form.Group className="mb-4" controlId="formBasicPassword">
                 <Form.Control
-                    className="bg-light"
+                    className="mb-3"
                     type="password"
                     placeholder="Password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                 />
-            </Form.Group>
-            <Form.Group className="mb-4 bg-dark" controlId="formBasicCheckbox">
                 <Form.Check
+                    className="mb-3"
                     type="checkbox"
                     label="Remember me and stay connected"
                 />
-            </Form.Group>
-            <Button variant="primary" type="submit" className="mb-4 bg-danger">
-                Connect
-            </Button>
-            <br />
-            <Button variant="primary" type="submit" className="mb-4 bg-danger ">
-                {/* Google Logo -- google */}
-                Connect with Google
-            </Button>
-            <Form.Group>
-                <Nav.LInk>Forgot your password?</Nav.LInk>
-                <Nav.Link>Don't have an account? </Nav.Link>
-            </Form.Group>
-                <Nav.Link>Register here</Nav.Link>
-            <Nav.Item>
-            </Nav.Item>
-        </Form>
+                <Button className="mb-3 button" variant="danger" type="submit">
+                    Connect
+                </Button>
+                <br />
+                {/* <Nav.Link>Forgot your password?</Nav.Link> */}
+                <Nav.Link as={NavLink} to="/signup">
+                    Register
+                </Nav.Link>
+            </Form>
+        </div>
     );
 }
 
 export default Login;
-
-// eye-slash
-// eye

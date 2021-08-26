@@ -1,9 +1,8 @@
 :root {
-    background: #1f2529;
     background-color: #212529;
 }
 
-.Home {
+.App {
     background-color: #212529;
 }
 
@@ -36,14 +35,8 @@
     transform: scale(1.5, 1.5);
 }
 
-/*  Log In User  */
-
-.loginuser button {
-    width: 80%;
-    border: none;
-}
-
-.SignUp {
+.SignUp,
+.Login {
     width: 50%;
     margin: 2rem auto;
     color: #fff;
@@ -51,11 +44,14 @@
 }
 
 .SignUp > h1,
+.Login > h1,
+.Login > h2,
 .SignUp > h2 {
     text-align: center;
     color: #dc3545;
 }
 
-.SignUp .button {
+.SignUp .button,
+.Login .button {
     width: 100%;
 }
