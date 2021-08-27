@@ -1,27 +1,20 @@
 import { FaGhost } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
 
 const Nav = () => {
     return (
         <div id="Nav">
-            <h1 id="Logo">
-                <a href="/">
-                    movie<span>/>lix</span>
-                </a>
-            </h1>
-            <ul id="Nav_Links">
-                <li>
-                    <a href="/">Home</a>
-                </li>
-                <li>
-                    <a href="/">Films</a>
-                </li>
-                <li>
-                    <a href="/">Series</a>
-                </li>
-                <li>
-                    <a href="/">My List</a>
-                </li>
-            </ul>
+            <NavLink to="/" id="Logo">
+                movie<span>Flix</span>
+            </NavLink>
+            <nav id="Nav_Links">
+                <NavLink exact to="/">
+                    Home
+                </NavLink>
+                <NavLink to="/films">Films</NavLink>
+                <NavLink to="/series">Series</NavLink>
+                <NavLink to="/mylist">My List</NavLink>
+            </nav>
             <form>
                 <input
                     type="text"
@@ -30,9 +23,9 @@ const Nav = () => {
                     placeholder="Search..."
                 />
             </form>
-            <a id="Ghosty" href="/">
+            <div id="Ghosty">
                 <FaGhost />
-            </a>
+            </div>
         </div>
     );
 };

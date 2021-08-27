@@ -12,7 +12,7 @@ const Movie = ({
 
     return (
         <>
-            <img id="poster" src={IMG + poster_path} alt={title} />
+            <img id="Movies" src={IMG + poster_path} alt={title} />
         </>
     );
 };

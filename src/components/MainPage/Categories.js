@@ -14,7 +14,7 @@ const Category = ({ title, fetchUrl }) => {
     }, [fetchUrl]);
 
     return (
-        <div id="rowPosters">
+        <div id="Category">
             {movies.map((movie, i) => (
                 <Movie key={movie.id} {...movie} />
             ))}

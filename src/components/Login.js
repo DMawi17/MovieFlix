@@ -1,11 +1,13 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useUser } from "../context/userContext";
 import { Form, Button, Nav } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 import { RiNetflixFill } from "react-icons/ri";
 
 function Login() {
     const { email, setEmail, password, setPassword, doLogin } = useUser();
+
+    let history = useHistory();
 
     return (
         <div className="Login">
@@ -33,8 +35,15 @@ function Login() {
                     type="checkbox"
                     label="Remember me and stay connected"
                 />
-                <Button className="mb-3 button" variant="danger" type="submit">
-                    Connect
+                <Button
+                    className="mb-3 button"
+                    variant="danger"
+                    type="submit"
+                    onClick={() => {
+                        history.push("/home");
+                    }}
+                >
+                    > Connect
                 </Button>
                 <br />
                 {/* <Nav.Link>Forgot your password?</Nav.Link> */}
