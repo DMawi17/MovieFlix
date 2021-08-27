@@ -1,14 +1,16 @@
-import "./style.css";
+// import "./style.css";
+import "./styles.scss"
+
 import Home from "./components/Home";
-import { Route, Switch } from "react-router-dom";
-import MoviePage from "./components/MoviePage/MoviePage";
-import Whoops404 from "./components/Whoops404";
-import Login from "./components/Login";
-import SignUp from "./components/SignUp";
-import { useUser } from "./context/userContext";
+// import { Route, Switch } from "react-router-dom";
+// import MoviePage from "./components/MoviePage/MoviePage";
+// import Whoops404 from "./components/Whoops404";
+// import Login from "./components/Login";
+// import SignUp from "./components/SignUp";
+// import { useUser } from "./context/userContext";
 
 function App() {
-    const { user } = useUser();
+    // const { user } = useUser();
 
     return (
         <div className="App">
