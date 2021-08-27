@@ -10,7 +10,11 @@ const Movie = ({
 }) => {
     const { IMG } = useMovie();
 
-    return <img id="poster" src={IMG + poster_path} alt={title} />;
+    return (
+        <>
+            <img id="poster" src={IMG + poster_path} alt={title} />
+        </>
+    );
 };
 
 export default Movie;
