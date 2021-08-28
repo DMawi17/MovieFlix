@@ -3,7 +3,6 @@ import { useMovie } from "../../context/movie-hooks";
 
 const Banner = () => {
     const { urls } = useMovie();
-
     const [movies, setMovies] = useState([]);
 
     const fetchUrl = urls.NetflixOriginals;
@@ -19,11 +18,9 @@ const Banner = () => {
         fetchData();
     }, [fetchUrl]);
 
-    console.log(movies);
-
-    function truncate(str, n) {
-        return str?.length > n ? str.substr(0, n - 1) + "…" : str;
-    }
+    const truncate = (str, maxLength = 150) => {
+        return str?.length > maxLength ? str.slice(0, maxLength) + `…` : str;
+    };
 
     return (
         <header
@@ -35,15 +32,12 @@ const Banner = () => {
             }}
         >
             <div id="Banner_Contents">
-                {/* bg image */}
                 <h1 id="Banner_Title">{movies?.original_name}</h1>
                 <div>
                     <button className="Banner_Buttons Play">Play</button>
                     <button className="Banner_Buttons List">My List</button>
                 </div>
-                <h1 id="Banner_Description">
-                    {truncate(movies?.overview, 150)}
-                </h1>
+                <h1 id="Banner_Description">{truncate(movies?.overview)}</h1>
             </div>
             <div id="Banner_FadeBottom"></div>
         </header>

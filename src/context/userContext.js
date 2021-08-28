@@ -19,7 +19,7 @@ export const UserProvider = ({ children }) => {
     //..
 
     const doLogin = (e) => {
-        e.preventDefault();
+        // e.preventDefault();
 
         if (email !== "lea@example.org") {
             alert("Invalid email");
@@ -33,15 +33,19 @@ export const UserProvider = ({ children }) => {
     const doSignUp = (e) => {
         e.preventDefault();
 
-        // if (user !== "") { FIXME:
         if (email === "lea@example.org") {
-            alert("You're already signed up. Go to Login.");
-        } else if (password !== confirmPassword) {
+            alert(
+                "There's already an account registered with that email address. Go to Login."
+            );
+            //     return (<Redirect to="/" />)
+            return;
+        }
+        if (password !== confirmPassword) {
             alert("Password versions are different. Enter password again.");
             return;
         }
 
-        setNewUser({ id: 1, email, name: `${firstName} ${lastName}` });
+        setUser({ id: 1, email, name: `${firstName} ${lastName}` });
     };
 
     //..

@@ -1,6 +1,4 @@
 import Category from "./Categories";
-import Nav from "../Header/Nav";
-import Banner from "../Header/Banner";
 
 import { useMovie } from "../../context/movie-hooks";
 
