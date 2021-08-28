@@ -106,8 +106,9 @@ Component
 */
 
 #Main {
-    margin-left: 20px;
+    margin-left: 25px;
     color: #fff;
+    text-align: center;
 
     #Category {
         background-color: #000;
@@ -368,4 +369,41 @@ Components
 
 #Films {
     background-color: #000;
+}
+
+/*
+ 
+  __        ___                           
+  \ \      / / |__   ___   ___  _ __  ___ 
+   \ \ /\ / /| '_ \ / _ \ / _ \| '_ \/ __|
+    \ V  V / | | | | (_) | (_) | |_) \__ \
+     \_/\_/  |_| |_|\___/ \___/| .__/|___/
+                               |_|        
+Component
+*/
+
+#Whoops {
+    background-color: #fff;
+    color: #000;
+    position: absolute;
+    top: 5%;
+    right: 50%;
+    transform: translate(50%, -50%);
+}
+
+/*
+ 
+   __  __            _          ____                  
+  |  \/  | _____   _(_) ___    |  _ \ __ _  __ _  ___ 
+  | |\/| |/ _ \ \ / / |/ _ \   | |_) / _` |/ _` |/ _ \
+  | |  | | (_) \ V /| |  __/   |  __/ (_| | (_| |  __/
+  |_|  |_|\___/ \_/ |_|\___|___|_|   \__,_|\__, |\___|
+                          |_____|          |___/      
+ 
+*/
+
+#Movie_Page {
+    background-color: #000;
+    height: 100vh;
+    color: #fff;
 }
