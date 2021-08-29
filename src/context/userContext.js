@@ -4,23 +4,19 @@ const UserContext = createContext();
 export const useUser = () => useContext(UserContext);
 
 export const UserProvider = ({ children }) => {
-    //..
+    //.. Login state
     const [user, setUser] = useState();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    //..
-
+    //.. SignUp state
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [newUser, setNewUser] = useState("");
 
-    //..
-
-    const doLogin = (e) => {
-        // e.preventDefault();
-
+    //.. Login fn
+    const doLogin = () => {
         if (email !== "lea@example.org") {
             alert("Invalid email");
             return;
@@ -28,8 +24,7 @@ export const UserProvider = ({ children }) => {
         setUser({ id: 1, email, name: "Lea", role: "admin" });
     };
 
-    //..
-
+    //.. SignUp fn
     const doSignUp = (e) => {
         e.preventDefault();
 
@@ -37,7 +32,7 @@ export const UserProvider = ({ children }) => {
             alert(
                 "There's already an account registered with that email address. Go to Login."
             );
-            //     return (<Redirect to="/" />)
+
             return;
         }
         if (password !== confirmPassword) {

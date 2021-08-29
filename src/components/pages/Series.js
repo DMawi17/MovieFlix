@@ -1,15 +1,15 @@
-import NavBar from "../Header/NavBar";
+// import Footer from "../Footer/Footer";
+// import NavBar from "../Header/NavBar";
+// import TvShow from "../Main/TvShows";
+// import Banner from "../Header/Banner";
+// import { useMovie } from "../../context/movie-hooks";
+import TvShow from "../Main/TvShows";
 
 const Series = () => {
     return (
-        <div id="Series">
-            <NavBar />
-            <img id="Coming_Soon"
-                src="https://c4.wallpaperflare.com/wallpaper/35/367/707/coming-sign-soon-text-wallpaper-preview.jpg"
-                alt="coming soon"
-            />
-        </div>
-    );
+        <TvShow />
+
+    )
 };
 
 export default Series;

@@ -1,30 +1,57 @@
-import Category from "./Categories";
-
+import MovieShelf from "./MovieShelf";
 import { useMovie } from "../../context/movie-hooks";
 
-const Main = () => {
-    const { urls } = useMovie();
+/*
+
+   _   _                      
+  | | | | ___  _ __ ___   ___ 
+  | |_| |/ _ \| '_ ` _ \ / _ \
+  |  _  | (_) | | | | | |  __/
+  |_| |_|\___/|_| |_| |_|\___|
+
+*/
+
+export const MainHome = () => {
+    const { homeUrls } = useMovie();
 
     return (
         <div id="Main">
-            <h2>Trending</h2>
-            <Category title="Netflix Originals" fetchUrl={urls.Trending} />
             <h2>NetflixOriginals</h2>
-            <Category title="Trending" fetchUrl={urls.NetflixOriginals} />
+            <MovieShelf title="Trending" fetchUrl={homeUrls.NetflixOriginals} />
+            <h2>Trending</h2>
+            <MovieShelf
+                title="Netflix Originals"
+                fetchUrl={homeUrls.Trending}
+            />
+
             <h2>TopRated</h2>
-            <Category title="Trending" fetchUrl={urls.TopRated} />
-            <h2>Action</h2>
-            <Category title="Trending" fetchUrl={urls.Action} />
-            <h2>Comedy</h2>
-            <Category title="Trending" fetchUrl={urls.Comedy} />
-            <h2>Horror</h2>
-            <Category title="Trending" fetchUrl={urls.Horror} />
-            <h2>Family</h2>
-            <Category title="Trending" fetchUrl={urls.Family} />
-            <h2>Documentary</h2>
-            <Category title="Trending" fetchUrl={urls.Documentary} />
+            <MovieShelf title="Trending" fetchUrl={homeUrls.TopRated} />
         </div>
     );
 };
 
-export default Main;
+/*
+
+   _____ _ _               
+  |  ___(_) |_ __ ___  ___ 
+  | |_  | | | '_ ` _ \/ __|
+  |  _| | | | | | | | \__ \
+  |_|   |_|_|_| |_| |_|___/
+                           
+ 
+*/
+
+export const MainFilm = () => {
+    const { genreUrls } = useMovie();
+
+    return (
+        <div id="Main">
+            {genreUrls.map((url) => (
+                <>
+                    <h2>{url.title}</h2>
+                    <MovieShelf fetchUrl={url.fetchUrl} key={url.title} />
+                </>
+            ))}
+        </div>
+    );
+};

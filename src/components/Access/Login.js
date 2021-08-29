@@ -1,7 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Form, Button, Nav } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
-import { RiNetflixFill } from "react-icons/ri";
 import { useUser } from "../../context/userContext";
 
 function Login() {
@@ -10,9 +9,6 @@ function Login() {
     return (
         <div id="Form">
             <div className="Login">
-                {/* <h1>
-                    <RiNetflixFill size="45" />
-                </h1> */}
                 <div id="Sign_Logo">
                     movie<span>Flix</span>
                 </div>
@@ -45,7 +41,6 @@ function Login() {
                         Connect
                     </Button>
                     <br />
-                    {/* <Nav.Link>Forgot your password?</Nav.Link> */}
                     <Nav.Link id="Register" as={NavLink} to="/signup">
                         Register
                     </Nav.Link>

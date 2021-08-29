@@ -1,8 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Form, Row, Col, Button, Nav } from "react-bootstrap";
-import { RiNetflixFill } from "react-icons/ri";
-import { useUser } from "../../context/userContext";
 import { NavLink } from "react-router-dom";
+import { useUser } from "../../context/userContext";
 
 const SignUp = () => {
     const {
@@ -18,15 +17,12 @@ const SignUp = () => {
         setConfirmPassword,
         doSignUp,
         termsRead,
-        setTermsRead,
+        // setTermsRead,
     } = useUser();
 
     return (
         <div id="Form">
             <div className="SignUp">
-                {/* <h1>
-                    <RiNetflixFill size="45" />
-                </h1> */}
                 <div id="Sign_Logo">
                     <a href="/">
                         movie<span>Flix</span>

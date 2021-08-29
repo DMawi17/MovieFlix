@@ -1,5 +1,5 @@
-import { createContext, useContext, useState } from "react";
-import { URLs } from "../data/request";
+import { createContext, useContext, useState, useEffect } from "react";
+import { HomeUrls, GenreUrls, IMG_URL } from "../data/request";
 
 const MovieContext = createContext();
 export const useMovie = () => useContext(MovieContext);
@@ -20,35 +20,39 @@ const IMG_URL = "https://image.tmdb.org/t/p/w300_and_h450_bestv2"; */
 // const BASE_URL = "https://api.themoviedb.org/3";
 // const API_URL = BASE_URL + "/discover/movie?sort_by=popularity.desc&" + API_KEY;
 
-const IMG_URL = "https://image.tmdb.org/t/p/w500";
+// const IMG_URL = "https://image.tmdb.org/t/p/w500";
 //..
 
 export const MovieProvider = ({ children }) => {
-    // const [API] = useState(API_URL);
     const [IMG] = useState(IMG_URL);
     const [data, setData] = useState([]);
     const [current, setCurrent] = useState(0);
-    const [urls] = useState(URLs);
+    const [homeUrls, setHomeUrls] = useState(HomeUrls);
+    const [genreUrls, setGenreUrls] = useState(GenreUrls);
+    const [bannerPic, setBannerPic] = useState([]);
+    const [filmGenre, setFilmGenre] = useState([]);
 
-    // const [test, setTest] = useState("");
+    //.. Banner Effect
+    useEffect(() => {
+        async function fetchBanner() {
+            const requestBanner = await fetch(homeUrls.NetflixOriginals).then(
+                (res) => res.json()
+            );
+            setBannerPic(
+                requestBanner.results[
+                    Math.floor(Math.random() * requestBanner.results.length - 1)
+                ]
+            );
+            return requestBanner;
+        }
+        fetchBanner();
+    }, [homeUrls.NetflixOriginals]);
 
-    /*    useEffect(() => {
-           fetch(urls.Action)
-               .then((res) => res.json())
-               .then((json) => {
-                   setData(json.results);
-               });
-       }, [urls]); */
+    const truncate = (str, maxLength = 150) => {
+        return str?.length > maxLength ? str.slice(0, maxLength) + `…` : str;
+    };
 
-    /*      useEffect(() => {
-        let requests = urls.map((url) => fetch(url));
-        Promise.all(requests)
-            .then((res) => Promise.all(res.map((r) => r.json())))
-            .then((d) => setData(d));
-        // .then((data) => data.forEach((data) => setData(data)));
-    }, [urls]);  */
-
-    // console.log(data);
+    //.. Main Home
 
     //..
     const length = data.length;
@@ -73,7 +77,15 @@ export const MovieProvider = ({ children }) => {
                 setCurrent,
                 prevSlide,
                 nextSlide,
-                urls,
+                homeUrls,
+                genreUrls,
+                bannerPic,
+                setBannerPic,
+                truncate,
+                setHomeUrls,
+                setGenreUrls,
+                filmGenre,
+                setFilmGenre,
             }}
         >
             {children}

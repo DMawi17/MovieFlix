@@ -11,8 +11,8 @@ render(
     <UserProvider>
         <MovieProvider>
             <Router>
-                {/* <App /> */}
-                <MoviePage />
+                <App />
+                {/* <MoviePage /> */}
             </Router>
         </MovieProvider>
     </UserProvider>,

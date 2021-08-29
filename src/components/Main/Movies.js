@@ -1,10 +1,6 @@
 import { useMovie } from "../../context/movie-hooks";
 
-const Movie = ({
-    title,
-
-    poster_path,
-}) => {
+const Movie = ({ title, poster_path }) => {
     const { IMG } = useMovie();
 
     return (

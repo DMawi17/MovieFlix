@@ -1,10 +1,13 @@
+import Banner from "../Header/Banner";
 import NavBar from "../Header/NavBar";
+import { MainHome } from "../Main/Main";
 
 const Home = () => {
     return (
         <div id="Home">
             <NavBar />
-            <h1>Welcome Home!</h1>
+            <Banner />
+            <MainHome />
         </div>
     );
 };

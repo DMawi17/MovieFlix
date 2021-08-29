@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Movie from "./Movies";
 
-const Category = ({ fetchUrl }) => {
+export const MovieShelf = ({ fetchUrl }) => {
     const [movies, setMovies] = useState([]);
 
     useEffect(() => {
@@ -16,12 +16,10 @@ const Category = ({ fetchUrl }) => {
     return (
         <div id="Category">
             {movies.map((movie, i) => (
-                <>
-                    <Movie key={movie.id} {...movie} />
-                </>
+                <Movie key={i} {...movie} />
             ))}
         </div>
     );
 };
 
-export default Category;
+export default MovieShelf;
