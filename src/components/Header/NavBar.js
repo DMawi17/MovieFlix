@@ -9,7 +9,13 @@ const NavBar = () => {
     };
 
     //.. search 
+    const handleChange = (e) => {
+        
+    }
+    
+    const find = () => {
 
+    }
 
     //..
 
@@ -32,6 +38,8 @@ const NavBar = () => {
                     name=""
                     id="Search"
                     placeholder="Search..."
+                    onChange={handleChange}
+                    onKeyDown={find}
                 />
                 <button id="Button" type="button">
                     <FaSearch />

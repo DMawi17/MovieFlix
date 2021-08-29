@@ -2,6 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Form, Row, Col, Button, Nav } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import { useUser } from "../../context/userContext";
+import { useMovie } from "../../context/movie-hooks";
 
 const SignUp = () => {
     const {
@@ -19,9 +20,17 @@ const SignUp = () => {
         termsRead,
         // setTermsRead,
     } = useUser();
+    const { bannerPic } = useMovie();
 
     return (
-        <div id="Form">
+        <div
+            id="Form"
+            style={{
+                backgroundSize: "1",
+                backgroundImage: `url("https://image.tmdb.org/t/p/original/${bannerPic?.backdrop_path}"`,
+                backgroundPosition: "center center",
+            }}
+        >
             <div className="SignUp">
                 <div id="Sign_Logo">
                     <a href="/">

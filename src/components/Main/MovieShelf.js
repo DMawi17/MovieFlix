@@ -1,7 +1,18 @@
-import React, { useState, useEffect } from "react";
 import Movie from "./Movies";
+import React, { useState, useEffect } from "react";
 
-export const MovieShelf = ({ fetchUrl }) => {
+/*
+ 
+   _   _                      
+  | | | | ___  _ __ ___   ___ 
+  | |_| |/ _ \| '_ ` _ \ / _ \
+  |  _  | (_) | | | | | |  __/
+  |_| |_|\___/|_| |_| |_|\___|
+                              
+ 
+*/
+
+const MovieShelf = ({ fetchUrl }) => {
     const [movies, setMovies] = useState([]);
 
     useEffect(() => {
@@ -16,7 +27,9 @@ export const MovieShelf = ({ fetchUrl }) => {
     return (
         <div id="Category">
             {movies.map((movie, i) => (
-                <Movie key={i} {...movie} />
+                <>
+                    <Movie key={movie.id} {...movie} />
+                </>
             ))}
         </div>
     );

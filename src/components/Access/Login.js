@@ -2,12 +2,21 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Form, Button, Nav } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import { useUser } from "../../context/userContext";
+import { useMovie } from "../../context/movie-hooks";
 
 function Login() {
     const { email, setEmail, password, setPassword, doLogin } = useUser();
+    const { bannerPic } = useMovie();
 
     return (
-        <div id="Form">
+        <div
+            id="Form"
+            style={{
+                backgroundSize: "1",
+                backgroundImage: `url("https://image.tmdb.org/t/p/original/${bannerPic?.backdrop_path}"`,
+                backgroundPosition: "center center",
+            }}
+        >
             <div className="Login">
                 <div id="Sign_Logo">
                     movie<span>Flix</span>
