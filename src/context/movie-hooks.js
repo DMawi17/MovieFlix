@@ -4,7 +4,7 @@ const MovieContext = createContext();
 export const useMovie = () => useContext(MovieContext);
 
 //..
-const test = "The pianist";
+const test = "originals";
 
 const API_KEY = "api_key=22bd54fac3b17dbd99833a3dd26f1d90";
 const BASE_URL =
