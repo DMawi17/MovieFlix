@@ -8,6 +8,11 @@ const NavBar = () => {
         history.push("/");
     };
 
+    //.. search 
+
+
+    //..
+
     return (
         <div id="Nav">
             <NavLink to="/home" id="Logo">
