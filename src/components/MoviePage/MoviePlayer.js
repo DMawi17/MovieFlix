@@ -1,20 +1,54 @@
-// import Iframe from "react-iframe";
-const src = [
-    // "https://www.youtube.com/embed/_BggT--yxf0?autoplay=1&mute=1"
-    "https://www.youtube.com/embed/_BggT--yxf0",
-];
+// import React, { useState, useEffect } from "react";
+// import YouTube from "react-youtube";
+// import movieTrailer from "movie-trailer";
 
-const MoviePlayer = () => {
-    return (
-        <iframe
-            style={{ marginTop: 100 }}
-            width="100%"
-            height="515"
-            src={src[0]}
-            title="YouTube video player"
-            frameborder="0"
-        ></iframe>
-    );
-};
+// import Movie from "./Movies";
 
-export default MoviePlayer;
+// const Category = ({ fetchUrl }) => {
+//     const [movies, setMovies] = useState([]);
+//     const [trailerUrl, setTrailerUrl] = useState("");
+
+//     useEffect(() => {
+//         async function fetchData() {
+//             const req = await fetch(fetchUrl).then((res) => res.json());
+//             setMovies(req.results);
+//             return req;
+//         }
+//         fetchData();
+//     }, [fetchUrl]);
+
+//     //..
+//     const opts = {
+//         height: "390",
+//         width: "100%",
+//         playerVars: {
+//             // https://developers.google.com/youtube/player_parameters
+//             autoplay: 1,
+//         },
+//     };
+
+//     const handleClick = (movies) => {
+//         if (trailerUrl) {
+//             setTrailerUrl("");
+//         } else {
+//             movieTrailer(movie?.name || "")
+//                 .then((url) => {
+//                     // https://www.youtube.com/watch?v=De38KIayYY4&ab_channel=SoothingRelaxation
+//                     const urlParams = new URLSearchParams(new URL(url).search);
+//                     setTrailerUrl(urlParams.get("v"));
+//                 })
+//                 .catch((error) => console.log(error));
+//         }
+//     };
+//     //..
+//     return (
+//         <div id="Category">
+//             {movies.map((movie, i) => (
+//                 <Movie key={movie.id} {...movie} />
+//             ))}
+//             {trailerUrl && <YouTube videoId={trailerUrl} opts={opts} />}
+//         </div>
+//     );
+// };
+
+// export default Category;
