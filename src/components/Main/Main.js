@@ -47,10 +47,10 @@ export const MainFilm = () => {
     return (
         <div id="Main">
             {genreUrls.map((url) => (
-                <>
+                <div key={url.id || url.title}>
                     <h2>{url.title}</h2>
-                    <MovieShelf fetchUrl={url.fetchUrl} key={url.title} />
-                </>
+                    <MovieShelf fetchUrl={url.fetchUrl} />
+                </div>
             ))}
         </div>
     );

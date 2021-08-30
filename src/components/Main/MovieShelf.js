@@ -24,12 +24,14 @@ const MovieShelf = ({ fetchUrl }) => {
         fetchData();
     }, [fetchUrl]);
 
+    // console.log(movies[19].id);
+
     return (
         <div id="Category">
-            {movies.map((movie, i) => (
-                <>
-                    <Movie key={movie.id} {...movie} />
-                </>
+            {movies.map((movie) => (
+                <div key={movie.id}>
+                    <Movie {...movie} />
+                </div>
             ))}
         </div>
     );
