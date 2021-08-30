@@ -7,8 +7,8 @@ const Whoops404 = () => {
     return (
         <div id="Whoops">
             <h2>
-                <FaCat /> <span>Whoops!</span> Resource not found at{" "}
-                {location.pathname}
+                <FaCat /> <span>Whoops!</span> <br />
+                Resource not found at {location.pathname}
             </h2>
         </div>
     );

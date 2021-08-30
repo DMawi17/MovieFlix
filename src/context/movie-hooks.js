@@ -6,12 +6,12 @@ export const useMovie = () => useContext(MovieContext);
 
 export const MovieProvider = ({ children }) => {
     const [IMG] = useState(IMG_URL);
-    const [homeUrls, setHomeUrls] = useState(HomeUrls);
-    const [genreUrls, setGenreUrls] = useState(GenreUrls);
+    const [homeUrls] = useState(HomeUrls);
+    const [genreUrls] = useState(GenreUrls);
+    const [filmGenre] = useState([]);
     const [bannerPic, setBannerPic] = useState([]);
-    const [filmGenre, setFilmGenre] = useState([]);
-    const [search, setSearch] = useState([]);
     const [movies, setMovies] = useState([]);
+    const [search, setSearch] = useState([]);
 
     //.. Banner Effect
     useEffect(() => {
@@ -33,35 +33,18 @@ export const MovieProvider = ({ children }) => {
         return str?.length > maxLength ? str.slice(0, maxLength) + `…` : str;
     };
 
-    //.. Home Effect
-
-    // const fetchUrl = genreUrls.map(url => url.fetchUrl)
-
-
-    // useEffect(() => {
-    //     async function fetchData() {
-    //         const req = await fetch(fetchUrl).then((res) => res.json());
-    //         setMovies(req.results);
-    //         return req;
-    //     }
-    //     fetchData();
-    // }, [fetchUrl]);
+    //.. Search
 
     return (
         <MovieContext.Provider
             value={{
                 IMG,
-                // data,
-                // setData,
                 homeUrls,
                 genreUrls,
                 bannerPic,
                 setBannerPic,
                 truncate,
-                setHomeUrls,
-                setGenreUrls,
                 filmGenre,
-                setFilmGenre,
                 search,
                 setSearch,
                 movies,
