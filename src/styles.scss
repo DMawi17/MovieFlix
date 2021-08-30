@@ -7,6 +7,7 @@
     font-family: "Poppins", sans-serif;
 }
 
+:root,
 .App {
     background-color: #000;
 }
@@ -213,7 +214,6 @@ Component
     background-color: #000;
     height: 50px;
     display: flex;
-    align-items: center;
     border-bottom: solid 1px #222;
     border-width: thin;
 
@@ -226,29 +226,36 @@ Component
         cursor: pointer;
     }
     a.active {
-        color: #f00;
+        color: #dc3545;
     }
 
     #Logo {
-        font-size: 2.3em;
+        font-size: 2.1em;
         margin-right: 30px;
         margin-left: 30px;
         text-decoration: none;
-        font-family: fantasy;
-        letter-spacing: 0.2rem;
+        font-family: Fira Code;
 
         span {
-            color: red;
-            font-weight: 900;
+            color: #dc3545;
+            font-weight: 400;
             font-size: 0.9em;
+            font-family: Fira Code;
+            letter-spacing: 0.2rem;
         }
     }
 
     #Nav_Links {
         display: flex;
-        justify-content: center;
         align-items: center;
         gap: 2em;
+
+        a:first-of-type {
+            margin-left: auto;
+        }
+        a:last-of-type {
+            margin-right: auto;
+        }
     }
 
     form {
@@ -283,10 +290,9 @@ Component
     }
 
     #Avatar {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 10px 30px;
+        margin-left: auto;
+        padding-top: 5px;
+        white-space: nowrap;
 
         #Avatar_Img {
             object-fit: contain;
@@ -304,6 +310,7 @@ Component
             border: none;
             font-weight: 500;
             padding-left: 1rem;
+            margin-right: 30px;
         }
     }
 }
@@ -327,21 +334,6 @@ Component
         right: 50%;
         transform: translate(50%, -50%);
     }
-}
-
-/*
-   __  __         _     _     _   
-  |  \/  |_   _  | |   (_)___| |_ 
-  | |\/| | | | | | |   | / __| __|
-  | |  | | |_| | | |___| \__ \ |_ 
-  |_|  |_|\__, | |_____|_|___/\__|
-          |___/                   
-Component
-*/
-#My_List {
-    color: #fff;
-    background: #000;
-    height: 100vh;
 }
 
 /*
@@ -415,5 +407,60 @@ Component
         top: 70%;
         right: 50%;
         transform: translate(50%, -50%);
+    }
+}
+
+#Table {
+    background-color: #777;
+    color: #fff;
+}
+
+/*
+
+   ____                      _     
+  / ___|  ___  __ _ _ __ ___| |__  
+  \___ \ / _ \/ _` | '__/ __| '_ \ 
+   ___) |  __/ (_| | | | (__| | | |
+  |____/ \___|\__,_|_|  \___|_| |_|
+                                   
+
+*/
+#My_List {
+    background-color: #000;
+    height: 100vh;
+    width: 100vw;
+    overflow-y: hidden;
+    overflow-x: scroll;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+#New_Search {
+    background-color: #000;
+
+    text-align: center;
+
+    #New_Input {
+        width: 400px;
+        margin: 5rem 40%;
+        height: 40px;
+        border: none;
+        outline: none;
+        padding: 0.2rem;
+    }
+
+    #Search_Res {
+        border: 20x solid #fff;
+        display: flex;
+
+        #Res_Img {
+            object-fit: contain;
+            width: 100%;
+            max-height: 400px;
+            margin: 15px;
+            transition: transform 300ms;
+            border-radius: 3px;
+        }
     }
 }

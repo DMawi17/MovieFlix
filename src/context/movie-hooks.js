@@ -11,7 +11,6 @@ export const MovieProvider = ({ children }) => {
     const [filmGenre] = useState([]);
     const [bannerPic, setBannerPic] = useState([]);
     const [movies, setMovies] = useState([]);
-    const [search, setSearch] = useState([]);
 
     //.. Banner Effect
     useEffect(() => {
@@ -45,8 +44,6 @@ export const MovieProvider = ({ children }) => {
                 setBannerPic,
                 truncate,
                 filmGenre,
-                search,
-                setSearch,
                 movies,
                 setMovies,
             }}

@@ -8,17 +8,6 @@ const NavBar = () => {
         history.push("/");
     };
 
-    //.. search 
-    const handleChange = (e) => {
-        
-    }
-    
-    const find = () => {
-
-    }
-
-    //..
-
     return (
         <div id="Nav">
             <NavLink to="/home" id="Logo">
@@ -28,23 +17,25 @@ const NavBar = () => {
                 <NavLink exact to="/home">
                     Home
                 </NavLink>
-                <NavLink to="/films">Films</NavLink>
+                <NavLink to="/films">Movies</NavLink>
                 <NavLink to="/series">Series</NavLink>
-                <NavLink to="/mylist">My List</NavLink>
+                {/* <NavLink to="/mylist">My List</NavLink> */}
+                <NavLink to="/mylist" className="p-3">
+                    Search <FaSearch />
+                </NavLink>
             </nav>
-            <form>
+            {/* <form>
                 <input
                     type="text"
                     name=""
                     id="Search"
                     placeholder="Search..."
-                    onChange={handleChange}
-                    onKeyDown={find}
                 />
                 <button id="Button" type="button">
                     <FaSearch />
                 </button>
-            </form>
+            </form> */}
+
             <div id="Avatar">
                 <img
                     id="Avatar_Img"

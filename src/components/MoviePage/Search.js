@@ -1,32 +1,46 @@
+import { useState, useEffect } from "react";
 import { useMovie } from "../../context/movie-hooks";
-import MovieShelf from "../Main/MovieShelf";
 
 const Search = () => {
-    const { search, setSearch, genreUrls } = useMovie();
+    const { genreUrls, IMG } = useMovie();
+    const [films, setFilms] = useState([]);
+    const [searchTerm, setSearchTerm] = useState();
 
-    // movies.map((movie) => console.log(movie.title));
-    //   console.log(movies[3]);
+    const searchUrl = genreUrls.map((url) => url.fetchUrl);
 
-    // const find = (search) => {
-    //     return movies.filter(
-    //         (movie) => movie.title.toLowerCase().indexOf(search) > -1
-    //     );
-    // };
+    useEffect(() => {
+        async function fetchData() {
+            const req = await fetch(searchUrl).then((res) => res.json());
+            setFilms(req.results);
+            return req;
+        }
+        fetchData();
+    }, [searchUrl]);
+
+    const search = (s) => {
+        return s.filter((v) => v.title.toLowerCase().indexOf(searchTerm) > -1);
+    };
+
+    console.log(films);
 
     return (
-        <div className="input">
+        <div id="New_Search">
             <input
-                value={search}
+                id="New_Input"
+                value={searchTerm}
                 type="text"
-                id="Search2"
                 placeholder="Search..."
-                onChange={(e) => setSearch(e.target.value)}
-                // onKeyDown={find}
+                onChange={(e) => setSearchTerm(e.target.value)}
             />
-            <div id="Main">
-                {genreUrls.map((url) => (
-                    <MovieShelf fetchUrl={url.fetchUrl} key={url.title} />
+            <div id="Search_Res">
+                {search(films).map((film) => (
+                    <img
+                        id="Res_Img"
+                        src={IMG + film.poster_path}
+                        alt={film.title}
+                    />
                 ))}
+                {/*  */}
             </div>
         </div>
     );
