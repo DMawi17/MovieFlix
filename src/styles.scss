@@ -438,7 +438,6 @@ Component
 }
 #New_Search {
     background-color: #000;
-
     text-align: center;
 
     #New_Input {
@@ -446,8 +445,9 @@ Component
         margin: 5rem 40%;
         height: 40px;
         border: none;
+        border-radius: 0.3rem;
         outline: none;
-        padding: 0.2rem;
+        padding: 0.2rem 0.5rem;
     }
 
     #Search_Res {

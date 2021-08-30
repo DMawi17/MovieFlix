@@ -1,5 +1,5 @@
 import NavBar from "../Header/NavBar";
-import TvShow from "../Main/TvShows";
+import TvShow from "../Rest/TvShows";
 
 const Series = () => {
     return (
