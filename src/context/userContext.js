@@ -14,14 +14,14 @@ export const UserProvider = ({ children }) => {
     const [lastName, setLastName] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [newUser, setNewUser] = useState("");
-    const [termsRead, setTermsRead] = useState(false);
+    const [termsRead, setTermsRead] = useState();
 
     //.. Login fn
     const doLogin = () => {
-        if (email !== "lea@example.org") {
-            alert("Invalid email");
-            return;
-        }
+        // if (email !== "lea@example.org") {
+        //     alert("Invalid email");
+        //     return;
+        // }
         setUser({ id: 1, email, name: "Lea", role: "admin" });
     };
 

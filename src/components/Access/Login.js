@@ -28,7 +28,7 @@ function Login() {
                         type="email"
                         placeholder="Enter email"
                         value={email}
-                        onChange={(e) => setEmail(e.target.value)}
+                        // onChange={(e) => setEmail(e.target.value)}
                     />
                     <Form.Control
                         className="mb-3"
