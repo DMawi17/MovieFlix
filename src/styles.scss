@@ -163,16 +163,16 @@ Component
         height: 190px;
     }
     #Banner_Title {
-        font-size: 3rem;
+        font-size: 3vw;
         font-weight: 500;
         padding-bottom: 0.3rem;
         letter-spacing: 0.2rem;
     }
     #Banner_Description {
-        width: 45rem;
+        width: 45vw;
         line-height: 1.3;
         padding-top: 1rem;
-        font-size: 0.99rem;
+        font-size: 1vw;
         min-width: 360px;
         height: 80px;
     }
@@ -182,7 +182,7 @@ Component
         outline: none;
         border: none;
         font-weight: 500;
-        font-size: 1.2rem;
+        font-size: 1vw;
         border-radius: 0.2vw;
         padding: 0.5rem 2rem;
         margin-right: 1rem;

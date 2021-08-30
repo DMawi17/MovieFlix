@@ -1,5 +1,5 @@
 import NavBar from "../Header/NavBar";
-import Search from "../MoviePage/Search";
+import Search from "../Rest/Search";
 
 const MyList = () => {
     return (

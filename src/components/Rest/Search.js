@@ -34,13 +34,14 @@ const Search = () => {
             />
             <div id="Search_Res">
                 {search(films).map((film) => (
-                    <img
-                        id="Res_Img"
-                        src={IMG + film.poster_path}
-                        alt={film.title}
-                    />
+                    <>
+                        <img
+                            id="Res_Img"
+                            src={IMG + film.poster_path}
+                            alt={film.title}
+                        />
+                    </>
                 ))}
-                {/*  */}
             </div>
         </div>
     );
