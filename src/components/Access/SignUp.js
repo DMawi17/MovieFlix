@@ -18,7 +18,7 @@ const SignUp = () => {
         setConfirmPassword,
         doSignUp,
         termsRead,
-        // setTermsRead,
+        setTermsRead,
     } = useUser();
     const { bannerPic } = useMovie();
 
@@ -83,28 +83,28 @@ const SignUp = () => {
                         name="confirmPassword"
                         onChange={(e) => setConfirmPassword(e.target.value)}
                     />
-                    {/* <Form.Check
-                    className="mb-4"
-                    type="checkbox"
-                    value={termsRead}
-                    onChange={(e) => setTermsRead(e.target.value)}
-                    label={
-                        <a
-                            style={{ cursor: "pointer" }}
-                            className="text-light text-decoration-none"
-                            href="https://www.websitepolicies.com/blog/what-are-terms-and-conditions"
-                        >
-                            I've read the Terms & Conditions.
-                        </a>
-                    }
-                /> */}
+                    <Form.Check
+                        className="mb-4"
+                        type="checkbox"
+                        value={termsRead}
+                        onChange={(e) => setTermsRead(e.target.value)}
+                        label={
+                            <a
+                                
+                                style={{ cursor: "pointer" }}
+                                className="text-light text-decoration-none"
+                                href="https://www.websitepolicies.com/blog/what-are-terms-and-conditions" 
+                            >
+                                I've read the Terms & Conditions.
+                            </a>
+                        }
+                    />
                     <Button
                         className="mb-3 button"
                         variant="danger"
                         disabled={
                             password.length === 0 ||
-                            confirmPassword.length === 0 ||
-                            termsRead
+                            confirmPassword.length === 0
                         }
                         type="submit"
                     >

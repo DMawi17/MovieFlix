@@ -14,6 +14,7 @@ export const UserProvider = ({ children }) => {
     const [lastName, setLastName] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [newUser, setNewUser] = useState("");
+    const [termsRead, setTermsRead] = useState(false);
 
     //.. Login fn
     const doLogin = () => {
@@ -64,6 +65,8 @@ export const UserProvider = ({ children }) => {
                 doSignUp,
                 newUser,
                 setNewUser,
+                termsRead,
+                setTermsRead,
             }}
         >
             {children}

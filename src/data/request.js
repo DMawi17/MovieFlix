@@ -1,6 +1,6 @@
 const BASE_URL = "https://api.themoviedb.org/3";
 const GENRES = "/discover/movie?api_key=";
-const API_KEY = "22bd54fac3b17dbd99833a3dd26f1d90";
+const API_KEY = process.env.REACT_APP_MOVIE_DATABASE_API_KEY;
 const GENRES_EXT = "&with_genres=";
 export const IMG_URL = "https://image.tmdb.org/t/p/w500";
 
