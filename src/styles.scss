@@ -212,7 +212,6 @@ Component
 #Nav {
     background-color: #000;
     height: 50px;
-
     display: flex;
     align-items: center;
     border-bottom: solid 1px #222;
@@ -223,6 +222,8 @@ Component
         color: #777;
         list-style: none;
         font-weight: 500;
+        white-space: nowrap;
+        cursor: pointer;
     }
     a.active {
         color: #f00;
@@ -361,11 +362,6 @@ Component
     top: 5%;
     right: 50%;
     transform: translate(50%, -50%);
-
-    h2 {
-        text-align: center;
-        min-width: 500px;
-    }
 }
 
 /*
