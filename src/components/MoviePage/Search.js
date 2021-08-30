@@ -18,7 +18,7 @@ const Search = () => {
             <input
                 value={search}
                 type="text"
-                id="Search"
+                id="Search2"
                 placeholder="Search..."
                 onChange={(e) => setSearch(e.target.value)}
                 // onKeyDown={find}

@@ -1,5 +1,5 @@
 import Movie from "./Movies";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 /*
  
@@ -28,10 +28,8 @@ const MovieShelf = ({ fetchUrl }) => {
 
     return (
         <div id="Category">
-            {movies.map((movie) => (
-                <div key={movie.id}>
-                    <Movie {...movie} />
-                </div>
+            {movies.map((movie, i) => (
+                <Movie {...movie} key={movie.id} />
             ))}
         </div>
     );
