@@ -12,18 +12,17 @@ export const MovieProvider = ({ children }) => {
     const [bannerPic, setBannerPic] = useState([]);
     const [movies, setMovies] = useState([]);
 
-    //.. Banner Effect
     useEffect(() => {
         async function fetchBanner() {
-            const requestBanner = await fetch(homeUrls.NetflixOriginals).then(
-                (res) => res.json()
-            );
-            setBannerPic(
-                requestBanner.results[
-                    Math.floor(Math.random() * requestBanner.results.length - 1)
-                ]
-            );
-            return requestBanner;
+            return await fetch(homeUrls.NetflixOriginals)
+                .then((res) => res.json())
+                .then((data) =>
+                    setBannerPic(
+                        data.results[
+                            Math.floor(Math.random() * data.results.length - 1)
+                        ]
+                    )
+                );
         }
         fetchBanner();
     }, [homeUrls.NetflixOriginals]);
@@ -31,8 +30,6 @@ export const MovieProvider = ({ children }) => {
     const truncate = (str, maxLength = 150) => {
         return str?.length > maxLength ? str.slice(0, maxLength) + `…` : str;
     };
-
-    //.. Search
 
     return (
         <MovieContext.Provider

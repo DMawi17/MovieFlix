@@ -18,7 +18,7 @@ export const UserProvider = ({ children }) => {
 
     //.. Login fn
     const doLogin = () => {
-        if (email !== "lea@example.org") {
+        if (email !== "jd@example.info") {
             alert("Invalid email");
             return;
         }
@@ -29,7 +29,7 @@ export const UserProvider = ({ children }) => {
     const doSignUp = (e) => {
         e.preventDefault();
 
-        if (email === "lea@example.org") {
+        if (email === "jd@example.info") {
             alert(
                 "There's already an account registered with that email address. Go to Login."
             );
