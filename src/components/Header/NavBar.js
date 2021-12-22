@@ -1,4 +1,4 @@
-import { NavLink, useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 
 const NavBar = () => {
@@ -10,18 +10,19 @@ const NavBar = () => {
 
     return (
         <div id="Nav">
-            <NavLink to="/home" id="Logo">
+            <Link to="/home" id="Logo">
                 movie<span>Flix</span>
-            </NavLink>
+            </Link>
+
             <nav id="Nav_Links">
-                <NavLink exact to="/home">
+                <Link exact to="/home">
                     Home
-                </NavLink>
-                <NavLink to="/films">Movies</NavLink>
-                <NavLink to="/series">Series</NavLink>
-                <NavLink to="/mylist" className="p-3">
-                    Search <FaSearch />
-                </NavLink>
+                </Link>
+                <Link to="/films">Movies</Link>
+                <Link to="/series">Series</Link>
+                <Link to="/search" id="Search_Btn">
+                    Search <FaSearch id="Search_Icon"/>
+                </Link>
             </nav>
 
             <div id="Avatar">
@@ -31,7 +32,7 @@ const NavBar = () => {
                     alt=""
                 />
 
-                <button id="Dropdown" onClick={logout}>
+                <button id="Logout" onClick={logout}>
                     Logout
                 </button>
             </div>

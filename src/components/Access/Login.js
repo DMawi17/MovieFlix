@@ -1,6 +1,4 @@
-import "bootstrap/dist/css/bootstrap.min.css";
-import { Form, Button, Nav } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useUser } from "../../context/userContext";
 import { useMovie } from "../../context/movie-hooks";
 
@@ -10,7 +8,7 @@ function Login() {
 
     return (
         <div
-            id="Form"
+            id="FormBG"
             style={{
                 backgroundSize: "1",
                 backgroundImage: `url("https://image.tmdb.org/t/p/original/${bannerPic?.backdrop_path}"`,
@@ -22,40 +20,30 @@ function Login() {
                     movie<span>Flix</span>
                 </div>
                 <h2>Connect to your account</h2>
-                <Form onSubmit={doLogin} className="mb-3">
-                    <Form.Control
-                        className="mb-3"
+                <form onSubmit={doLogin} className="Form">
+                    <input
+                        className="Input"
                         type="email"
                         placeholder="Enter email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                     />
-                    <Form.Control
-                        className="mb-3"
+                    <input
+                        className="Input"
                         type="password"
                         placeholder="Password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
-                    <Form.Check
-                        className="mb-3"
-                        type="checkbox"
-                        label="Remember me and stay connected"
-                    />
-                    <Nav.Link as={NavLink} to="/home">
-                        <Button
-                            className="mb-3 button"
-                            variant="danger"
-                            type="submit"
-                        >
-                            Connect
-                        </Button>
-                    </Nav.Link>
+                    <button className="Connect" type="submit">
+                        Connect
+                    </button>
                     <br />
-                    <Nav.Link id="Register" as={NavLink} to="/signup">
+
+                    <Link className="Register" to="/signup">
                         Register
-                    </Nav.Link>
-                </Form>
+                    </Link>
+                </form>
             </div>
         </div>
     );

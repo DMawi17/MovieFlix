@@ -7,18 +7,14 @@ const Banner = () => {
         <header
             id="Banner"
             style={{
-                backgroundSize: "cover",
                 backgroundImage: `url("https://image.tmdb.org/t/p/original/${bannerPic?.backdrop_path}"`,
-                backgroundPosition: "center center",
             }}
         >
             <div id="Banner_Contents">
                 <h1 id="Banner_Title">{bannerPic?.original_name}</h1>
-                <div>
-                    <button className="Banner_Buttons Play">Play</button>
-                    <button className="Banner_Buttons List">My List</button>
-                </div>
-                <h1 id="Banner_Description">{truncate(bannerPic?.overview)}</h1>
+                <button className="Banner_Buttons Play">Play</button>
+                <button className="Banner_Buttons List">My List</button>
+                <p id="Banner_Description">{truncate(bannerPic?.overview)}</p>
             </div>
             <div id="Banner_FadeBottom"></div>
         </header>

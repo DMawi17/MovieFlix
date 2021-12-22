@@ -1,6 +1,4 @@
-import "bootstrap/dist/css/bootstrap.min.css";
-import { Form, Row, Col, Button, Nav } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useUser } from "../../context/userContext";
 import { useMovie } from "../../context/movie-hooks";
 
@@ -20,11 +18,12 @@ const SignUp = () => {
         termsRead,
         setTermsRead,
     } = useUser();
+
     const { bannerPic } = useMovie();
 
     return (
         <div
-            id="Form"
+            id="FormBG"
             style={{
                 backgroundSize: "1",
                 backgroundImage: `url("https://image.tmdb.org/t/p/original/${bannerPic?.backdrop_path}"`,
@@ -37,92 +36,82 @@ const SignUp = () => {
                         movie<span>Flix</span>
                     </a>
                 </div>
-                <h2 className="mb-4">Sign up</h2>
-                <Form onSubmit={doSignUp}>
-                    <Row className="mb-3">
-                        <Col>
-                            <Form.Control
-                                placeholder="First name"
-                                type="text"
-                                value={firstName}
-                                name="firstName"
-                                onChange={(e) => setFirstName(e.target.value)}
-                            />
-                        </Col>
-                        <Col>
-                            <Form.Control
-                                placeholder="Last name"
-                                type="text"
-                                value={lastName}
-                                name="lastName"
-                                onChange={(e) => setLastName(e.target.value)}
-                            />
-                        </Col>
-                    </Row>
-                    <Form.Control
-                        className="mb-3"
+                <h2>Sign up</h2>
+                <form className="Form" onSubmit={doSignUp}>
+                    <input
+                        className="Input"
+                        placeholder="First name"
+                        type="text"
+                        value={firstName}
+                        name="firstName"
+                        onChange={(e) => setFirstName(e.target.value)}
+                    />
+
+                    <input
+                        className="Input"
+                        placeholder="Last name"
+                        type="text"
+                        value={lastName}
+                        name="lastName"
+                        onChange={(e) => setLastName(e.target.value)}
+                    />
+
+                    <input
+                        className="Input"
                         placeholder="Email address"
                         type="email"
                         value={email}
                         name="email"
                         onChange={(e) => setEmail(e.target.value)}
                     />
-                    <Form.Control
-                        className="mb-3"
+                    <input
+                        className="Input"
                         placeholder="Password"
                         type="password"
                         value={password}
                         name="password"
                         onChange={(e) => setPassword(e.target.value)}
                     />
-                    <Form.Control
-                        className="mb-3"
+                    <input
+                        className="Input"
                         placeholder="Confirm password"
                         type="password"
                         value={confirmPassword}
                         name="confirmPassword"
                         onChange={(e) => setConfirmPassword(e.target.value)}
                     />
-                    <Form.Check
-                        className="mb-4"
-                        type="checkbox"
-                        value={termsRead}
-                        onChange={(e) => setTermsRead(e.target.value)}
-                        label={
+
+                    <div className="Checkbox">
+                        <input
+                            type="checkbox"
+                            value={termsRead}
+                            id="terms"
+                            name="terms"
+                            onChange={(e) => setTermsRead(e.target.value)}
+                        />
+                        <label for="terms">
                             <a
-                                
-                                style={{ cursor: "pointer" }}
-                                className="text-light text-decoration-none"
-                                href="https://www.websitepolicies.com/blog/what-are-terms-and-conditions" 
+                                className="Term_Link"
+                                href="https://www.websitepolicies.com/blog/what-are-terms-and-conditions"
                             >
                                 I've read the Terms & Conditions.
                             </a>
-                        }
-                    />
-                    <Button
-                        className="mb-3 button"
-                        variant="danger"
-                        disabled={
-                            password.length === 0 ||
-                            confirmPassword.length === 0
-                        }
-                        type="submit"
-                    >
+                        </label>
+                    </div>
+
+                    <button className="Register" type="submit">
                         Sign Up
-                    </Button>
+                    </button>
+
                     <div id="Go_Login">
                         <p>Have an account already? </p>
                         <span>
-                            <Nav.Link
-                                className="p-0 text-danger"
-                                as={NavLink}
-                                to="/"
-                            >
+                            <Link className="Link" to="/">
                                 Log in here
-                            </Nav.Link>
+                            </Link>
                         </span>
                     </div>
-                </Form>
+                </form>
             </div>
         </div>
     );

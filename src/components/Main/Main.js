@@ -1,46 +1,25 @@
-import MovieShelf from "./MovieShelf";
+import FilmShelf from "./FilmShelf";
 import { useMovie } from "../../context/movie-hooks";
 
-/*
-
-   _   _                      
-  | | | | ___  _ __ ___   ___ 
-  | |_| |/ _ \| '_ ` _ \ / _ \
-  |  _  | (_) | | | | | |  __/
-  |_| |_|\___/|_| |_| |_|\___|
-
-*/
-
+// Render on Home page
 export const MainHome = () => {
     const { homeUrls } = useMovie();
 
     return (
         <div id="Main">
             <h2>NetflixOriginals</h2>
-            <MovieShelf title="Trending" fetchUrl={homeUrls.NetflixOriginals} />
+            <FilmShelf title="Trending" fetchUrl={homeUrls.NetflixOriginals} />
+
             <h2>Trending</h2>
-            <MovieShelf
-                title="Netflix Originals"
-                fetchUrl={homeUrls.Trending}
-            />
+            <FilmShelf title="Netflix Originals" fetchUrl={homeUrls.Trending} />
 
             <h2>TopRated</h2>
-            <MovieShelf title="Trending" fetchUrl={homeUrls.TopRated} />
+            <FilmShelf title="Trending" fetchUrl={homeUrls.TopRated} />
         </div>
     );
 };
 
-/*
-
-   _____ _ _               
-  |  ___(_) |_ __ ___  ___ 
-  | |_  | | | '_ ` _ \/ __|
-  |  _| | | | | | | | \__ \
-  |_|   |_|_|_| |_| |_|___/
-                           
- 
-*/
-
+// Render on Movies page
 export const MainFilm = () => {
     const { genreUrls } = useMovie();
 
@@ -49,7 +28,7 @@ export const MainFilm = () => {
             {genreUrls.map((url) => (
                 <div key={url.fetchUrl}>
                     <h2>{url.title}</h2>
-                    <MovieShelf fetchUrl={url.fetchUrl} />
+                    <FilmShelf fetchUrl={url.fetchUrl} />
                 </div>
             ))}
         </div>

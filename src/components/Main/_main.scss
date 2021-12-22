@@ -1,0 +1,44 @@
+/*
+   __  __       _       
+  |  \/  | __ _(_)_ __  
+  | |\/| |/ _` | | '_ \ 
+  | |  | | (_| | | | | |
+  |_|  |_|\__,_|_|_| |_|
+Component
+*/
+
+#Main {
+    margin-left: 25px;
+    color: #fff;
+    text-align: center;
+    letter-spacing: 0.2rem;
+
+    #Category {
+        * {
+            background: #000;
+        }
+        display: flex;
+        overflow-y: hidden;
+        overflow: scroll;
+
+        #Films {
+            object-fit: contain;
+            width: 100%;
+            max-height: 200px;
+            margin: 15px;
+            transition: transform 300ms;
+            border-radius: 3px;
+
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+    h2 {
+        margin-top: 15px;
+    }
+}

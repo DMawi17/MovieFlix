@@ -1,5 +1,6 @@
+import axios from "axios";
 import { createContext, useContext, useState, useEffect } from "react";
-import { HomeUrls, GenreUrls, IMG_URL } from "../data/request";
+import { HomeUrls, GenreUrls, IMG_URL } from "../api/request";
 
 const MovieContext = createContext();
 export const useMovie = () => useContext(MovieContext);
@@ -12,17 +13,18 @@ export const MovieProvider = ({ children }) => {
     const [bannerPic, setBannerPic] = useState([]);
     const [movies, setMovies] = useState([]);
 
+    //.. Banner Effect
     useEffect(() => {
         async function fetchBanner() {
-            return await fetch(homeUrls.NetflixOriginals)
-                .then((res) => res.json())
-                .then((data) =>
-                    setBannerPic(
-                        data.results[
-                            Math.floor(Math.random() * data.results.length - 1)
-                        ]
-                    )
-                );
+            const requestBanner = await axios
+                .get(homeUrls.NetflixOriginals)
+                .then((res) => res.data.results);
+
+            setBannerPic(
+                requestBanner[
+                    Math.floor(Math.random() * requestBanner.length - 1)
+                ]
+            );
         }
         fetchBanner();
     }, [homeUrls.NetflixOriginals]);

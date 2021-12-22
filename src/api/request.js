@@ -4,8 +4,6 @@ const API_KEY = process.env.REACT_APP_MOVIE_DATABASE_API_KEY;
 const GENRES_EXT = "&with_genres=";
 export const IMG_URL = "https://image.tmdb.org/t/p/w500";
 
-//..
-
 const GENRES_CODE = [
     { id: 28, name: "Action" },
     { id: 12, name: "Adventure" },
@@ -28,17 +26,15 @@ const GENRES_CODE = [
     { id: 37, name: "Western" },
 ];
 
-//..
-
 export const GenreUrls = GENRES_CODE.map((gen) => ({
     title: gen.name,
     fetchUrl: `${BASE_URL}${GENRES}${API_KEY}${GENRES_EXT}${gen.id}`,
 }));
-
-//..
 
 export const HomeUrls = {
     Trending: `${BASE_URL}/trending/all/week?api_key=${API_KEY}&language=en-DE`,
     NetflixOriginals: `${BASE_URL}/discover/tv?api_key=${API_KEY}&with_networks=213`,
     TopRated: `${BASE_URL}/movie/top_rated?api_key=${API_KEY}&language=en-US`,
 };
+
+export const UserEndpoint = "http://localhost:3001/users";

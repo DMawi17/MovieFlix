@@ -1,21 +1,20 @@
+import axios from "axios";
 import { useState, useEffect } from "react";
 import { useMovie } from "../../context/movie-hooks";
 
-const Search = () => {
+const SearchFunc = () => {
     const { genreUrls, IMG } = useMovie();
     const [films, setFilms] = useState([]);
     const [searchTerm, setSearchTerm] = useState();
 
-    const searchUrl = genreUrls.map((url) => url.fetchUrl);
-
     useEffect(() => {
         async function fetchData() {
-            const req = await fetch(searchUrl).then((res) => res.json());
-            setFilms(req.results);
-            return req;
+            return await axios(genreUrls[0].fetchUrl)
+                .then((res) => setFilms(res.data.results))
+                .catch((err) => console.log(err));
         }
         fetchData();
-    }, [searchUrl]);
+    }, [genreUrls, searchTerm]);
 
     const search = (s) => {
         return s.filter((v) => v.title.toLowerCase().indexOf(searchTerm) > -1);
@@ -32,17 +31,15 @@ const Search = () => {
             />
             <div id="Search_Res">
                 {search(films).map((film) => (
-                    <>
-                        <img
-                            id="Res_Img"
-                            src={IMG + film.poster_path}
-                            alt={film.title}
-                        />
-                    </>
+                    <img
+                        id="Res_Img"
+                        src={IMG + film.poster_path}
+                        alt={film.title}
+                    />
                 ))}
             </div>
         </div>
     );
 };
 
-export default Search;
+export default SearchFunc;
