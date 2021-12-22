@@ -16,35 +16,11 @@ export const UserProvider = ({ children }) => {
     const [newUser, setNewUser] = useState("");
     const [termsRead, setTermsRead] = useState(false);
 
-    //.. Login fn
-    const doLogin = () => {
-        if (email !== "jd@example.info") {
-            alert("Invalid email");
-            return;
-        }
-        setUser({ id: 1, email, name: "Lea", role: "admin" });
-    };
+    const doLogin = () => {};
 
-    //.. SignUp fn
     const doSignUp = (e) => {
         e.preventDefault();
-
-        if (email === "jd@example.info") {
-            alert(
-                "There's already an account registered with that email address. Go to Login."
-            );
-
-            return;
-        }
-        if (password !== confirmPassword) {
-            alert("Password versions are different. Enter password again.");
-            return;
-        }
-
-        setUser({ id: 1, email, name: `${firstName} ${lastName}` });
     };
-
-    //..
 
     return (
         <UserContext.Provider

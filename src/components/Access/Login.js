@@ -42,13 +42,15 @@ function Login() {
                         type="checkbox"
                         label="Remember me and stay connected"
                     />
-                    <Button
-                        className="mb-3 button"
-                        variant="danger"
-                        type="submit"
-                    >
-                        Connect
-                    </Button>
+                    <Nav.Link as={NavLink} to="/home">
+                        <Button
+                            className="mb-3 button"
+                            variant="danger"
+                            type="submit"
+                        >
+                            Connect
+                        </Button>
+                    </Nav.Link>
                     <br />
                     <Nav.Link id="Register" as={NavLink} to="/signup">
                         Register
