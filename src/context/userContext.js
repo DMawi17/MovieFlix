@@ -6,13 +6,13 @@ const UserContext = createContext();
 export const useUser = () => useContext(UserContext);
 
 export const UserProvider = ({ children }) => {
-    //.. Login state
+    // Login state
     const [data, setData] = useState({});
     const [user, setUser] = useState();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    //.. SignUp state
+    // SignUp state
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
@@ -22,7 +22,7 @@ export const UserProvider = ({ children }) => {
         axios.get(UserEndpoint).then((res) => setData(res.data));
     }, []);
 
-    //.. SignUp Function
+    // SignUp Function
     const doSignUp = (e) => {
         e.preventDefault();
 
@@ -38,7 +38,7 @@ export const UserProvider = ({ children }) => {
         }
     };
 
-    //.. Login Function
+    // Login Function
     const doLogin = () => {
         const corrUser = data.filter(
             (d) => email === d.email && password === d.password
