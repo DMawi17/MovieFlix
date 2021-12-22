@@ -21,8 +21,6 @@ const Search = () => {
         return s.filter((v) => v.title.toLowerCase().indexOf(searchTerm) > -1);
     };
 
-    console.log(films);
-
     return (
         <div id="New_Search">
             <input

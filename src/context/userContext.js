@@ -4,12 +4,10 @@ const UserContext = createContext();
 export const useUser = () => useContext(UserContext);
 
 export const UserProvider = ({ children }) => {
-    //.. Login state
     const [user, setUser] = useState();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    //.. SignUp state
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");

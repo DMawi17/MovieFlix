@@ -19,22 +19,10 @@ const NavBar = () => {
                 </NavLink>
                 <NavLink to="/films">Movies</NavLink>
                 <NavLink to="/series">Series</NavLink>
-                {/* <NavLink to="/mylist">My List</NavLink> */}
                 <NavLink to="/mylist" className="p-3">
                     Search <FaSearch />
                 </NavLink>
             </nav>
-            {/* <form>
-                <input
-                    type="text"
-                    name=""
-                    id="Search"
-                    placeholder="Search..."
-                />
-                <button id="Button" type="button">
-                    <FaSearch />
-                </button>
-            </form> */}
 
             <div id="Avatar">
                 <img
