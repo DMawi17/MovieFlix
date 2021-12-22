@@ -24,20 +24,23 @@ function Login() {
                     <input
                         className="Input"
                         type="email"
-                        placeholder="Enter email"
+                        placeholder="Not Required" // FIXME:
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                     />
                     <input
                         className="Input"
                         type="password"
-                        placeholder="Password"
+                        placeholder="Not Required" // FIXME:
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
+                    <Link  to="/home"> {/* FIXME: */}
                     <button className="Connect" type="submit">
                         Connect
-                    </button>
+                        </button>
+                    </Link>
+                        
                     <br />
 
                     <Link className="Register" to="/signup">
