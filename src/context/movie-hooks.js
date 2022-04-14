@@ -13,6 +13,8 @@ export const MovieProvider = ({ children }) => {
     const [bannerPic, setBannerPic] = useState([]);
     const [movies, setMovies] = useState([]);
 
+    console.log(IMG)
+
     //.. Banner Effect
     useEffect(() => {
         async function fetchBanner() {
