@@ -1,4 +1,4 @@
-import { Route, Switch } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Home from "../../pages/Home";
 import Movies from "../../pages/Movies";
 import Series from "../../pages/Series";
@@ -9,13 +9,14 @@ import "./App.scss";
 function App() {
     return (
         <div className="App">
-            <Switch>
-                <Route path="/" component={Home} />
-                <Route path="/films" component={Movies} />
-                <Route path="/series" component={Series} />
-                <Route path="/search" component={SearchList} />
-                <Route path="*" component={Whoops404} />
-            </Switch>
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/home" element={<Home />} />
+                <Route path="/films" element={<Movies />} />
+                <Route path="/series" element={<Series />} />
+                <Route path="/search" element={<SearchList />} />
+                <Route path="*" element={<Whoops404 />} />
+            </Routes>
         </div>
     );
 }
