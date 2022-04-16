@@ -5,17 +5,17 @@ const NavBar = () => {
 
     return (
         <div id="Nav">
-            <Link to="/home" id="Logo">
+            <Link to="/" id="Logo">
                 Movie<span>Stream</span>
             </Link>
 
             <nav id="Nav_Links">
-                <Link exact to="/home">
+                <Link exact to="/">
                     Home
                 </Link>
-                <Link to="/films">Movies</Link>
-                <Link to="/series">Series</Link>
-                <Link to="/search" id="Search_Btn">
+                <Link to="films">Movies</Link>
+                <Link to="series">Series</Link>
+                <Link to="search" id="Search_Btn">
                     Search <FaSearch id="Search_Icon" />
                 </Link>
             </nav>

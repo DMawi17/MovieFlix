@@ -1,10 +1,10 @@
-import NavBar from "../components/Header/NavBar";
+import Nav from "../layout/nav/Nav";
 import SearchFunc from "../components/Search/SearchFunc";
 
 const Search = () => {
     return (
         <div id="Search">
-            <NavBar />
+            <Nav />
             <SearchFunc />
         </div>
     );

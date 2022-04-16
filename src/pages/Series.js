@@ -1,4 +1,4 @@
-import NavBar from "../components/Header/NavBar";
+import Nav from "../layout/nav/Nav";
 import { useMovie } from "../context/movie-hooks";
 
 const Series = () => {
@@ -6,7 +6,7 @@ const Series = () => {
 
     return (
         <>
-            <NavBar />
+            <Nav />
             <div id="TvShows">
                 <div
                     id="Banner_Contents2"
