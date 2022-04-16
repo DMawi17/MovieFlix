@@ -2,24 +2,43 @@ import { Link } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 
 const NavBar = () => {
-
     return (
-        <div id="Nav">
-            <Link to="/" id="Logo">
+        <nav className="nav">
+            <Link to="/" className="logo">
                 Movie<span>Stream</span>
             </Link>
 
-            <nav id="Nav_Links">
-                <Link exact to="/">
-                    Home
-                </Link>
-                <Link to="films">Movies</Link>
-                <Link to="series">Series</Link>
-                <Link to="search" id="Search_Btn">
-                    Search <FaSearch id="Search_Icon" />
-                </Link>
-            </nav>
-        </div>
+            <ul className="nav_Links">
+                <li>
+                    <Link to="/">Home</Link>
+                </li>
+                <li>
+                    <Link to="films">Genre</Link>
+                </li>
+                <li>
+                    <Link to="series">Country</Link>
+                </li>
+                <li>
+                    <Link to="series">Movies</Link>
+                </li>
+                <li>
+                    <Link to="series">TV-Series</Link>
+                </li>
+                <li>
+                    <Link to="series">TopIMDB</Link>
+                </li>
+                <div>
+                    <Link to="search" className="search_Btn">
+                        Search <FaSearch className="search_Icon" />
+                    </Link>
+                </div>
+                <div>
+                    <li>
+                        <Link to="series">Login / Register</Link>
+                    </li>
+                </div>
+            </ul>
+        </nav>
     );
 };
 
