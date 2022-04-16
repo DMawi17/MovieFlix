@@ -10,26 +10,20 @@ export const MovieProvider = ({ children }) => {
     const [homeUrls] = useState(HomeUrls);
     const [genreUrls] = useState(GenreUrls);
     const [filmGenre] = useState([]);
-    const [bannerPic, setBannerPic] = useState([]);
+    const [bannerData, setBannerData] = useState([]);
     const [movies, setMovies] = useState([]);
-
-    console.log(IMG)
 
     //.. Banner Effect
     useEffect(() => {
         async function fetchBanner() {
             const requestBanner = await axios
-                .get(homeUrls.NetflixOriginals)
+                .get(homeUrls.popular)
                 .then((res) => res.data.results);
 
-            setBannerPic(
-                requestBanner[
-                    Math.floor(Math.random() * requestBanner.length - 1)
-                ]
-            );
+            setBannerData(requestBanner);
         }
         fetchBanner();
-    }, [homeUrls.NetflixOriginals]);
+    }, [homeUrls.popular]);
 
     const truncate = (str, maxLength = 150) => {
         return str?.length > maxLength ? str.slice(0, maxLength) + `…` : str;
@@ -41,8 +35,7 @@ export const MovieProvider = ({ children }) => {
                 IMG,
                 homeUrls,
                 genreUrls,
-                bannerPic,
-                setBannerPic,
+                bannerData,
                 truncate,
                 filmGenre,
                 movies,
