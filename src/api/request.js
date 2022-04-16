@@ -3,6 +3,7 @@ const GENRES = "/discover/movie?api_key=";
 const API_KEY = process.env.REACT_APP_MOVIE_DATABASE_API_KEY;
 const GENRES_EXT = "&with_genres=";
 export const IMG_URL = "https://image.tmdb.org/t/p/w500";
+// url("https://image.tmdb.org/t/p/original/${bannerPic?.backdrop_path}"
 
 const GENRES_CODE = [
     { id: 28, name: "Action" },
@@ -32,9 +33,8 @@ export const GenreUrls = GENRES_CODE.map((gen) => ({
 }));
 
 export const HomeUrls = {
+    popular: `${BASE_URL}/movie/popular?api_key=${API_KEY}`,
     Trending: `${BASE_URL}/trending/all/week?api_key=${API_KEY}&language=en-DE`,
     NetflixOriginals: `${BASE_URL}/discover/tv?api_key=${API_KEY}&with_networks=213`,
     TopRated: `${BASE_URL}/movie/top_rated?api_key=${API_KEY}&language=en-US`,
 };
-
-export const UserEndpoint = "http://localhost:3001/users";

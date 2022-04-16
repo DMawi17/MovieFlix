@@ -22,6 +22,7 @@ Component
         white-space: nowrap;
         cursor: pointer;
     }
+
     a.active {
         color: #dc3545;
     }
@@ -50,6 +51,7 @@ Component
         a:first-of-type {
             margin-left: auto;
         }
+
         a:last-of-type {
             margin-right: auto;
         }
@@ -132,52 +134,59 @@ Component
 */
 
 #Banner {
-    color: #fff;
-    object-fit: contain;
-    height: 430px;
+    // color: #fff;
+    // object-fit: contain;
+    // height: 430px;
 
-    background-size: cover;
-    background-position: center center;
+    // background-size: cover;
+    // background-position: center center;
 
-    #Banner_Contents {
-        margin-left: 30px;
-        padding-top: 140px;
-        height: 190px;
-    }
-    #Banner_Title {
-        font-size: 3vw;
-        font-weight: 500;
-        padding-bottom: 0.3rem;
-        letter-spacing: 0.2rem;
-    }
-    #Banner_Description {
-        width: 45vw;
-        line-height: 1.3;
-        padding-top: 1rem;
-        font-size: 1vw;
-        min-width: 360px;
-        height: 80px;
-    }
-    .Banner_Buttons {
-        color: #fff;
-        outline: none;
-        border: none;
-        font-weight: 500;
-        font-size: 1vw;
-        border-radius: 0.2vw;
-        padding: 0.5rem 2rem;
-        margin-right: 1rem;
-        background-color: #33333380; /*  TODO: */
+    // #Banner_Contents {
+    //     margin-left: 30px;
+    //     padding-top: 140px;
+    //     height: 190px;
 
-        &:hover {
-            color: #000;
-            background-color: #e6e6e6;
-            transition: all 0.2s;
-        }
-    }
-    #Banner_FadeBottom {
-        margin-top: 8em;
-        height: 7.4rem;
-        background-image: linear-gradient(180deg, transparent, #2525259c, #000);
-    }
+
+    // }
+
+    // #Banner_Title {
+    //     font-size: 3vw;
+    //     font-weight: 500;
+    //     padding-bottom: 0.3rem;
+    //     letter-spacing: 0.2rem;
+    // }
+
+    // #Banner_Description {
+    //     width: 45vw;
+    //     line-height: 1.3;
+    //     padding-top: 1rem;
+    //     font-size: 1vw;
+    //     min-width: 360px;
+    //     height: 80px;
+    // }
+
+    // .Banner_Buttons {
+    //     color: #fff;
+    //     outline: none;
+    //     border: none;
+    //     font-weight: 500;
+    //     font-size: 1vw;
+    //     border-radius: 0.2vw;
+    //     padding: 0.5rem 2rem;
+    //     margin-right: 1rem;
+    //     background-color: #33333380;
+    //     /*  TODO: */
+
+    //     &:hover {
+    //         color: #000;
+    //         background-color: #e6e6e6;
+    //         transition: all 0.2s;
+    //     }
+    // }
+
+    // #Banner_FadeBottom {
+    //     margin-top: 8em;
+    //     height: 7.4rem;
+    //     background-image: linear-gradient(180deg, transparent, #2525259c, #000);
+    // }
 }
