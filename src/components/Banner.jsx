@@ -32,9 +32,7 @@ const Banner = ({ id }) => {
             className="banner"
             id="Banner"
             style={{
-                backgroundSize: "cover",
                 backgroundImage: `url(${IMG_BG_URL}${value.backdrop_path}`,
-                backgroundPosition: "center center",
             }}
         >
             <div className="banner__content" id="Banner_Contents">

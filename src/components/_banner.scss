@@ -4,6 +4,9 @@
     color: white;
 
     display: flex;
+    background-size: cover;
+    background-position: 0 0;
+    background-repeat: no-repeat;
 
     &__content {
         width: 100%;
