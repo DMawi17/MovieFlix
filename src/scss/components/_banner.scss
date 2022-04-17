@@ -4,32 +4,42 @@
     color: white;
 
     display: flex;
+    background-size: cover;
+    background-position: 0 0;
+    background-repeat: no-repeat;
 
     &__content {
         width: 100%;
-        padding: 0 2rem;
+        padding: 0 1rem;
         background-image: linear-gradient(180deg, transparent, #0a0a0abd, #000);
 
         align-self: flex-end;
         display: flex;
         flex-direction: column;
         justify-content: flex-end;
+    }
 
-        .tags {
+    &__title {
+        font-size: 2rem;
+        font-weight: 500;
+        letter-spacing: 0.2rem;
+        margin: 1rem 0;
+    }
+
+    .tags {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+
+        .tag {
             display: flex;
             align-items: center;
-            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+            white-space: nowrap;
+            margin: 0.5rem 2rem 0 0;
 
-            .tag {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                gap: 0.5rem;
-                margin-right: 2rem;
-                white-space: nowrap;
-            }
-
-            .tag-date {
+            &-date {
                 width: 120px;
                 background: #00abc0;
                 padding: 0.3rem 0.5rem;
@@ -39,26 +49,13 @@
         }
     }
 
-    &__title {
-        font-size: 2rem;
-        font-weight: 500;
-        letter-spacing: 0.2rem;
-        margin-bottom: 1rem;
-    }
-
     &__description {
         max-width: 70vw;
         line-height: 1.3;
-        margin: 1rem 0;
         font-size: 1.3rem;
         min-width: 360px;
+        margin: 1rem 0;
         display: none;
-    }
-
-    @media (min-width: 548px) {
-        .banner__description {
-            display: block;
-        }
     }
 
     &__buttons {
@@ -73,11 +70,11 @@
         font-size: 1rem;
         border-radius: 1.5rem;
         padding: 0.5rem 1rem;
-        margin: 1rem 1rem 1rem 0;
         background-color: transparent;
         display: flex;
         gap: 0.5rem;
         white-space: nowrap;
+        margin: 0.5rem 2rem 0 0;
 
         &-play {
             color: #00abc0;

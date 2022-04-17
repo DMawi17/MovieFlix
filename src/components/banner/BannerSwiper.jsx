@@ -1,6 +1,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper";
-import { useMovie } from "../context/movie-hooks";
+import { useMovie } from "../../helpers/movie-hooks";
 import Banner from "./Banner";
 
 import { v4 } from "uuid";

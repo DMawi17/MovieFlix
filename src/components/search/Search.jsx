@@ -1,5 +1,5 @@
-import Nav from "../layout/nav/Nav";
-import SearchFunc from "../components/Search/SearchFunc";
+import Nav from "../../layout/Nav";
+import SearchFunc from "./SearchFunc";
 
 const Search = () => {
     return (

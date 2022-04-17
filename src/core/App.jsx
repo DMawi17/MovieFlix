@@ -1,10 +1,9 @@
 import { Route, Routes } from "react-router-dom";
-import Home from "../../pages/Home";
-import Movies from "../../pages/Movies";
-import Series from "../../pages/Series";
-import SearchList from "../../pages/Search";
-import Whoops404 from "../../pages/Whoops404";
-import "./App.scss";
+import Home from "../pages/Home";
+import Movies from "../pages/Movies";
+import Series from "../pages/Series";
+import SearchList from "../components/search/Search";
+import Whoops404 from "../pages/Whoops404";
 
 function App() {
     return (

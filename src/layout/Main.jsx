@@ -1,12 +1,12 @@
-import FilmShelf from "./FilmShelf";
-import { useMovie } from "../../context/movie-hooks";
+import FilmShelf from "../components/films/FilmShelf";
+import { useMovie } from "../helpers/movie-hooks";
 
 // Render on Home page
 export const MainHome = () => {
     const { homeUrls } = useMovie();
 
     return (
-        <div id="Main">
+        <main className="main container">
             <h2>NetflixOriginals</h2>
             <FilmShelf title="Trending" fetchUrl={homeUrls.NetflixOriginals} />
 
@@ -15,7 +15,7 @@ export const MainHome = () => {
 
             <h2>TopRated</h2>
             <FilmShelf title="Trending" fetchUrl={homeUrls.TopRated} />
-        </div>
+        </main>
     );
 };
 

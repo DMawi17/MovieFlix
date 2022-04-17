@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { FaHeart, FaPlay, FaStar } from "react-icons/fa";
 
-import { useMovie } from "../context/movie-hooks";
+import { useMovie } from "../../helpers/movie-hooks";
 
 const Banner = ({ id }) => {
     const [value, setValue] = useState({});
@@ -11,7 +11,7 @@ const Banner = ({ id }) => {
 
     const API_KEY = process.env.REACT_APP_MOVIE_DATABASE_API_KEY;
     const API_BASE_URL = "https://api.themoviedb.org/3";
-    const IMG_BG_URL = "https://image.tmdb.org/t/p/original/";
+    const IMG_BG_URL = "https://image.tmdb.org/t/p/original";
     const detailURL = `${API_BASE_URL}/movie/${id}?api_key=${API_KEY}`;
 
     useEffect(() => {
@@ -27,14 +27,14 @@ const Banner = ({ id }) => {
         fetchDetails();
     }, []);
 
+    console.log(value.backdrop_path);
+
     return (
         <div
             className="banner"
             id="Banner"
             style={{
-                backgroundSize: "cover",
                 backgroundImage: `url(${IMG_BG_URL}${value.backdrop_path}`,
-                backgroundPosition: "center center",
             }}
         >
             <div className="banner__content" id="Banner_Contents">

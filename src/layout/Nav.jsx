@@ -1,9 +1,14 @@
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 import { BsPersonFill } from "react-icons/bs";
+import { AiOutlineBars } from "react-icons/ai";
 import { v4 } from "uuid";
 
 const NavBar = () => {
+    const [toggleMenu, setToggleMenu] = useState(false);
+    const [toggleLogin, setToggleLogin] = useState(false);
+
     const navElements = [
         { path: "/", link: "Home" },
         { path: "genre", link: "Genre" },
@@ -13,13 +18,30 @@ const NavBar = () => {
         { path: "topImdb", link: "Top IMDB" },
     ];
 
+    const handleToggleMenu = () => {
+        setToggleMenu(!toggleMenu);
+    };
+    const handleToggleLogin = () => {
+        setToggleLogin(!toggleLogin);
+    };
+
     return (
-        <div className="container">
+        <div className="nav__wrapper">
             <nav className="nav">
+                <button
+                    className="nav__btn nav__toggle"
+                    id="nav_toggle"
+                    onClick={handleToggleMenu}
+                >
+                    <AiOutlineBars className="bars__icon" />
+                </button>
+
                 <Link to="/" className="nav__logo">
-                    MovieSt.
+                    MovieSt
                 </Link>
 
+                {/*   {toggleMenu && ( */}
+                {/* <> */}
                 <ul className="nav__list">
                     {navElements.map((el) => (
                         <li key={v4()} className="nav__item">
@@ -45,12 +67,16 @@ const NavBar = () => {
                         />
                     </label>
                 </div>
+                {/* </> */}
+                {/*      )} */}
 
-                <div className="nav__login">
+                <div className="nav__login" onClick={handleToggleLogin}>
                     <BsPersonFill className="nav__login-icon" />
+                    {/* {toggleLogin && ( */}
                     <Link className="nav__login-link" to="login">
                         Login / Register
                     </Link>
+                    {/*      )} */}
                 </div>
             </nav>
         </div>

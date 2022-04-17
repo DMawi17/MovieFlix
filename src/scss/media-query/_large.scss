@@ -1,0 +1,23 @@
+@media (min-width: 1100px) {
+    .nav {
+        &__search {
+            display: flex !important;
+            max-width: 25vw !important;
+            order: 0 !important;
+            margin: 0 !important;
+        }
+
+        &__list {
+            gap: 2rem !important;
+        }
+    }
+}
+
+@media (min-width: 1440px) {
+    .nav {
+        &__login-link {
+            display: block !important;
+            margin-left: 0.5rem;
+        }
+    }
+}

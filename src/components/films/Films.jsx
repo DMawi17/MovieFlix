@@ -1,4 +1,4 @@
-import { useMovie } from "../../context/movie-hooks";
+import { useMovie } from "../../helpers/movie-hooks";
 
 const Films = ({ title, poster_path }) => {
     const { IMG } = useMovie();
