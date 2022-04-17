@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useMovie } from "../../context/movie-hooks";
+import { useMovie } from "../../helpers/movie-hooks";
 
 const SearchFunc = () => {
     const { genreUrls, IMG } = useMovie();

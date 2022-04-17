@@ -1,5 +1,5 @@
-import Nav from "../layout/nav/Nav";
-import { MainFilm } from "../components/Main/Main";
+import Nav from "../layout/Nav";
+import { MainFilm } from "../layout/Main";
 
 const Movies = () => {
     return (

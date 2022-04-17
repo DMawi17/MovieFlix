@@ -1,5 +1,5 @@
-import Nav from "../layout/nav/Nav";
-import { useMovie } from "../context/movie-hooks";
+import Nav from "../layout/Nav";
+import { useMovie } from "../helpers/movie-hooks";
 
 const Series = () => {
     const { bannerPic } = useMovie();

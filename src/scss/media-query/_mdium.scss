@@ -1,0 +1,36 @@
+@media (min-width: 425px) {
+    .nav {
+        &__search {
+            display: flex !important;
+            width: 70% !important;
+        }
+    }
+}
+
+@media (min-width: 700px) {
+    .nav {
+        &__btn {
+            display: none !important;
+        }
+
+        &__logo {
+            display: block !important;
+        }
+
+        &__list {
+            display: flex !important;
+        }
+
+        &__search {
+            width: 50% !important;
+            margin: 2rem auto;
+            order: 2;
+        }
+    }
+
+    .banner {
+        &__description {
+            display: block;
+        }
+    }
+}

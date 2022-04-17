@@ -1,9 +1,9 @@
-import Nav from "../nav/Nav";
-import BannerSwiper from "../../components/BannerSwiper";
+import Nav from "./Nav";
+import BannerSwiper from "../components/banner/BannerSwiper";
 
 const Header = () => {
     return (
-        <header>
+        <header className="header container">
             <Nav />
             <BannerSwiper />
         </header>
