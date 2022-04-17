@@ -25,7 +25,7 @@ const Banner = ({ id }) => {
         };
 
         fetchDetails();
-    }, []);
+    }, [detailURL]);
 
     console.log(value.backdrop_path);
 
