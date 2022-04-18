@@ -18,9 +18,9 @@ function MovieColls({
                 src={IMG_BG_URL + poster_path}
                 alt={title}
             />
-            <div className="movie__info-box">
-                <div className="movie__title">{name || title}</div>
-                <span className="movie__date">
+            <div className="movie__info info-box">
+                <div className="movie__info-title">{name || title}</div>
+                <span className="movie__info-date">
                     {release_date || first_air_date}
                 </span>
             </div>

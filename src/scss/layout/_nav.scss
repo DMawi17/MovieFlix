@@ -1,3 +1,5 @@
+@use "../utils/" as *;
+
 .nav__wrapper {
     position: fixed;
     top: 0;
@@ -5,10 +7,6 @@
     right: 0;
     z-index: 2;
     background-image: linear-gradient(0deg, transparent, #0a0a0a84, #000);
-
-    * {
-        // outline: 2px solid red;
-    }
 
     .nav {
         padding: 1rem;
