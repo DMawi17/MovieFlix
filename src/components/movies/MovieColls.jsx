@@ -1,12 +1,31 @@
-// import { useMovie } from "../../helpers/movie-hooks";
-import * as api from "../../api";
+import { useMovie } from "../../helpers/movie-hooks";
 
-const MovieColls = ({ title, poster_path }) => {
+function MovieColls({
+    poster_path,
+    title,
+    name,
+    release_date,
+    first_air_date,
+    runtime,
+}) {
+    const { IMG_BG_URL } = useMovie();
+
     return (
         <div className="movie__colls">
-            <img id="Films" src={api.IMG_BG_URL + poster_path} alt={title} />
+            <img
+                className="movie__img"
+                id="Films"
+                src={IMG_BG_URL + poster_path}
+                alt={title}
+            />
+            <div className="movie__info-box">
+                <div className="movie__title">{name || title}</div>
+                <span className="movie__date">
+                    {release_date || first_air_date}
+                </span>
+            </div>
         </div>
     );
-};
+}
 
 export default MovieColls;

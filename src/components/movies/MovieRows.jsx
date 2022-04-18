@@ -1,11 +1,13 @@
 import MovieColls from "./MovieColls";
 
-function MovieRows() {
+const MovieRows = ({ categories }) => {
     return (
-        <div className="movie__rows">
-            <MovieColls />
+        <div className="movie__rows" id="Category">
+            {categories.map((movies) => (
+                <MovieColls {...movies.data} key={movies.data.id} />
+            ))}
         </div>
     );
-}
+};
 
 export default MovieRows;

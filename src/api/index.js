@@ -36,8 +36,6 @@ const fetchMovies = (movieType, queriesStr) => {
 //     });
 // };
 
-// /on_the_air?api_key={{movieDB}}
-
 const fetchDetails = (mediaType, ids) => {
     return axios.all(
         ids.map((id) =>
@@ -52,11 +50,9 @@ export {
     API_KEY,
     API_BASE_URL,
     IMG_BG_URL,
-    //
     media_type,
     time_window,
     queries,
-    //
     fetchMovies,
     // fetchDetail,
     fetchDetails,

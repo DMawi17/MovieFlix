@@ -1,5 +1,5 @@
 import { useMovie } from "../helpers/movie-hooks";
-import MovieShelf from "../components/movies/MovieShelf";
+import MovieShelf from "../components/movies/MovieRows";
 import { v4 } from "uuid";
 
 export const MainHome = () => {
@@ -16,19 +16,3 @@ export const MainHome = () => {
         </main>
     );
 };
-
-// Render on Movies page
-// export const MainFilm = () => {
-//     const { genreUrls } = useMovie();
-
-//     return (
-//         <div id="Main">
-//             {genreUrls.map((url) => (
-//                 <div key={url.fetchUrl}>
-//                     <h2>{url.title}</h2>
-//                     <FilmShelf fetchUrl={url.fetchUrl} />
-//                 </div>
-//             ))}
-//         </div>
-//     );
-// };
