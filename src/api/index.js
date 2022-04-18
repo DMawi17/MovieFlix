@@ -14,6 +14,7 @@ const queries = {
     top_rated: "/top_rated",
     recom: "/recommendations",
     playing: "/now_playing",
+    on_air: "/on_the_air",
 };
 
 const client = axios.create({
@@ -29,16 +30,18 @@ const fetchMovies = (movieType, queriesStr) => {
     });
 };
 
-const fetchDetail = (id) => {
-    return client.get(`/movie/${id}`, {
+const fetchDetail = (id, mediaType) => {
+    return client.get(`${mediaType}${id}`, {
         params: { api_key: API_KEY },
     });
 };
 
-const fetchDetails = (ids) => {
+// /on_the_air?api_key={{movieDB}}
+
+const fetchDetails = (mediaType, ids) => {
     return axios.all(
         ids.map((id) =>
-            client.get(`/movie/${id}`, {
+            client.get(`${mediaType}/${id}`, {
                 params: { api_key: API_KEY },
             })
         )

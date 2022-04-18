@@ -12,6 +12,8 @@ export const MovieProvider = ({ children }) => {
     const [detailedBannerData, setDetailedBannerData] = useState([]);
     const { IMG_BG_URL, media_type, queries } = api;
 
+    console.log(nowPlayingTv);
+
     useEffect(() => {
         // BANNER MOVIES:
         api.fetchMovies(media_type.movie, queries.popular)
@@ -24,24 +26,39 @@ export const MovieProvider = ({ children }) => {
             )
             .then((id) =>
                 api
-                    .fetchDetails(id)
-                    .then((MovieDetail) => setDetailedBannerData(MovieDetail))
+                    .fetchDetails(media_type.movie, id)
+                    .then((movieDetail) => setDetailedBannerData(movieDetail))
             );
 
-        //  TOP RATED:
-        api.fetchMovies(media_type.movie, queries.top_rated).then((res) =>
-            setTopRated(res.data.results)
-        );
+        //  TOP RATED:  FIXME: FIX REPETITION
+        api.fetchMovies(media_type.movie, queries.top_rated)
+            .then((res) => res.data.results)
+            .then((data) => data.map((movieId) => movieId.id))
+            .then((id) =>
+                api
+                    .fetchDetails(media_type.movie, id)
+                    .then((movieDetail) => setTopRated(movieDetail))
+            );
 
         // NOW PLAYING MOVIES:
-        api.fetchMovies(media_type.movie, queries.playing).then((res) =>
-            setNowPlayingMovies(res.data.results)
-        );
+        api.fetchMovies(media_type.movie, queries.playing)
+            .then((res) => res.data.results)
+            .then((data) => data.map((movieId) => movieId.id))
+            .then((id) =>
+                api
+                    .fetchDetails(media_type.movie, id)
+                    .then((movieDetail) => setNowPlayingMovies(movieDetail))
+            );
 
         // NOW PLAYING TV:
-        api.fetchMovies(media_type.tv, queries.top_rated).then((res) =>
-            setNowPlayingTv(res.data.results)
-        );
+        api.fetchMovies(media_type.tv, queries.on_air)
+            .then((res) => res.data.results)
+            .then((data) => data.map((tvId) => tvId.id))
+            .then((id) =>
+                api
+                    .fetchDetails(media_type.tv, id)
+                    .then((tvDetail) => setNowPlayingTv(tvDetail))
+            );
     }, [media_type, queries]);
 
     // Truncate the description of the banner.
