@@ -29,10 +29,20 @@ const fetchMovies = (movieType, queriesStr) => {
     });
 };
 
-const fetchDetails = (id) => {
+const fetchDetail = (id) => {
     return client.get(`/movie/${id}`, {
         params: { api_key: API_KEY },
     });
+};
+
+const fetchDetails = (ids) => {
+    return axios.all(
+        ids.map((id) =>
+            client.get(`/movie/${id}`, {
+                params: { api_key: API_KEY },
+            })
+        )
+    );
 };
 
 export {
@@ -44,6 +54,7 @@ export {
     time_window,
     queries,
     //
-    fetchDetails,
     fetchMovies,
+    fetchDetail,
+    fetchDetails,
 };

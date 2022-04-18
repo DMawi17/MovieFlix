@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { createContext, useContext } from "react";
 import * as api from "../api";
 
@@ -5,10 +6,61 @@ const MovieContext = createContext();
 export const useMovie = () => useContext(MovieContext);
 
 export const MovieProvider = ({ children }) => {
+    const [topRated, setTopRated] = useState([]);
+    const [nowPlayingMovies, setNowPlayingMovies] = useState([]);
+    const [nowPlayingTv, setNowPlayingTv] = useState([]);
+    const [detailedBannerData, setDetailedBannerData] = useState([]);
     const { IMG_BG_URL, media_type, queries } = api;
 
+    useEffect(() => {
+        // BANNER MOVIES:
+        api.fetchMovies(media_type.movie, queries.popular)
+            .then((res) => res.data.results)
+            .then((data) =>
+                data
+                    .sort((a, b) => b.vote_average - a.vote_average)
+                    .filter((v, i) => i < 10)
+                    .map((movieId) => movieId.id)
+            )
+            .then((id) =>
+                api
+                    .fetchDetails(id)
+                    .then((MovieDetail) => setDetailedBannerData(MovieDetail))
+            );
+
+        //  TOP RATED:
+        api.fetchMovies(media_type.movie, queries.top_rated).then((res) =>
+            setTopRated(res.data.results)
+        );
+
+        // NOW PLAYING MOVIES:
+        api.fetchMovies(media_type.movie, queries.playing).then((res) =>
+            setNowPlayingMovies(res.data.results)
+        );
+
+        // NOW PLAYING TV:
+        api.fetchMovies(media_type.tv, queries.top_rated).then((res) =>
+            setNowPlayingTv(res.data.results)
+        );
+    }, [media_type, queries]);
+
+    // Truncate the description of the banner.
+    const truncate = (str, maxLength = 150) => {
+        return str?.length > maxLength ? str.slice(0, maxLength) + `…` : str;
+    };
+
+    // PUSH ALL THE FETCHED DATA INTO AN ARRAY:
+    const movieShelfArray = [topRated, nowPlayingMovies, nowPlayingTv];
+
     return (
-        <MovieContext.Provider value={{ IMG_BG_URL, media_type, queries }}>
+        <MovieContext.Provider
+            value={{
+                IMG_BG_URL,
+                detailedBannerData,
+                movieShelfArray,
+                truncate,
+            }}
+        >
             {children}
         </MovieContext.Provider>
     );

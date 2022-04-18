@@ -1,28 +1,20 @@
-import { useState, useEffect } from "react";
 import { FaHeart, FaPlay, FaStar } from "react-icons/fa";
-import * as api from "../../api";
+import { useMovie } from "../../helpers/movie-hooks";
 
-const Banner = ({ id }) => {
-    const [value, setValue] = useState({});
-    const [genres, setGenres] = useState([]);
-
-    // Fetch the detail of the individual banner item and set the data to value and set the data.genres to genres.
-    useEffect(
-        () =>
-            api.fetchDetails(id).then((res) => {
-                setValue(res.data);
-                setGenres(res.data.genres);
-            }),
-        [id]
-    );
-
-    // Truncate the description of the banner.
-    const truncate = (str, maxLength = 150) => {
-        return str?.length > maxLength ? str.slice(0, maxLength) + `…` : str;
-    };
+const Banner = ({ bannerInfo }) => {
+    const { truncate, IMG_BG_URL } = useMovie();
+    const {
+        backdrop_path,
+        original_title,
+        release_date,
+        vote_average,
+        runtime,
+        genres,
+        overview,
+    } = bannerInfo;
 
     // Background img
-    const bg_image = `url(${api.IMG_BG_URL}${value.backdrop_path}`;
+    const bg_image = `url(${IMG_BG_URL}${backdrop_path}`;
 
     return (
         <div
@@ -34,15 +26,15 @@ const Banner = ({ id }) => {
         >
             <div className="banner__content" id="Banner_Contents">
                 <h1 className="banner__title" id="Banner_Title">
-                    {value.original_title}
+                    {original_title}
                 </h1>
 
                 <div className="tags">
-                    <span className="tag tag-date">{value.release_date}</span>
+                    <span className="tag tag-date">{release_date}</span>
                     <span className="tag tag-rate">
-                        <FaStar /> {value.vote_average}
+                        <FaStar /> {vote_average}
                     </span>{" "}
-                    <span className="tag tag-runtime">{value.runtime} min</span>
+                    <span className="tag tag-runtime">{runtime} min</span>
                     <div className="tag tag-genres">
                         {genres.map((genre) => (
                             <span className="tag-genre" key={genre.id}>
@@ -53,7 +45,7 @@ const Banner = ({ id }) => {
                 </div>
 
                 <p className="banner__description" id="Banner_Description">
-                    {truncate(value.overview)}
+                    {truncate(overview)}
                 </p>
 
                 <div className="banner__buttons">
