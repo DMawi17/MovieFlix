@@ -1,11 +1,9 @@
-import MovieShelf from "../components/movies/MovieShelf";
 import { useMovie } from "../helpers/movie-hooks";
+import MovieShelf from "../components/movies/MovieShelf";
 import { v4 } from "uuid";
 
 export const MainHome = () => {
     const { movieShelfArray } = useMovie();
-
-    // console.log(movieShelfArray);
 
     return (
         <main className="main container">

@@ -30,11 +30,11 @@ const fetchMovies = (movieType, queriesStr) => {
     });
 };
 
-const fetchDetail = (id, mediaType) => {
-    return client.get(`${mediaType}${id}`, {
-        params: { api_key: API_KEY },
-    });
-};
+// const fetchDetail = (id, mediaType) => {
+//     return client.get(`${mediaType}${id}`, {
+//         params: { api_key: API_KEY },
+//     });
+// };
 
 // /on_the_air?api_key={{movieDB}}
 
@@ -58,6 +58,6 @@ export {
     queries,
     //
     fetchMovies,
-    fetchDetail,
+    // fetchDetail,
     fetchDetails,
 };

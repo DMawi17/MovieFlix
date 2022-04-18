@@ -12,7 +12,7 @@ export const MovieProvider = ({ children }) => {
     const [detailedBannerData, setDetailedBannerData] = useState([]);
     const { IMG_BG_URL, media_type, queries } = api;
 
-    console.log(nowPlayingTv);
+    console.log(nowPlayingMovies)
 
     useEffect(() => {
         // BANNER MOVIES:

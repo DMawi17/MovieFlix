@@ -1,10 +1,12 @@
-import Films from "./Films";
+import MovieRows from "./MovieRows";
 
 const MovieShelf = ({ categories }) => {
+    // console.log(categories);
+
     return (
-        <div className="category" id="Category">
+        <div className="movie__shelf" id="Category">
             {categories.map((movie) => (
-                <Films {...movie} key={movie.id} />
+                <MovieRows {...movie} key={movie.id} />
             ))}
         </div>
     );
