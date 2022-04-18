@@ -1,47 +1,14 @@
-import axios from "axios";
-import { createContext, useContext, useState, useEffect } from "react";
-import { HomeUrls, GenreUrls, IMG_URL } from "../api/request";
+import { createContext, useContext } from "react";
+import * as api from "../api";
 
 const MovieContext = createContext();
 export const useMovie = () => useContext(MovieContext);
 
 export const MovieProvider = ({ children }) => {
-    const [IMG] = useState(IMG_URL);
-    const [homeUrls] = useState(HomeUrls);
-    const [genreUrls] = useState(GenreUrls);
-    const [filmGenre] = useState([]);
-    const [bannerData, setBannerData] = useState([]);
-    const [movies, setMovies] = useState([]);
-
-    //.. Banner Effect
-    useEffect(() => {
-        async function fetchBanner() {
-            const requestBanner = await axios
-                .get(homeUrls.popular)
-                .then((res) => res.data.results);
-
-            setBannerData(requestBanner);
-        }
-        fetchBanner();
-    }, [homeUrls.popular]);
-
-    const truncate = (str, maxLength = 150) => {
-        return str?.length > maxLength ? str.slice(0, maxLength) + `…` : str;
-    };
+    const { IMG_BG_URL, media_type, queries } = api;
 
     return (
-        <MovieContext.Provider
-            value={{
-                IMG,
-                homeUrls,
-                genreUrls,
-                bannerData,
-                truncate,
-                filmGenre,
-                movies,
-                setMovies,
-            }}
-        >
+        <MovieContext.Provider value={{ IMG_BG_URL, media_type, queries }}>
             {children}
         </MovieContext.Provider>
     );

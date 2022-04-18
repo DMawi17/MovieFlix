@@ -1,9 +1,8 @@
-import { useMovie } from "../../helpers/movie-hooks";
+// import { useMovie } from "../../helpers/movie-hooks";
+import * as api from "../../api";
 
 const Films = ({ title, poster_path }) => {
-    const { IMG } = useMovie();
-
-    return <img id="Films" src={IMG + poster_path} alt={title} />;
+    return <img id="Films" src={api.IMG_BG_URL + poster_path} alt={title} />;
 };
 
 export default Films;

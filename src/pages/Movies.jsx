@@ -1,11 +1,11 @@
 import Nav from "../layout/Nav";
-import { MainFilm } from "../layout/Main";
+// import { MainFilm } from "../layout/Main";
 
 const Movies = () => {
     return (
         <div id="Movies">
             <Nav />
-            <MainFilm />
+            {/* <MainFilm /> */}
         </div>
     );
 };
