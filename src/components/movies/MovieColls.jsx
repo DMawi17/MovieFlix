@@ -1,5 +1,5 @@
 import { useMovie } from "../../helpers/movie-hooks";
-import { FaHeart, FaPlay, FaStar } from "react-icons/fa";
+import {  FaStar } from "react-icons/fa";
 
 function MovieColls({
     poster_path,
@@ -25,8 +25,8 @@ function MovieColls({
                 </div>
                 <div className="movie__info-extra">
                     <div className="movie__info-date">
-                        {releaseYear(release_date) ||
-                            releaseYear(first_air_date)}
+                        {release_date && releaseYear(release_date)}
+                        {first_air_date && releaseYear(first_air_date)}
                     </div>
                     <div className="movie__info-rating">
                         <p>
