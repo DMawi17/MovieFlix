@@ -1,5 +1,5 @@
 /* Font size */
-$fs-l: 2rem;
+$fs-l: 3.2rem;
 $fs-h1: 1.5rem;
 $fs-h2: 1.25rem;
 $fs-h3: 1.125rem;
@@ -42,10 +42,22 @@ $mb-30: 3rem;
 // $bsh-reg: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
 //     rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 
-/* Colors */
+$clr-primary: #00acc1;
 
-$clr-hue: 210;
-$clr-primary: hsl($clr-hue, 69%, 61%);
+/* Background colors */
+
+$clr-bg-dark: #0f120f;
+$clr-bg-med: #212529;
+$clr-container: #fff;
+
+/* Text colors */
+
+$clr-txt-primary: #f8f9fa;
+$clr-txt-secondary: #959595;
+$clr-txt-tertiary: #bbbbbb;
+
+// $clr-hue: 210;
+// $clr-primary: hsl($clr-hue, 69%, 61%);
 // $clr-tertiary: hsl($clr-hue, 57%, 53%);
 // $clr-primary-light: hsl($clr-hue, 92%, 85%);
 // $clr-txt-light: hsl($clr-hue, 8%, 65%);

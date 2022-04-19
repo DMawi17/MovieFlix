@@ -1,10 +1,10 @@
-// import Header from "../layout/Header";
+import Header from "../layout/Header";
 import Main from "../layout/Main";
 
 const Home = () => {
     return (
-        <div id="Home">
-            {/* <Header /> */}
+        <div className="home">
+            <Header />
             <Main />
         </div>
     );

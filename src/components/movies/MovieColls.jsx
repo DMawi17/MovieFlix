@@ -1,4 +1,5 @@
 import { useMovie } from "../../helpers/movie-hooks";
+import { FaHeart, FaPlay, FaStar } from "react-icons/fa";
 
 function MovieColls({
     poster_path,
@@ -6,23 +7,34 @@ function MovieColls({
     name,
     release_date,
     first_air_date,
-    runtime,
+    vote_average,
+    // runtime,
 }) {
-    const { IMG_BG_URL } = useMovie();
+    const { IMG_URL, truncate, releaseYear } = useMovie();
 
     return (
         <div className="movie__colls">
             <img
                 className="movie__img"
-                id="Films"
-                src={IMG_BG_URL + poster_path}
+                src={IMG_URL + poster_path}
                 alt={title}
             />
             <div className="movie__info info-box">
-                <div className="movie__info-title">{name || title}</div>
-                <span className="movie__info-date">
-                    {release_date || first_air_date}
-                </span>
+                <div className="movie__info-title">
+                    {truncate(name, 15) || truncate(title, 15)}
+                </div>
+                <div className="movie__info-extra">
+                    <div className="movie__info-date">
+                        {releaseYear(release_date) ||
+                            releaseYear(first_air_date)}
+                    </div>
+                    <div className="movie__info-rating">
+                        <p>
+                            <FaStar className="rating-star" />
+                        </p>
+                        <p>{vote_average}</p>
+                    </div>
+                </div>
             </div>
         </div>
     );

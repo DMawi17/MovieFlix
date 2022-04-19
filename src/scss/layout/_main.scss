@@ -1,68 +1,59 @@
 @use "../utils/" as *;
 
 .main {
-    border: 5px solid;
-
     .movie {
         &__wrapper {
-            border: 5px solid red;
         }
 
         &__rows {
-            border: 5px solid blue;
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, 160px);
+            justify-content: center;
+            gap: 1rem;
+            margin: 1rem auto;
+            padding: 1rem;
         }
 
         &__colls {
-            // display: flex;
-            width: 200px;
-            height: 250px;
         }
 
         &__img {
-            object-fit: contain;
             width: 100%;
-            max-height: 200px;
+            height: 230px;
+            border-radius: 0.3rem;
+            margin-bottom: $mb-075;
         }
 
         &__info {
+            color: $clr-container;
+
             &-title {
+                margin-bottom: $mb-05;
+                color: $clr-txt-primary;
             }
+
+            &-extra {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-end;
+                color: $clr-txt-secondary;
+            }
+
             &-date {
+            }
+
+            &-rating {
+                display: flex;
+                background: $clr-bg-med;
+                padding: 0.3rem 0.5rem 0.1rem;
+                border-radius: 0.2rem;
+                text-align: center;
+
+                .rating-star {
+                    align-self: center;
+                    margin-right: 0.5rem;
+                }
             }
         }
     }
-
-    // text-align: center;
-    // letter-spacing: 0.2rem;
-
-    //     #Category {
-    //         * {
-    //             background: #000;
-    //         }
-    //         display: flex;
-    //         overflow-y: hidden;
-    //         overflow: scroll;
-
-    //         #Films {
-    //             object-fit: contain;
-    //             width: 100%;
-    //             max-height: 200px;
-    //             margin: 15px;
-    //             transition: transform 300ms;
-    //             border-radius: 3px;
-
-    //             &:hover {
-    //                 transform: scale(1.1);
-    //             }
-    //         }
-
-    //         &::-webkit-scrollbar {
-    //             display: none;
-    //         }
-    //     }
-    //     h2 {
-    //         margin-top: 15px;
-    //     }
 }

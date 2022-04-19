@@ -10,7 +10,7 @@ export const MovieProvider = ({ children }) => {
     const [nowPlayingMovies, setNowPlayingMovies] = useState([]);
     const [nowPlayingTv, setNowPlayingTv] = useState([]);
     const [detailedBannerData, setDetailedBannerData] = useState([]);
-    const { IMG_BG_URL, media_type, queries } = api;
+    const { IMG_URL, IMG_BG_URL, media_type, queries } = api;
 
     useEffect(() => {
         // BANNER MOVIES:
@@ -64,16 +64,25 @@ export const MovieProvider = ({ children }) => {
         return str?.length > maxLength ? str.slice(0, maxLength) + `…` : str;
     };
 
+    // Customize the movie date:
+    const releaseYear = (date = "2022-01-01") => {
+        date = date.split("-");
+        const [year] = date;
+        return year;
+    };
+
     // PUSH ALL THE FETCHED DATA INTO AN ARRAY:
     const movieShelfArray = [topRated, nowPlayingMovies, nowPlayingTv];
 
     return (
         <MovieContext.Provider
             value={{
+                IMG_URL,
                 IMG_BG_URL,
                 detailedBannerData,
                 movieShelfArray,
                 truncate,
+                releaseYear,
             }}
         >
             {children}
