@@ -1,16 +1,19 @@
 import { useMovie } from "../../helpers/movie-hooks";
-import {  FaStar } from "react-icons/fa";
+import { FaStar } from "react-icons/fa";
+import MovieCard from "../cards/MovieCard";
 
-function MovieColls({
-    poster_path,
-    title,
-    name,
-    release_date,
-    first_air_date,
-    vote_average,
-    // runtime,
-}) {
+function MovieColls(item) {
     const { IMG_URL, truncate, releaseYear } = useMovie();
+    const {
+        poster_path,
+        title,
+        name,
+        release_date,
+        first_air_date,
+        vote_average,
+        runtime,
+        episode_run_time,
+    } = item;
 
     return (
         <div className="movie__colls">
@@ -27,6 +30,10 @@ function MovieColls({
                     <div className="movie__info-date">
                         {release_date && releaseYear(release_date)}
                         {first_air_date && releaseYear(first_air_date)}
+                        <span className="card__runtime">
+                            {(runtime && `${runtime} min`) ||
+                                (episode_run_time && `${episode_run_time} min`)}
+                        </span>
                     </div>
                     <div className="movie__info-rating">
                         <p>
@@ -36,6 +43,7 @@ function MovieColls({
                     </div>
                 </div>
             </div>
+            <MovieCard {...item} />
         </div>
     );
 }

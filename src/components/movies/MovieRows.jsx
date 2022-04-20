@@ -5,7 +5,6 @@ const MovieRows = ({ item }) => {
         <div className="movie__rows" id="Category">
             {item.map((movies) => (
                 // console.log(movies)
-
                 <MovieColls {...movies.data} key={movies.data.id} />
             ))}
         </div>
