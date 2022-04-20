@@ -7,7 +7,7 @@ import Whoops404 from "../pages/Whoops404";
 
 function App() {
     return (
-        <div className="App">
+        <div className="app">
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="films" element={<Movies />} />

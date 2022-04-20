@@ -1,36 +1,21 @@
-import FilmShelf from "../components/films/FilmShelf";
 import { useMovie } from "../helpers/movie-hooks";
+import MovieRows from "../components/movies/MovieRows";
 
-// Render on Home page
-export const MainHome = () => {
-    const { homeUrls } = useMovie();
+const Main = () => {
+    const { movieShelf } = useMovie();
 
     return (
         <main className="main container">
-            <h2>NetflixOriginals</h2>
-            <FilmShelf title="Trending" fetchUrl={homeUrls.NetflixOriginals} />
-
-            <h2>Trending</h2>
-            <FilmShelf title="Netflix Originals" fetchUrl={homeUrls.Trending} />
-
-            <h2>TopRated</h2>
-            <FilmShelf title="Trending" fetchUrl={homeUrls.TopRated} />
+            <div className="movie__wrapper grid">
+                {movieShelf.map(({ title, item }) => (
+                    <div key={title}>
+                        <p className="movie__shelf-heading">{title}</p>
+                        <MovieRows {...{ item }} />
+                    </div>
+                ))}
+            </div>
         </main>
     );
 };
 
-// Render on Movies page
-export const MainFilm = () => {
-    const { genreUrls } = useMovie();
-
-    return (
-        <div id="Main">
-            {genreUrls.map((url) => (
-                <div key={url.fetchUrl}>
-                    <h2>{url.title}</h2>
-                    <FilmShelf fetchUrl={url.fetchUrl} />
-                </div>
-            ))}
-        </div>
-    );
-};
+export default Main;

@@ -1,3 +1,5 @@
+@use "../utils/" as *;
+
 @media (min-width: 425px) {
     .nav {
         &__search {

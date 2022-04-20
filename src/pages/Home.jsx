@@ -1,11 +1,11 @@
 import Header from "../layout/Header";
-import { MainHome } from "../layout/Main";
+import Main from "../layout/Main";
 
 const Home = () => {
     return (
-        <div id="Home">
+        <div className="home">
             <Header />
-            <MainHome />
+            <Main />
         </div>
     );
 };

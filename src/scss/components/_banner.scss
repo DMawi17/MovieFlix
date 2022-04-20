@@ -1,3 +1,5 @@
+@use "../utils/" as *;
+
 .banner {
     height: 70vh;
     margin-bottom: 3rem;
@@ -11,7 +13,12 @@
     &__content {
         width: 100%;
         padding: 0 1rem;
-        background-image: linear-gradient(180deg, transparent, #0a0a0abd, #000);
+        background-image: linear-gradient(
+            180deg,
+            transparent,
+            #0a0a0abd,
+            $clr-bg-dark
+        );
 
         align-self: flex-end;
         display: flex;
@@ -40,7 +47,7 @@
             margin: 0.5rem 2rem 0 0;
 
             &-date {
-                width: 120px;
+                width: 95px;
                 background: #00abc0;
                 padding: 0.3rem 0.5rem;
                 border-radius: 0.2rem;
@@ -74,7 +81,7 @@
         display: flex;
         gap: 0.5rem;
         white-space: nowrap;
-        margin: 0.5rem 2rem 0 0;
+        margin: 0.5rem 1rem 0 0;
 
         &-play {
             color: #00abc0;

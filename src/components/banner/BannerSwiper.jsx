@@ -1,20 +1,15 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper";
-import { useMovie } from "../../helpers/movie-hooks";
-import Banner from "./Banner";
-
-import { v4 } from "uuid";
 
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-export default function BannerSwiper() {
-    const { bannerData } = useMovie();
+import Banner from "./Banner";
+import { useMovie } from "../../helpers/movie-hooks";
 
-    const tenBanners = bannerData
-        .sort((a, b) => b.vote_average - a.vote_average)
-        .filter((v, i) => i < 10);
+const BannerSwiper = () => {
+    const { detailedBannerData } = useMovie();
 
     return (
         <>
@@ -30,12 +25,14 @@ export default function BannerSwiper() {
                 }}
                 modules={[Autoplay, Pagination]}
             >
-                {tenBanners.map((banner) => (
-                    <SwiperSlide key={v4()}>
-                        <Banner {...banner} />
+                {detailedBannerData.map((bannerInfo) => (
+                    <SwiperSlide key={bannerInfo.data.id}>
+                        <Banner bannerInfo={bannerInfo.data} />
                     </SwiperSlide>
                 ))}
             </Swiper>
         </>
     );
-}
+};
+
+export default BannerSwiper;

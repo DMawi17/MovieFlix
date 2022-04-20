@@ -1,0 +1,80 @@
+/* Font size */
+$fs-l: 3.2rem;
+$fs-h1: 1.5rem;
+$fs-h2: 1.25rem;
+$fs-h3: 1.125rem;
+$fs-body: 0.938rem;
+$fs-sm: 0.813rem;
+$fs-xsm: 0.75rem;
+
+/* Font weight */
+$fw-thin: 100;
+$fw-light: 200;
+$fw-reg: 400;
+$fw-semi-bold: 600;
+$fw-bold: 900;
+
+/* z-index */
+$z-tooltip: 10;
+$z-fixed: 100;
+$z-modal: 1000;
+
+/* Margins bottoms*/
+$mb-025: 0.25rem;
+$mb-05: 0.5rem;
+$mb-075: 0.75rem;
+$mb-10: 1rem;
+$mb-15: 1.5rem;
+$mb-20: 2rem;
+$mb-25: 2.5rem;
+$mb-30: 3rem;
+
+/* Components */
+// $header-height: 3rem;
+
+/* Box-shadow */
+
+// $bsh-light: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+
+// $bsh-reg-light: rgba(102, 102, 143, 0.25) 0px 6px 12px -2px,
+//     rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+
+// $bsh-reg: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+//     rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+
+$clr-primary: #00acc1;
+
+/* Background colors */
+
+$clr-bg-dark: #0f120f;
+$clr-bg-med: #212529;
+$clr-container: #fff;
+
+/* Text colors */
+
+$clr-txt-primary: #f8f9fa;
+$clr-txt-secondary: #959595;
+$clr-txt-tertiary: #bbbbbb;
+
+// $clr-hue: 210;
+// $clr-primary: hsl($clr-hue, 69%, 61%);
+// $clr-tertiary: hsl($clr-hue, 57%, 53%);
+// $clr-primary-light: hsl($clr-hue, 92%, 85%);
+// $clr-txt-light: hsl($clr-hue, 8%, 65%);
+// $clr-bg-light: hsla(0, 0%, 67%, 0.6);
+// $clr-bg-light-transparent: hsla(0, 0%, 67%, 0.5);
+// $clr-secondary: hsl($clr-hue, 69%, 61%);
+// $clr-title: hsl($clr-hue, 8%, 15%);
+// $clr-txt: hsl($clr-hue, 8%, 45%);
+// $clr-input: hsl($clr-hue, 70%, 96%);
+// $clr-body: hsl($clr-hue, 60%, 99%);
+// $clr-container: #fff;
+// $clr-scroll-bar: hsl($clr-hue, 12%, 90%);
+// $clr-scroll-thumb: hsl($clr-hue, 12%, 80%);
+
+// $clr-icon: #346670;
+// $clr-icon-hover: #346670bc;
+// $clr-icon-secondary: #e3becd; // pinkish!
+// $clr-icon-tertiary: #e7c985; // orangish!
+// $clr-bg-icon: #becbc45b;
+// $clr-primary-hover: #79adcc;

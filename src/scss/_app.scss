@@ -1,15 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500;600&family=Roboto:wght@100;400;500&display=swap");
+@use "./utils/" as *;
+
+// RESET:
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
-}
-
-.App {
-    background-color: #000;
-    min-width: 400px;
 }
 
 input:-webkit-autofill,
@@ -26,4 +23,25 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+// GENERAL STYLE:
+
+.app {
+}
+
+.home {
+    background: $clr-bg-dark;
+}
+
+.container {
+
 }
