@@ -1,9 +1,11 @@
 import MovieColls from "./MovieColls";
 
-const MovieRows = ({ categories }) => {
+const MovieRows = ({ item }) => {
     return (
         <div className="movie__rows" id="Category">
-            {categories.map((movies) => (
+            {item.map((movies) => (
+                // console.log(movies)
+
                 <MovieColls {...movies.data} key={movies.data.id} />
             ))}
         </div>

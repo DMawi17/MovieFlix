@@ -5,6 +5,13 @@
         &__wrapper {
         }
 
+        &__shelf-heading {
+            font-size: 27px;
+            font-weight: 500;
+            color: #fff;
+            margin: 1.5rem;
+        }
+
         &__rows {
             display: grid;
             grid-template-columns: repeat(auto-fill, 160px);

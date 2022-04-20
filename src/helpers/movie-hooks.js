@@ -72,7 +72,12 @@ export const MovieProvider = ({ children }) => {
     };
 
     // PUSH ALL THE FETCHED DATA INTO AN ARRAY:
-    const movieShelfArray = [topRated, nowPlayingMovies, nowPlayingTv];
+
+    const movieShelf = [
+        { title: "Recommended", item: topRated },
+        { title: "Latest Movies", item: nowPlayingMovies },
+        { title: "Latest TV-Series", item: nowPlayingTv },
+    ];
 
     return (
         <MovieContext.Provider
@@ -80,9 +85,9 @@ export const MovieProvider = ({ children }) => {
                 IMG_URL,
                 IMG_BG_URL,
                 detailedBannerData,
-                movieShelfArray,
                 truncate,
                 releaseYear,
+                movieShelf,
             }}
         >
             {children}

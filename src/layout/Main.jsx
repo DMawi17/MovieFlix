@@ -1,15 +1,17 @@
 import { useMovie } from "../helpers/movie-hooks";
 import MovieRows from "../components/movies/MovieRows";
-import { v4 } from "uuid";
 
 const Main = () => {
-    const { movieShelfArray } = useMovie();
+    const { movieShelf } = useMovie();
 
     return (
         <main className="main container">
             <div className="movie__wrapper grid">
-                {movieShelfArray.map((category) => (
-                    <MovieRows key={v4()} categories={category} />
+                {movieShelf.map(({ title, item }) => (
+                    <div key={title}>
+                        <p className="movie__shelf-heading">{title}</p>
+                        <MovieRows {...{ item }} />
+                    </div>
                 ))}
             </div>
         </main>
