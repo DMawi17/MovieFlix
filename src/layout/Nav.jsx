@@ -1,29 +1,12 @@
-import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 import { BsPersonFill } from "react-icons/bs";
 import { AiOutlineBars } from "react-icons/ai";
 import { v4 } from "uuid";
+import { useMovie } from "../helpers/movie-hooks";
 
 const NavBar = () => {
-    const [toggleMenu, setToggleMenu] = useState(false);
-    const [toggleLogin, setToggleLogin] = useState(false);
-
-    const navElements = [
-        { path: "/", link: "Home" },
-        { path: "genre", link: "Genre" },
-        { path: "country", link: "Country" },
-        { path: "movies", link: "Movies" },
-        { path: "tvShows", link: "TV-Series" },
-        { path: "topImdb", link: "Top IMDB" },
-    ];
-
-    const handleToggleMenu = () => {
-        setToggleMenu(!toggleMenu);
-    };
-    const handleToggleLogin = () => {
-        setToggleLogin(!toggleLogin);
-    };
+    const { navElements, handleToggleMenu, handleToggleLogin } = useMovie();
 
     return (
         <div className="nav__wrapper">

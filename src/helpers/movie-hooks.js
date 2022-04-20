@@ -6,6 +6,8 @@ const MovieContext = createContext();
 export const useMovie = () => useContext(MovieContext);
 
 export const MovieProvider = ({ children }) => {
+    const [toggleMenu, setToggleMenu] = useState(false);
+    const [toggleLogin, setToggleLogin] = useState(false);
     const [topRated, setTopRated] = useState([]);
     const [nowPlayingMovies, setNowPlayingMovies] = useState([]);
     const [nowPlayingTv, setNowPlayingTv] = useState([]);
@@ -59,6 +61,23 @@ export const MovieProvider = ({ children }) => {
             );
     }, [media_type, queries]);
 
+    const navElements = [
+        { path: "/", link: "Home" },
+        { path: "genre", link: "Genre" },
+        { path: "country", link: "Country" },
+        { path: "movies", link: "Movies" },
+        { path: "tvShows", link: "TV-Series" },
+        { path: "topImdb", link: "Top IMDB" },
+    ];
+
+    const handleToggleMenu = () => {
+        setToggleMenu(!toggleMenu);
+    };
+
+    const handleToggleLogin = () => {
+        setToggleLogin(!toggleLogin);
+    };
+
     // Truncate the description of the banner.
     const truncate = (str, maxLength = 150) => {
         return str?.length > maxLength ? str.slice(0, maxLength) + `…` : str;
@@ -72,7 +91,6 @@ export const MovieProvider = ({ children }) => {
     };
 
     // PUSH ALL THE FETCHED DATA INTO AN ARRAY:
-
     const movieShelf = [
         { title: "Recommended", item: topRated },
         { title: "Latest Movies", item: nowPlayingMovies },
@@ -82,6 +100,11 @@ export const MovieProvider = ({ children }) => {
     return (
         <MovieContext.Provider
             value={{
+                toggleMenu,
+                toggleLogin,
+                navElements,
+                handleToggleMenu,
+                handleToggleLogin,
                 IMG_URL,
                 IMG_BG_URL,
                 detailedBannerData,
