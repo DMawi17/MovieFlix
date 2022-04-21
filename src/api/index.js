@@ -22,13 +22,16 @@ const queries = {
     recom: "/recommendations",
     playing: "/now_playing",
     on_air: "/on_the_air",
+    discover: "/discover",
 };
+
+/* ******************************************** */
 
 const client = axios.create({
     baseURL: API_BASE_URL,
-    // headers: {
-    //     "Content-Type": "application/json",
-    // },
+    headers: {
+        "Content-Type": "application/json",
+    },
 });
 
 const params = new URLSearchParams();
@@ -39,15 +42,13 @@ const request = {
     params: params,
 };
 
+const endpoints = Array.from({ length: 5 }, (_, i) => i + 1);
+
+/* ******************************************** */
+
 const fetchMovies = (mediaType, queryStr, params = request) => {
     return client.get(`${mediaType}${queryStr}`, params);
 };
-
-// const fetchDetail = (id, mediaType) => {
-//     return client.get(`${mediaType}${id}`, {
-//         params: { api_key: API_KEY },
-//     });
-// };
 
 const fetchDetails = (mediaType, ids) => {
     return axios.all(
@@ -57,22 +58,39 @@ const fetchDetails = (mediaType, ids) => {
             })
         )
     );
-    // https://api.themoviedb.org/3/movie/{movie_id}?api_key={{movieDB}}
 };
 
 // Discovery
-
 const fetchGenreList = (params = request) => {
     return client.get("/genre/movie/list", params);
 };
-
-// https://api.themoviedb.org/3/discover/movie?api_key={{movieDB}}&with_genres=28
 
 const fetchGenre = (mediaType, id, params = request) => {
     request.params.append("with_genres", id);
     return client.get(`/discover${mediaType}`, params);
 };
 
+// const fetchGenre = (mediaType, id, params = request) => {
+//     return axios.all(
+//         endpoints.map((endpoint) => {
+//             request.params.append("with_genres", id);
+//             request.params.append("page", endpoint);
+//             request.params.forEach((a) => console.log(a));
+//             return client.get(`/discover${mediaType}`, params);
+//         })
+//     );
+// };
+
+// Fetch a few more pages:
+const fetchMultiplePages = (mediaType, queryStr, params = request) => {
+    return axios.all(
+        endpoints.map((endpoint) => {
+            request.params.append("page", endpoint);
+            // request.params.forEach((a) => console.log(a));
+            return client.get(`${mediaType}${queryStr}`, params);
+        })
+    );
+};
 
 export {
     API_KEY,
@@ -87,4 +105,6 @@ export {
     fetchDetails,
     fetchGenreList,
     fetchGenre,
+    fetchMultiplePages,
+    endpoints,
 };

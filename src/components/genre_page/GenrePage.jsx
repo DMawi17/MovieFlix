@@ -1,19 +1,14 @@
-// import MovieCard from "../cards/MovieCard";
 import { useMovie } from "../../helpers/movie-hooks";
 import { FaStar } from "react-icons/fa";
 
-function MoviePages() {
-    const { IMG_URL, customGenre, genreName, truncate, releaseYear } =
-        useMovie();
-
-    const { genres } = customGenre;
-    const [heading] = genreName.map(({ name }) => name);
+function GenrePages({ props }) {
+    const { IMG_URL, truncate, releaseYear } = useMovie();
 
     return (
         <>
-            <div className="movie__shelf-heading">{heading}</div>
+            <div className="movie__shelf-heading">{props.heading}</div>
             <div className="movie__page">
-                {genres?.map((item) => (
+                {props.genres?.map((item) => (
                     <div key={item.id} className="movie__colls">
                         <img
                             className="movie__img"
@@ -46,7 +41,6 @@ function MoviePages() {
                                 </div>
                             </div>
                         </div>
-                        {/* <MovieCard {...item} /> */}
                     </div>
                 ))}
             </div>
@@ -54,4 +48,4 @@ function MoviePages() {
     );
 }
 
-export default MoviePages;
+export default GenrePages;

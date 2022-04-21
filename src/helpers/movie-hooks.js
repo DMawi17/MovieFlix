@@ -14,6 +14,9 @@ export const MovieProvider = ({ children }) => {
     const [detailedBannerData, setDetailedBannerData] = useState([]);
     const [genresList, setGenresList] = useState([]);
     const [customGenre, setCustomGenre] = useState([]);
+    const [multipleFetchMovies, setMultipleFetchMovies] = useState([]);
+    const [multipleFetchTv, setMultipleFetchTv] = useState([]);
+
     const { IMG_URL, IMG_BG_URL, media_type, queries } = api;
 
     useEffect(() => {
@@ -61,10 +64,9 @@ export const MovieProvider = ({ children }) => {
                     .fetchDetails(media_type.tv, id)
                     .then((tvDetail) => setNowPlayingTv(tvDetail))
             );
-
-        // FETCH GENRE LISTS:
     }, [media_type, queries]);
 
+    // FETCH GENRE LISTS:
     useEffect(() => {
         api.fetchGenreList().then((res) => setGenresList(res.data.genres));
     }, []);
@@ -86,14 +88,38 @@ export const MovieProvider = ({ children }) => {
 
     const genreName = filteredGenre(customGenre.id, genresList);
 
-    // const navElements = [
-    //     { path: "/", link: "Home" },
-    //     { path: "genre", link: "Genre" },
-    //     { path: "country", link: "Country" },
-    //     { path: "movies", link: "Movies" },
-    //     { path: "series", link: "TV-Series" },
-    //     { path: "topImdb", link: "Top IMDB" },
-    // ];
+    // Multiple Fetch;
+    /* ************************************ */
+
+    useEffect(() => {
+        const fetchPages = async () => {
+            const getMultiple = await api
+                .fetchMultiplePages(media_type.movie, queries.top_rated)
+                .then((res) => res)
+                .then((movies) => movies.map((data) => data));
+
+            setMultipleFetchMovies(getMultiple);
+        };
+
+        fetchPages();
+    }, [media_type.movie, queries.top_rated]);
+
+    /* ************************************ */
+
+    useEffect(() => {
+        const fetchPages = async () => {
+            const getMultiple = await api
+                .fetchMultiplePages(media_type.tv, queries.top_rated)
+                .then((res) => res)
+                .then((movies) => movies.map((data) => data));
+
+            setMultipleFetchTv(getMultiple);
+        };
+
+        fetchPages();
+    }, [media_type.tv, queries.top_rated]);
+
+    /* *********************************** */
 
     const handleToggleMenu = () => {
         setToggleMenu(!toggleMenu);
@@ -115,7 +141,7 @@ export const MovieProvider = ({ children }) => {
         return year;
     };
 
-    // PUSH ALL THE FETCHED DATA INTO AN ARRAY:
+    // PUSH ALL THE FETCHED DATA INTO AN ARRAY FOR HOME PAGE:
     const movieShelf = [
         { title: "Recommended", item: topRated },
         { title: "Latest Movies", item: nowPlayingMovies },
@@ -141,6 +167,8 @@ export const MovieProvider = ({ children }) => {
                 fetchGenre,
                 filteredGenre,
                 genreName,
+                multipleFetchMovies,
+                multipleFetchTv,
             }}
         >
             {children}
