@@ -43,7 +43,6 @@
             list-style: none;
         }
 
-        // &__logo,
         &__link,
         &__login-link {
             color: lightgray;
@@ -92,11 +91,9 @@
         }
 
         &__login {
-            // padding: 0.5rem;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            // gap: 1rem;
         }
 
         &__login-link {

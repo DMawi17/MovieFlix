@@ -1,13 +1,13 @@
-import Footer from "../layout/Footer";
 import Header from "../layout/Header";
+import Footer from "../layout/Footer";
 
-const Movies = () => {
+function Genre() {
     return (
-        <div id="Movies">
+        <div className="genre">
             <Header />
             <Footer />
         </div>
     );
-};
+}
 
-export default Movies;
+export default Genre;

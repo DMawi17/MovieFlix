@@ -66,7 +66,7 @@ export const MovieProvider = ({ children }) => {
         { path: "genre", link: "Genre" },
         { path: "country", link: "Country" },
         { path: "movies", link: "Movies" },
-        { path: "tvShows", link: "TV-Series" },
+        { path: "series", link: "TV-Series" },
         { path: "topImdb", link: "Top IMDB" },
     ];
 

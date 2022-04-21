@@ -1,13 +1,14 @@
+import React from "react";
 import Footer from "../layout/Footer";
 import Header from "../layout/Header";
 
-const Movies = () => {
+function Country() {
     return (
-        <div id="Movies">
+        <section className="country">
             <Header />
             <Footer />
-        </div>
+        </section>
     );
-};
+}
 
-export default Movies;
+export default Country;

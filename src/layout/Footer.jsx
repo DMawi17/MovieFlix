@@ -1,10 +1,6 @@
-import { Link } from "react-router-dom";
-import { useMovie } from "../helpers/movie-hooks";
-import { v4 } from "uuid";
+import Nav from "./Nav";
 
 function Footer() {
-    const { navElements } = useMovie();
-
     return (
         <footer className="footer">
             <div className="footer__container container grid">
@@ -12,33 +8,29 @@ function Footer() {
                     <span to="/" className="footer__logo">
                         MovieSt
                     </span>
-                    <p className="footer__about">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing
-                        elit. Numquam at incidunt, excepturi facere ut beatae
-                        itaque modi mollitia quisquam. Architecto officia quidem
-                        eum animi hic quam! Fuga animi culpa voluptates.
+                    <p className="footer__attribute">
+                        All film-related metadata used in Letterboxd, including
+                        actor, director and studio names, synopses, release
+                        dates, trailers and poster art is supplied by The
+                        <a
+                            className="external__link"
+                            href="https://www.themoviedb.org/"
+                        >
+                            {" "}
+                            Movie Database
+                        </a>{" "}
+                        (TMDb).
                     </p>
 
                     <span className="footer__contact">
                         <h3 className="footer__left-title">Contact</h3>
-                        <a href="/">Email</a>
+                        <a href="mailto:asegda17@gmail.com">Send Email</a>
                     </span>
                 </section>
 
                 <section className="footer__right">
                     <h3 className="footer__right-title">Links</h3>
-                    <ul className="footer__links">
-                        {navElements.map((el) => (
-                            <li key={v4()} className="nav__item">
-                                <Link
-                                    to={`${el.path}`}
-                                    className={`nav__link nav__${el.path}`}
-                                >
-                                    {el.link}
-                                </Link>
-                            </li>
-                        ))}
-                    </ul>
+                    <Nav />
                     <div className="footer__socials"></div>
                 </section>
             </div>
@@ -46,16 +38,6 @@ function Footer() {
             <div className="footer__copy">
                 <p className="footer__all-right">
                     &#169;2022 Dagmawi Asegid <br />
-                </p>
-                <p className="footer__attribute">
-                    All film-related metadata used in Letterboxd, including
-                    actor, director and studio names, synopses, release dates,
-                    trailers and poster art is supplied by The
-                    <a href="https://www.themoviedb.org/">
-                        {" "}
-                        Movie Database
-                    </a>{" "}
-                    (TMDb).
                 </p>
             </div>
         </footer>

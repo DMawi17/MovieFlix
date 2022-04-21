@@ -1,13 +1,14 @@
+import React from "react";
 import Footer from "../layout/Footer";
 import Header from "../layout/Header";
 
-const Movies = () => {
+function Imdb() {
     return (
-        <div id="Movies">
+        <section className="imdb">
             <Header />
             <Footer />
-        </div>
+        </section>
     );
-};
+}
 
-export default Movies;
+export default Imdb;
