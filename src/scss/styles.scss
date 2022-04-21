@@ -4,6 +4,7 @@
 @use "./components/search";
 @use "./components/banner";
 @use "./components/movieCard";
+@use "./components/navCard";
 
 // Layout
 @use "./layout/nav";
@@ -11,7 +12,7 @@
 @use "./layout/footer";
 
 // Pages
-@use "./pages/pages";
+// @use "./pages/genre";
 
 // Media Query
 @use "./media-query/large";

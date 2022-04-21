@@ -1,16 +1,16 @@
-// import { useMovie } from "../helpers/movie-hooks";
+import React from "react";
 import Footer from "../layout/Footer";
 import Header from "../layout/Header";
 import Main from "../layout/Main";
 
-const Series = () => {
+function Country() {
     return (
-        <section className="series">
+        <section className="country">
             <Header />
-            <Main/>
+            <Main />
             <Footer />
         </section>
     );
-};
+}
 
-export default Series;
+export default Country;

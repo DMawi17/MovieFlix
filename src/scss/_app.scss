@@ -9,6 +9,10 @@
     font-family: "Poppins", sans-serif;
 }
 
+body {
+    background: $clr-bg-dark;
+}
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
@@ -41,7 +45,7 @@ a {
 }
 
 .home {
-    background: $clr-bg-dark;
+    // background: $clr-bg-dark;
 }
 
 .container {

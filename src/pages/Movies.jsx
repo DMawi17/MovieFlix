@@ -1,12 +1,14 @@
-import Nav from "../layout/Nav";
-// import { MainFilm } from "../layout/Main";
+import Footer from "../layout/Footer";
+import Header from "../layout/Header";
+import Main from "../layout/Main";
 
 const Movies = () => {
     return (
-        <div id="Movies">
-            <Nav />
-            {/* <MainFilm /> */}
-        </div>
+        <section id="Movies">
+            <Header />
+            <Main />
+            <Footer />
+        </section>
     );
 };
 

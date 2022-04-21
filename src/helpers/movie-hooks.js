@@ -12,6 +12,8 @@ export const MovieProvider = ({ children }) => {
     const [nowPlayingMovies, setNowPlayingMovies] = useState([]);
     const [nowPlayingTv, setNowPlayingTv] = useState([]);
     const [detailedBannerData, setDetailedBannerData] = useState([]);
+    const [genresList, setGenresList] = useState([]);
+    const [genre, setGenre] = useState([]);
     const { IMG_URL, IMG_BG_URL, media_type, queries } = api;
 
     useEffect(() => {
@@ -59,14 +61,27 @@ export const MovieProvider = ({ children }) => {
                     .fetchDetails(media_type.tv, id)
                     .then((tvDetail) => setNowPlayingTv(tvDetail))
             );
+
+        // FETCH GENRE LISTS:
     }, [media_type, queries]);
+
+    useEffect(() => {
+        api.fetchGenreList().then((res) => setGenresList(res.data.genres));
+    }, []);
+
+    // Each genre has a value of an array
+    const fetchGenre = (id) => {
+        api.fetchGenre(media_type.movie, id).then((genres) =>
+            setGenre(genres.data.results)
+        );
+    };
 
     const navElements = [
         { path: "/", link: "Home" },
         { path: "genre", link: "Genre" },
         { path: "country", link: "Country" },
         { path: "movies", link: "Movies" },
-        { path: "tvShows", link: "TV-Series" },
+        { path: "series", link: "TV-Series" },
         { path: "topImdb", link: "Top IMDB" },
     ];
 
@@ -111,6 +126,9 @@ export const MovieProvider = ({ children }) => {
                 truncate,
                 releaseYear,
                 movieShelf,
+                genresList,
+                genre,
+                fetchGenre,
             }}
         >
             {children}

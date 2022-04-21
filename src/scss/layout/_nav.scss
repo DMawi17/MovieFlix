@@ -1,11 +1,6 @@
 @use "../utils/" as *;
 
 .nav__wrapper {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 2;
     background-image: linear-gradient(0deg, transparent, #0a0a0a84, #000);
 
     .nav {
@@ -41,9 +36,15 @@
 
         &__item {
             list-style: none;
+            position: relative;
+
+            &:hover {
+                .card__genre {
+                    display: block;
+                }
+            }
         }
 
-        // &__logo,
         &__link,
         &__login-link {
             color: lightgray;
@@ -92,11 +93,9 @@
         }
 
         &__login {
-            // padding: 0.5rem;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            // gap: 1rem;
         }
 
         &__login-link {

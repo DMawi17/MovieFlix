@@ -5,12 +5,12 @@ const Whoops404 = () => {
     const location = useLocation();
 
     return (
-        <div id="Whoops">
+        <section className="whoops">
             <h2>
                 <FaCat /> <span>Whoops!</span> <br />
                 Resource not found at {location.pathname}
             </h2>
-        </div>
+        </section>
     );
 };
 

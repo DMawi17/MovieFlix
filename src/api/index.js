@@ -5,6 +5,12 @@ const API_BASE_URL = "https://api.themoviedb.org/3";
 const IMG_URL = "https://image.tmdb.org/t/p/w200";
 const IMG_BG_URL = "https://image.tmdb.org/t/p/original";
 
+// Discovery
+// const GENRE_URL = "https://api.themoviedb.org/3/discover/";
+
+//  https://api.themoviedb.org/3/genre/movie/list?api_key={{movieDB}}&language=en-US
+// const GENRE_URL = "/genre/movie/list";
+
 const media_type = { tv: "/tv", movie: "/movie" };
 const time_window = { day: "/day", week: "/week" };
 const queries = {
@@ -20,22 +26,21 @@ const queries = {
 
 const client = axios.create({
     baseURL: API_BASE_URL,
-    headers: {
-        "Content-Type": "application/json",
-    },
+    // headers: {
+    //     "Content-Type": "application/json",
+    // },
 });
 
 const params = new URLSearchParams();
 params.append("api_key", API_KEY);
-params.append("language", "en-ES");
-params.append("page", 2);
+params.append("language", "en-US");
 
 const request = {
     params: params,
 };
 
-const fetchMovies = (movieType, queriesStr, params = request) => {
-    return client.get(`${movieType}${queriesStr}`, params);
+const fetchMovies = (mediaType, queryStr, params = request) => {
+    return client.get(`${mediaType}${queryStr}`, params);
 };
 
 // const fetchDetail = (id, mediaType) => {
@@ -52,7 +57,22 @@ const fetchDetails = (mediaType, ids) => {
             })
         )
     );
+    // https://api.themoviedb.org/3/movie/{movie_id}?api_key={{movieDB}}
 };
+
+// Discovery
+
+const fetchGenreList = (params = request) => {
+    return client.get("/genre/movie/list", params);
+};
+
+// https://api.themoviedb.org/3/discover/movie?api_key={{movieDB}}&with_genres=28
+
+const fetchGenre = (mediaType, id, params = request) => {
+    request.params.append("with_genres", id);
+    return client.get(`/discover${mediaType}`, params);
+};
+
 
 export {
     API_KEY,
@@ -65,4 +85,6 @@ export {
     fetchMovies,
     // fetchDetail,
     fetchDetails,
+    fetchGenreList,
+    fetchGenre,
 };

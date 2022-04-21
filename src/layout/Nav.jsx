@@ -1,69 +1,43 @@
 import { Link } from "react-router-dom";
-import { FaSearch } from "react-icons/fa";
-import { BsPersonFill } from "react-icons/bs";
-import { AiOutlineBars } from "react-icons/ai";
-import { v4 } from "uuid";
-import { useMovie } from "../helpers/movie-hooks";
+import { GenreCard } from "../components/cards/NavCards";
 
-const NavBar = () => {
-    const { navElements, handleToggleMenu, handleToggleLogin } = useMovie();
-
+const Nav = () => {
     return (
-        <div className="nav__wrapper">
-            <nav className="nav">
-                <button
-                    className="nav__btn nav__toggle"
-                    id="nav_toggle"
-                    onClick={handleToggleMenu}
-                >
-                    <AiOutlineBars className="bars__icon" />
-                </button>
-
-                <Link to="/" className="nav__logo">
-                    MovieSt
+        <ul className="nav__list">
+            <li className="nav__item">
+                <Link to="/" className="nav__link">
+                    Home
                 </Link>
-
-                {/*   {toggleMenu && ( */}
-                {/* <> */}
-                <ul className="nav__list">
-                    {navElements.map((el) => (
-                        <li key={v4()} className="nav__item">
-                            <Link
-                                to={`${el.path}`}
-                                className={`nav__link nav__${el.path}`}
-                            >
-                                {el.link}
-                            </Link>
-                        </li>
-                    ))}
-                </ul>
-
-                <div to="search" className="nav__search ">
-                    <FaSearch className="nav__search-icon" />
-                    <label htmlFor="" className="nav__search-label">
-                        <input
-                            type="text"
-                            name="search"
-                            id="search"
-                            className="nav__search-input"
-                            placeholder="Enter your keywords..."
-                        />
-                    </label>
-                </div>
-                {/* </> */}
-                {/*      )} */}
-
-                <div className="nav__login" onClick={handleToggleLogin}>
-                    <BsPersonFill className="nav__login-icon" />
-                    {/* {toggleLogin && ( */}
-                    <Link className="nav__login-link" to="login">
-                        Login / Register
-                    </Link>
-                    {/*      )} */}
-                </div>
-            </nav>
-        </div>
+            </li>
+            <li className="nav__item">
+                <Link to="/" className="nav__link genre">
+                    Genre
+                </Link>
+                <GenreCard />
+            </li>
+            <li className="nav__item">
+                <Link to="/country" className="nav__link country">
+                    Country
+                </Link>
+                {/* <GenreCard /> */}
+            </li>
+            <li className="nav__item">
+                <Link to="/movies" className="nav__link">
+                    Movies
+                </Link>
+            </li>
+            <li className="nav__item">
+                <Link to="/series" className="nav__link">
+                    TV-Series
+                </Link>
+            </li>
+            <li className="nav__item">
+                <Link to="/topImdb" className="nav__link">
+                    Top IMDB
+                </Link>
+            </li>
+        </ul>
     );
 };
 
-export default NavBar;
+export default Nav;
