@@ -16,12 +16,6 @@ const Nav = () => {
                 <GenreCard />
             </li>
             <li className="nav__item">
-                <Link to="/country" className="nav__link country">
-                    Country
-                </Link>
-                {/* <GenreCard /> */}
-            </li>
-            <li className="nav__item">
                 <Link to="/movies" className="nav__link">
                     Movies
                 </Link>
