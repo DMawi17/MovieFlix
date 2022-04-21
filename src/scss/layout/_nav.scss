@@ -36,6 +36,13 @@
 
         &__item {
             list-style: none;
+            position: relative;
+
+            &:hover {
+                .card__genre {
+                    display: block;
+                }
+            }
         }
 
         &__link,

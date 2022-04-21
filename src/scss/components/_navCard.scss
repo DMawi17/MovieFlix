@@ -1,0 +1,22 @@
+@use "../utils/" as *;
+
+.card__genre {
+    width: 350px;
+    padding: 1rem 2rem 0;
+    background-color: $clr-bg-med;
+    color: $clr-txt-secondary;
+    border-radius: 0.4rem;
+    position: absolute;
+    z-index: 3;
+
+    display: none;
+
+    &-list {
+        display: grid;
+        grid-template-columns: repeat(2, 175px);
+    }
+
+    &-item {
+        margin-bottom: 1rem;
+    }
+}

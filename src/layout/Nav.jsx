@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { GenreCard } from "../components/cards/NavCards";
 
 const Nav = () => {
     return (
@@ -9,14 +10,16 @@ const Nav = () => {
                 </Link>
             </li>
             <li className="nav__item">
-                <Link to="/genre" className="nav__link">
+                <Link to="/genre" className="nav__link genre">
                     Genre
                 </Link>
+                <GenreCard />
             </li>
             <li className="nav__item">
-                <Link to="/country" className="nav__link">
+                <Link to="/country" className="nav__link country">
                     Country
                 </Link>
+                {/* <GenreCard /> */}
             </li>
             <li className="nav__item">
                 <Link to="/movies" className="nav__link">

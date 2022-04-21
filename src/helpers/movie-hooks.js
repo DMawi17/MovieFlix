@@ -12,6 +12,7 @@ export const MovieProvider = ({ children }) => {
     const [nowPlayingMovies, setNowPlayingMovies] = useState([]);
     const [nowPlayingTv, setNowPlayingTv] = useState([]);
     const [detailedBannerData, setDetailedBannerData] = useState([]);
+    const [genres, setGenres] = useState([]);
     const { IMG_URL, IMG_BG_URL, media_type, queries } = api;
 
     useEffect(() => {
@@ -60,6 +61,25 @@ export const MovieProvider = ({ children }) => {
                     .then((tvDetail) => setNowPlayingTv(tvDetail))
             );
     }, [media_type, queries]);
+
+    useEffect(
+        () => api.fetchGenreList().then((res) => setGenres(res.data.genres)),
+        // .then((data) => data.map((list) => setGenres(list)));
+        // .then((data) => data.map((genId) => genId.id))
+        // .then((id) =>
+        //     api
+        //         .fetchGenre(media_type.movie, id)
+        //         .then((genres) => setGenres(genres))
+        // );
+        []
+    );
+
+    // FIXME:
+    const fetchGenre = (id) => {
+        api.fetchGenre(media_type.movie, id).then((genres) =>
+            console.log(genres)
+        );
+    };
 
     const navElements = [
         { path: "/", link: "Home" },
@@ -111,6 +131,8 @@ export const MovieProvider = ({ children }) => {
                 truncate,
                 releaseYear,
                 movieShelf,
+                genres,
+                fetchGenre,
             }}
         >
             {children}
