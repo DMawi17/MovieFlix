@@ -57,6 +57,7 @@ const fetchDetails = (mediaType, ids) => {
             })
         )
     );
+    // https://api.themoviedb.org/3/movie/{movie_id}?api_key={{movieDB}}
 };
 
 // Discovery
@@ -67,14 +68,11 @@ const fetchGenreList = (params = request) => {
 
 // https://api.themoviedb.org/3/discover/movie?api_key={{movieDB}}&with_genres=28
 
-const fetchGenre = (mediaType, ids, params = request) => {
-    return axios.all(
-        ids.map((id) => {
-            request.params.append("with_genres", id);
-            return client.get(`/discover${mediaType}`, params);
-        })
-    );
+const fetchGenre = (mediaType, id, params = request) => {
+    request.params.append("with_genres", id);
+    return client.get(`/discover${mediaType}`, params);
 };
+
 
 export {
     API_KEY,

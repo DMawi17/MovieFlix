@@ -12,7 +12,8 @@ export const MovieProvider = ({ children }) => {
     const [nowPlayingMovies, setNowPlayingMovies] = useState([]);
     const [nowPlayingTv, setNowPlayingTv] = useState([]);
     const [detailedBannerData, setDetailedBannerData] = useState([]);
-    const [genres, setGenres] = useState([]);
+    const [genresList, setGenresList] = useState([]);
+    const [genre, setGenre] = useState([]);
     const { IMG_URL, IMG_BG_URL, media_type, queries } = api;
 
     useEffect(() => {
@@ -60,24 +61,18 @@ export const MovieProvider = ({ children }) => {
                     .fetchDetails(media_type.tv, id)
                     .then((tvDetail) => setNowPlayingTv(tvDetail))
             );
+
+        // FETCH GENRE LISTS:
     }, [media_type, queries]);
 
-    useEffect(
-        () => api.fetchGenreList().then((res) => setGenres(res.data.genres)),
-        // .then((data) => data.map((list) => setGenres(list)));
-        // .then((data) => data.map((genId) => genId.id))
-        // .then((id) =>
-        //     api
-        //         .fetchGenre(media_type.movie, id)
-        //         .then((genres) => setGenres(genres))
-        // );
-        []
-    );
+    useEffect(() => {
+        api.fetchGenreList().then((res) => setGenresList(res.data.genres));
+    }, []);
 
-    // FIXME:
+    // Each genre has a value of an array
     const fetchGenre = (id) => {
         api.fetchGenre(media_type.movie, id).then((genres) =>
-            console.log(genres)
+            setGenre(genres.data.results)
         );
     };
 
@@ -131,7 +126,8 @@ export const MovieProvider = ({ children }) => {
                 truncate,
                 releaseYear,
                 movieShelf,
-                genres,
+                genresList,
+                genre,
                 fetchGenre,
             }}
         >

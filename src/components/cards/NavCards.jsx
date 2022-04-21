@@ -2,15 +2,15 @@ import { Link } from "react-router-dom";
 import { useMovie } from "../../helpers/movie-hooks";
 
 function GenreCard() {
-    const { genres, fetchGenre } = useMovie();
+    const { genresList, fetchGenre } = useMovie();
 
-    // console.log(fetchGenre([28, 12, 16]));
+    // console.log(fetchGenre(12));
     // console.log(genres);
 
     return (
         <section className="card__genre">
             <ul className="card__genre-list">
-                {genres.map((genre) => (
+                {genresList.map((genre) => (
                     <li
                         onClick={() => fetchGenre(genre.id)}
                         key={genre.id}
