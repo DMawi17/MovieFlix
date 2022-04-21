@@ -1,12 +1,14 @@
 import Header from "../layout/Header";
 import Footer from "../layout/Footer";
+import Main from "../layout/Main";
 
 function Genre() {
     return (
-        <div className="genre">
+        <section className="genre">
             <Header />
+            <Main />
             <Footer />
-        </div>
+        </section>
     );
 }
 

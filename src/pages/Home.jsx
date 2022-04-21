@@ -5,12 +5,12 @@ import Main from "../layout/Main";
 
 const Home = () => {
     return (
-        <div className="home">
+        <section className="home">
             <Header />
             <BannerSwiper />
             <Main />
             <Footer />
-        </div>
+        </section>
     );
 };
 

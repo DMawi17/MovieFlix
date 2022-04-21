@@ -1,12 +1,14 @@
 import Footer from "../layout/Footer";
 import Header from "../layout/Header";
+import Main from "../layout/Main";
 
 const Movies = () => {
     return (
-        <div id="Movies">
+        <section id="Movies">
             <Header />
+            <Main />
             <Footer />
-        </div>
+        </section>
     );
 };
 
