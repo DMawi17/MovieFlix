@@ -1,16 +1,12 @@
 import Header from "../layout/Header";
 import Footer from "../layout/Footer";
-import Main from "../layout/Main";
-import { useMovie } from "../helpers/movie-hooks";
+import MoviePages from "../components/movie_page/MoviePages";
 
 function Genre() {
-    const { genre } = useMovie();
-    // console.log(genre);
-
     return (
         <section className="genre">
             <Header />
-            <Main props={genre} />
+            <MoviePages />
             <Footer />
         </section>
     );

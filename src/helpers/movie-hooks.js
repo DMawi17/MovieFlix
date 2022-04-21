@@ -13,7 +13,7 @@ export const MovieProvider = ({ children }) => {
     const [nowPlayingTv, setNowPlayingTv] = useState([]);
     const [detailedBannerData, setDetailedBannerData] = useState([]);
     const [genresList, setGenresList] = useState([]);
-    const [genre, setGenre] = useState([]);
+    const [customGenre, setCustomGenre] = useState([]);
     const { IMG_URL, IMG_BG_URL, media_type, queries } = api;
 
     useEffect(() => {
@@ -69,21 +69,31 @@ export const MovieProvider = ({ children }) => {
         api.fetchGenreList().then((res) => setGenresList(res.data.genres));
     }, []);
 
-    // Each genre has a value of an array
-    const fetchGenre = (id) => {
-        api.fetchGenre(media_type.movie, id).then((genres) =>
-            setGenre(genres.data.results)
-        );
+    const fetchGenre = async (id) => {
+        const genreWithId = await api
+            .fetchGenre(media_type.movie, id)
+            .then((genres) => ({
+                id,
+                genres: genres.data.results,
+            }));
+
+        setCustomGenre(genreWithId);
     };
 
-    const navElements = [
-        { path: "/", link: "Home" },
-        { path: "genre", link: "Genre" },
-        { path: "country", link: "Country" },
-        { path: "movies", link: "Movies" },
-        { path: "series", link: "TV-Series" },
-        { path: "topImdb", link: "Top IMDB" },
-    ];
+    const filteredGenre = (id, list) => {
+        return list.filter((list) => list.id === id);
+    };
+
+    const genreName = filteredGenre(customGenre.id, genresList);
+
+    // const navElements = [
+    //     { path: "/", link: "Home" },
+    //     { path: "genre", link: "Genre" },
+    //     { path: "country", link: "Country" },
+    //     { path: "movies", link: "Movies" },
+    //     { path: "series", link: "TV-Series" },
+    //     { path: "topImdb", link: "Top IMDB" },
+    // ];
 
     const handleToggleMenu = () => {
         setToggleMenu(!toggleMenu);
@@ -117,7 +127,7 @@ export const MovieProvider = ({ children }) => {
             value={{
                 toggleMenu,
                 toggleLogin,
-                navElements,
+                // navElements,
                 handleToggleMenu,
                 handleToggleLogin,
                 IMG_URL,
@@ -127,8 +137,10 @@ export const MovieProvider = ({ children }) => {
                 releaseYear,
                 movieShelf,
                 genresList,
-                genre,
+                customGenre,
                 fetchGenre,
+                filteredGenre,
+                genreName,
             }}
         >
             {children}
