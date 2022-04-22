@@ -20,24 +20,24 @@
     position: relative;
 }
 
-.movie-title {
+.movie__info-title {
     margin-bottom: $mb-05;
     color: $clr-txt-primary;
 }
 
-.movie-extra {
+.movie__info-extra {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
     color: $clr-txt-secondary;
 }
 
-.movie-date {
+.movie__info-date {
     display: flex;
     gap: 0.7rem;
 }
 
-.movie-rating {
+.movie__info-rating {
     display: flex;
     gap: 0.3rem;
     align-items: flex-end;

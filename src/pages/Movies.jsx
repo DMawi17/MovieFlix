@@ -10,14 +10,14 @@ const Movies = () => {
         <section className="movies">
             <Header />
 
-            <>
+            <main>
                 <h2 className="movie__shelf-heading">Movies</h2>
                 <div className="movie__rows">
                     {fetchMoviesPages.map((movies) => (
                         <MovieColls {...movies.data} key={movies.data.id} />
                     ))}
                 </div>
-            </>
+            </main>
 
             <Footer />
         </section>
