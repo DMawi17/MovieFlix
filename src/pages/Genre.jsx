@@ -10,14 +10,14 @@ function Genre() {
         <section className="genre">
             <Header />
 
-            <>
+            <main>
                 <h2 className="row__title">{genreName}</h2>
                 <div className="movie__rows">
                     {genreData.map((movies) => (
                         <MovieColls {...movies.data} key={movies.data.id} />
                     ))}
                 </div>
-            </>
+            </main>
 
             <Footer />
         </section>

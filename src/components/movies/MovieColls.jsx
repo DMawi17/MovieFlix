@@ -26,7 +26,8 @@ function MovieColls(item) {
                 src={IMG_URL + poster_path}
                 alt={title}
             />
-            <div className="movie__info info-box">
+
+            <div className="movie__info">
                 <div className="movie__info-title">
                     {truncate(name, 15) || truncate(title, 15)}
                 </div>
@@ -47,6 +48,7 @@ function MovieColls(item) {
                     </div>
                 </div>
             </div>
+
             <MovieCard {...item} />
         </div>
     );

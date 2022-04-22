@@ -6,10 +6,19 @@ const Whoops404 = () => {
 
     return (
         <section className="whoops">
-            <h2>
-                <FaCat /> <span>Whoops!</span> <br />
+            <h1
+                style={{
+                    color: "papayawhip",
+                    position: "absolute",
+                    top: "50%",
+                    right: "50%",
+                    transform: "translate(50%, -50%) ",
+                }}
+            >
+                <FaCat style={{ fontSize: "4rem" }} />{" "}
+                <span style={{ fontSize: "3rem" }}>Whoops!</span> <br />
                 Resource not found at {location.pathname}
-            </h2>
+            </h1>
         </section>
     );
 };
