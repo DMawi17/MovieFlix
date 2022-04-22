@@ -29,8 +29,10 @@ export const MovieProvider = ({ children }) => {
 
     /* Genre Page */
     const [genresList, setGenresList] = useState([]);
+    const [genreName, setGenreName] = useState([]);
     const [customGenre, setCustomGenre] = useState([]);
-    // console.log("genreList", genresList);
+    const [genreData, setGenreData] = useState([]);
+    // console.log("genreList", customGenre);
 
     const [multipleFetchMovies, setMultipleFetchMovies] = useState([]);
     const [multipleFetchTv, setMultipleFetchTv] = useState([]);
@@ -38,6 +40,7 @@ export const MovieProvider = ({ children }) => {
 
     /* ***************************USE EFFECT***********************************/
 
+    /* HOME */
     useEffect(() => {
         // BANNER MOVIES:
         api.fetchMovies(media_type.movie, queries.popular)
@@ -72,13 +75,6 @@ export const MovieProvider = ({ children }) => {
             .then((data) => data.map((tvId) => tvId.id))
             .then((id) => fetchDetailData(media_type.tv, id, setNowPlayingTv));
     }, [media_type, queries]);
-
-    // FETCH GENRE LISTS:
-    useEffect(() => {
-        api.fetchGenreList().then((res) => setGenresList(res.data.genres));
-    }, []);
-
-    // Multiple Fetch:
 
     /* MOVIE */
     useEffect(() => {
@@ -123,6 +119,19 @@ export const MovieProvider = ({ children }) => {
     }, [media_type.tv, queries.top_rated]);
 
     /* GENRE */
+    useEffect(() => {
+        const fetchPage = async () => {
+            return await api.fetchGenreList().then((res) => {
+                setGenresList(res.data.genres);
+                // return res.data.genres;
+            });
+
+            // const idList = genreList.map(({ id }) => id);
+            // idList.map((id) => setCustomGenre(id));
+        };
+
+        fetchPage();
+    }, []);
 
     /* ******************************LOGIC************************************/
 
@@ -132,22 +141,37 @@ export const MovieProvider = ({ children }) => {
         return cb(data);
     };
 
-    const fetchGenre = async (id) => {
+    const fetchGenre = async (id, str) => {
         const genreWithId = await api
-            .fetchGenre(media_type.movie, id)
-            .then((genres) => ({
-                id,
-                genres: genres.data.results,
-            }));
+            .fetchMultipleGenre(media_type.movie, id)
+            .then((res) => res.map((dataArr) => dataArr.data.results))
+            .then((moviesArr) =>
+                moviesArr.map((movies) => movies.map((movie) => movie.id))
+            );
 
-        setCustomGenre(genreWithId);
+        const idArr = genreWithId.flat();
+
+        fetchDetailData(media_type.movie, idArr, setGenreData);
+        setGenreName(str);
     };
 
-    const filteredGenre = (id, list) => {
-        return list.filter((list) => list.id === id);
-    };
+    // const fetchGenre = async (id) => {
+    //     const genreWithId = await api
+    //         .fetchGenre(media_type.movie, id)
+    //         .then((genres) => ({
+    //             id,
+    //             genres: genres.data.results,
+    //         }));
 
-    const genreName = filteredGenre(customGenre.id, genresList);
+    //     setCustomGenre(genreWithId);
+    // };
+
+    // const filteredGenre = (id, list) => {
+    //     return list.filter((list) => list.id === id);
+    // };
+
+    // const genreName = filteredGenre(customGenre.id, genresList);
+    // console.log(genreName);
 
     /* Nav functions  */
     const handleToggleMenu = () => {
@@ -180,6 +204,8 @@ export const MovieProvider = ({ children }) => {
         { title: "Latest TV-Series", item: nowPlayingTv },
     ];
 
+    // console.log(homeShelf);
+
     // Movies:
 
     // const movieShelf = [...multipleFetchMovies];
@@ -207,12 +233,13 @@ export const MovieProvider = ({ children }) => {
                 genresList,
                 customGenre,
                 fetchGenre,
-                filteredGenre,
+                // filteredGenre,
                 genreName,
                 multipleFetchMovies,
                 multipleFetchTv,
                 // currentPage,
                 // moviesPerPage,
+                genreData,
             }}
         >
             {children}

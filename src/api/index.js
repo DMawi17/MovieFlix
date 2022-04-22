@@ -67,9 +67,9 @@ const fetchGenre = (mediaType, id, params = request) => {
 // https://api.themoviedb.org/3/discover/movie?api_key={{movieDB}}&with_genres=28
 
 const fetchMultipleGenre = (mediaType, id, params = request) => {
+    request.params.append("with_genres", id);
     return axios.all(
         endpoints.map((endpoint) => {
-            request.params.append("with_genres", id);
             request.params.append("page", endpoint);
             // request.params.forEach((a) => console.log(a));
             return client.get(`/discover${mediaType}`, params);
@@ -105,5 +105,5 @@ export {
     fetchGenre,
     fetchMultiplePages,
     endpoints,
-    fetchMultipleGenre
+    fetchMultipleGenre,
 };

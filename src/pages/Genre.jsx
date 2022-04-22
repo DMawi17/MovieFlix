@@ -1,18 +1,27 @@
 import Header from "../layout/Header";
 import Footer from "../layout/Footer";
-import MoviePages from "../components/genre_page/GenrePage";
+// import MoviePages from "../components/genre_page/GenrePage";
 import { useMovie } from "../helpers/movie-hooks";
+import MovieColls from "../components/movies/MovieColls";
 
 function Genre() {
-    const { customGenre, genreName } = useMovie();
+    const { genreData, genreName } = useMovie();
 
-    const { genres } = customGenre;
-    const [heading] = genreName.map(({ name }) => name);
+    console.log(genreData);
 
     return (
         <section className="genre">
             <Header />
-            <MoviePages props={{ genres, heading }} />
+
+            <>
+                <h2 className="row__title">{genreName}</h2>
+                <div className="movie__rows" id="Category">
+                    {genreData.map((movies) => (
+                        <MovieColls {...movies.data} key={movies.data.id} />
+                    ))}
+                </div>
+            </>
+
             <Footer />
         </section>
     );

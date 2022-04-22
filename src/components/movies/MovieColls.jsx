@@ -1,6 +1,6 @@
 import { useMovie } from "../../helpers/movie-hooks";
 import { FaStar } from "react-icons/fa";
-// import MovieCard from "../cards/MovieCard";
+import MovieCard from "../cards/MovieCard";
 
 function MovieColls(item) {
     const { IMG_URL, loading, truncate, releaseYear } = useMovie();
@@ -18,8 +18,6 @@ function MovieColls(item) {
     if (loading) {
         return <h2 style={{ colo: "white" }}>Loading...</h2>;
     }
-
-    // console.log(item);
 
     return (
         <div className="movie__colls">
@@ -49,7 +47,7 @@ function MovieColls(item) {
                     </div>
                 </div>
             </div>
-            {/* <MovieCard {...item} /> */}
+            <MovieCard {...item} />
         </div>
     );
 }
