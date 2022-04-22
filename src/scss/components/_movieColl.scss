@@ -1,0 +1,49 @@
+@use "../utils/" as *;
+
+.movie__colls {
+    &:hover {
+        .card__info {
+            display: flex;
+        }
+    }
+}
+
+.movie__img {
+    width: 100%;
+    height: 230px;
+    border-radius: 0.3rem;
+    margin-bottom: $mb-075;
+}
+
+.movie__info {
+    color: $clr-container;
+    position: relative;
+}
+
+.movie-title {
+    margin-bottom: $mb-05;
+    color: $clr-txt-primary;
+}
+
+.movie-extra {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    color: $clr-txt-secondary;
+}
+
+.movie-date {
+    display: flex;
+    gap: 0.7rem;
+}
+
+.movie-rating {
+    display: flex;
+    gap: 0.3rem;
+    align-items: flex-end;
+
+    .rating-star {
+        font-size: 0.9rem;
+        align-self: center;
+    }
+}

@@ -5,12 +5,6 @@ const API_BASE_URL = "https://api.themoviedb.org/3";
 const IMG_URL = "https://image.tmdb.org/t/p/w200";
 const IMG_BG_URL = "https://image.tmdb.org/t/p/original";
 
-// Discovery
-// const GENRE_URL = "https://api.themoviedb.org/3/discover/";
-
-//  https://api.themoviedb.org/3/genre/movie/list?api_key={{movieDB}}&language=en-US
-// const GENRE_URL = "/genre/movie/list";
-
 const media_type = { tv: "/tv", movie: "/movie" };
 const time_window = { day: "/day", week: "/week" };
 const queries = {
@@ -25,7 +19,7 @@ const queries = {
     discover: "/discover",
 };
 
-/* ******************************************** */
+/* ************************************************************************/
 
 const client = axios.create({
     baseURL: API_BASE_URL,
@@ -44,7 +38,7 @@ const request = {
 
 const endpoints = Array.from({ length: 5 }, (_, i) => i + 1);
 
-/* ******************************************** */
+/* ************************************************************************/
 
 const fetchMovies = (mediaType, queryStr, params = request) => {
     return client.get(`${mediaType}${queryStr}`, params);
@@ -70,16 +64,18 @@ const fetchGenre = (mediaType, id, params = request) => {
     return client.get(`/discover${mediaType}`, params);
 };
 
-// const fetchGenre = (mediaType, id, params = request) => {
-//     return axios.all(
-//         endpoints.map((endpoint) => {
-//             request.params.append("with_genres", id);
-//             request.params.append("page", endpoint);
-//             request.params.forEach((a) => console.log(a));
-//             return client.get(`/discover${mediaType}`, params);
-//         })
-//     );
-// };
+// https://api.themoviedb.org/3/discover/movie?api_key={{movieDB}}&with_genres=28
+
+const fetchMultipleGenre = (mediaType, id, params = request) => {
+    request.params.append("with_genres", id);
+    return axios.all(
+        endpoints.map((endpoint) => {
+            request.params.append("page", endpoint);
+            // request.params.forEach((a) => console.log(a));
+            return client.get(`/discover${mediaType}`, params);
+        })
+    );
+};
 
 // Fetch a few more pages:
 const fetchMultiplePages = (mediaType, queryStr, params = request) => {
@@ -91,6 +87,8 @@ const fetchMultiplePages = (mediaType, queryStr, params = request) => {
         })
     );
 };
+
+/* ************************************************************************/
 
 export {
     API_KEY,
@@ -107,4 +105,5 @@ export {
     fetchGenre,
     fetchMultiplePages,
     endpoints,
+    fetchMultipleGenre,
 };

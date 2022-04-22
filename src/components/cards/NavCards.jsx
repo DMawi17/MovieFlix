@@ -12,7 +12,9 @@ function GenreCard() {
             <ul className="card__genre-list">
                 {genresList.map((genre) => (
                     <li
-                        onClick={() => fetchGenre(genre.id)}
+                        onClick={() => {
+                            fetchGenre(genre.id, genre.name);
+                        }}
                         key={genre.id}
                         className="card__genre-item"
                     >

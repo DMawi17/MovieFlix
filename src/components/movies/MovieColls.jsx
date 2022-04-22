@@ -3,7 +3,7 @@ import { FaStar } from "react-icons/fa";
 import MovieCard from "../cards/MovieCard";
 
 function MovieColls(item) {
-    const { IMG_URL, truncate, releaseYear } = useMovie();
+    const { IMG_URL, loading, truncate, releaseYear } = useMovie();
     const {
         poster_path,
         title,
@@ -14,6 +14,10 @@ function MovieColls(item) {
         runtime,
         episode_run_time,
     } = item;
+
+    if (loading) {
+        return <h2 style={{ colo: "white" }}>Loading...</h2>;
+    }
 
     return (
         <div className="movie__colls">

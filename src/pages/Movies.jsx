@@ -1,20 +1,24 @@
-import Footer from "../layout/Footer";
 import Header from "../layout/Header";
-import MoviePage from "../components/movie_page/MoviePage";
+import MovieColls from "../components/movies/MovieColls";
+import Footer from "../layout/Footer";
 import { useMovie } from "../helpers/movie-hooks";
 
 const Movies = () => {
-    const { multipleFetchMovies } = useMovie();
-
-    const newFetch = multipleFetchMovies.map((singleFetch) => {
-        return singleFetch.data.results;
-    });
+    const { fetchMoviesPages } = useMovie();
 
     return (
-        <section id="Movies">
+        <section className="movies">
             <Header />
-            <h1 className="movie__shelf-heading">Movies</h1>
-            <MoviePage props={newFetch} />
+
+            <>
+                <h2 className="movie__shelf-heading">Movies</h2>
+                <div className="movie__rows">
+                    {fetchMoviesPages.map((movies) => (
+                        <MovieColls {...movies.data} key={movies.data.id} />
+                    ))}
+                </div>
+            </>
+
             <Footer />
         </section>
     );
