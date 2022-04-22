@@ -30,12 +30,12 @@ export const MovieProvider = ({ children }) => {
     /* Genre Page */
     const [genresList, setGenresList] = useState([]);
     const [genreName, setGenreName] = useState([]);
-    const [customGenre, setCustomGenre] = useState([]);
+    // const [customGenre, setCustomGenre] = useState([]);
     const [genreData, setGenreData] = useState([]);
     // console.log("genreList", customGenre);
 
-    const [multipleFetchMovies, setMultipleFetchMovies] = useState([]);
-    const [multipleFetchTv, setMultipleFetchTv] = useState([]);
+    const [fetchMoviesPages, setFetchMoviesPages] = useState([]);
+    const [fetchTvPages, setFetchTvPages] = useState([]);
     // console.log("multipleFetchTv", multipleFetchTv);
 
     /* ***************************USE EFFECT***********************************/
@@ -89,7 +89,7 @@ export const MovieProvider = ({ children }) => {
 
             // Flatten the arrays to one array
             const idArr = getMultiple.flat();
-            fetchDetailData(media_type.movie, idArr, setMultipleFetchMovies);
+            fetchDetailData(media_type.movie, idArr, setFetchMoviesPages);
 
             setLoading(false);
         };
@@ -110,7 +110,7 @@ export const MovieProvider = ({ children }) => {
 
             // Flatten the arrays to one array
             const idArr = getMultiple.flat();
-            fetchDetailData(media_type.tv, idArr, setMultipleFetchTv);
+            fetchDetailData(media_type.tv, idArr, setFetchTvPages);
 
             setLoading(false);
         };
@@ -121,13 +121,12 @@ export const MovieProvider = ({ children }) => {
     /* GENRE */
     useEffect(() => {
         const fetchPage = async () => {
-            return await api.fetchGenreList().then((res) => {
+            setLoading(true);
+            await api.fetchGenreList().then((res) => {
                 setGenresList(res.data.genres);
-                // return res.data.genres;
             });
 
-            // const idList = genreList.map(({ id }) => id);
-            // idList.map((id) => setCustomGenre(id));
+            setLoading(false);
         };
 
         fetchPage();
@@ -231,12 +230,12 @@ export const MovieProvider = ({ children }) => {
                 homeShelf,
                 // movieShelf,
                 genresList,
-                customGenre,
+                // customGenre,
                 fetchGenre,
                 // filteredGenre,
                 genreName,
-                multipleFetchMovies,
-                multipleFetchTv,
+                fetchMoviesPages,
+                fetchTvPages,
                 // currentPage,
                 // moviesPerPage,
                 genreData,
