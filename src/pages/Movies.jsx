@@ -7,9 +7,11 @@ import { v4 } from "uuid";
 const Movies = () => {
     const { multipleFetchMovies } = useMovie();
 
-    const newFetch = multipleFetchMovies.map((singleFetch) => {
-        return singleFetch.data.results;
-    });
+    // const newFetch = multipleFetchMovies.map((singleFetch) => {
+    //     return singleFetch.data.results;
+    // });
+
+    // console.log(multipleFetchMovies);
 
     return (
         <section className="movies">
@@ -17,13 +19,13 @@ const Movies = () => {
 
             <h1 className="movie__shelf-heading">Movies</h1>
 
-            {newFetch.map((arr) => (
+            {/* {newFetch.map((arr) => (
                 <div key={v4()} className="movie__rows">
                     {arr.map((movies) => (
                         // console.log(movies)
                         <MovieColls {...movies} key={movies.id} />
                     ))}
-                </div>
+                </div> */}
             ))}
 
             <Footer />
