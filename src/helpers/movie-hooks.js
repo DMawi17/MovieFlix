@@ -17,6 +17,10 @@ export const MovieProvider = ({ children }) => {
     const [multipleFetchMovies, setMultipleFetchMovies] = useState([]);
     const [multipleFetchTv, setMultipleFetchTv] = useState([]);
 
+    const [loading, setLoading] = useState(false);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [moviesPerPage, setMoviesPerPage] = useState(20);
+
     const { IMG_URL, IMG_BG_URL, media_type, queries } = api;
 
     useEffect(() => {
@@ -89,31 +93,35 @@ export const MovieProvider = ({ children }) => {
     const genreName = filteredGenre(customGenre.id, genresList);
 
     // Multiple Fetch;
-    /* ************************************ */
+    /* FOR MOVIE ************************************ */
 
     useEffect(() => {
         const fetchPages = async () => {
+            setLoading(true);
             const getMultiple = await api
                 .fetchMultiplePages(media_type.movie, queries.top_rated)
                 .then((res) => res)
                 .then((movies) => movies.map((data) => data));
 
             setMultipleFetchMovies(getMultiple);
+            setLoading(false);
         };
 
         fetchPages();
     }, [media_type.movie, queries.top_rated]);
 
-    /* ************************************ */
+    /* FOR TV ************************************ */
 
     useEffect(() => {
         const fetchPages = async () => {
+            setLoading(true);
             const getMultiple = await api
                 .fetchMultiplePages(media_type.tv, queries.top_rated)
                 .then((res) => res)
                 .then((movies) => movies.map((data) => data));
 
             setMultipleFetchTv(getMultiple);
+            setLoading(false);
         };
 
         fetchPages();
@@ -151,6 +159,7 @@ export const MovieProvider = ({ children }) => {
     return (
         <MovieContext.Provider
             value={{
+                loading,
                 toggleMenu,
                 toggleLogin,
                 // navElements,
@@ -169,6 +178,8 @@ export const MovieProvider = ({ children }) => {
                 genreName,
                 multipleFetchMovies,
                 multipleFetchTv,
+                currentPage,
+                moviesPerPage,
             }}
         >
             {children}

@@ -1,7 +1,8 @@
 import Footer from "../layout/Footer";
 import Header from "../layout/Header";
-import MoviePage from "../components/movie_page/MoviePage";
+import MovieColls from "../components/movies/MovieColls";
 import { useMovie } from "../helpers/movie-hooks";
+import { v4 } from "uuid";
 
 const Movies = () => {
     const { multipleFetchMovies } = useMovie();
@@ -11,10 +12,20 @@ const Movies = () => {
     });
 
     return (
-        <section id="Movies">
+        <section className="movies">
             <Header />
+
             <h1 className="movie__shelf-heading">Movies</h1>
-            <MoviePage props={newFetch} />
+
+            {newFetch.map((arr) => (
+                <div key={v4()} className="movie__rows">
+                    {arr.map((movies) => (
+                        // console.log(movies)
+                        <MovieColls {...movies} key={movies.id} />
+                    ))}
+                </div>
+            ))}
+
             <Footer />
         </section>
     );
