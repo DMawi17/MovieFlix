@@ -10,7 +10,7 @@ const Nav = () => {
                 </Link>
             </li>
             <li className="nav__item">
-                <Link to="/genre" className="nav__link genre">
+                <Link to="" className="nav__link genre">
                     Genre
                 </Link>
                 <GenreCard />

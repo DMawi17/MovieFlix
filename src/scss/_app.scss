@@ -41,12 +41,6 @@ a {
 
 // GENERAL STYLE:
 
-.app {
-}
-
-.home {
-    // background: $clr-bg-dark;
-}
-
-.container {
+.nav__link:hover {
+    color: $clr-primary !important;
 }

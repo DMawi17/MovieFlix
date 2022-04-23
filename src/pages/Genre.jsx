@@ -12,7 +12,7 @@ function Genre() {
             <Header />
 
             <main>
-                <h2 className="row__title">{genreName}</h2>
+                <h1 className="movie__shelf-heading">{genreName}</h1>
                 <div className="movie__rows">
                     {genreData.map((movies) => (
                         <MovieColls {...movies.data} key={v4()} />

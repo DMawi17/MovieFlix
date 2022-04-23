@@ -40,8 +40,8 @@ const Header = () => {
                     </div>
 
                     <div className="nav__login" onClick={handleToggleLogin}>
-                        <BsPersonFill className="nav__login-icon" />
-                        <Link className="nav__login-link" to="login">
+                        <BsPersonFill className="nav__login-icon " />
+                        <Link className="nav__login-link nav__link" to="login">
                             Login / Register
                         </Link>
                     </div>

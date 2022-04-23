@@ -18,7 +18,7 @@ const Movies = () => {
             <Header />
 
             <main>
-                <h2 className="movie__shelf-heading">Movies</h2>
+                <h1 className="movie__shelf-heading">Movies</h1>
                 <div className="movie__rows">
                     {moviesPage.map((movies) => (
                         <MovieColls {...movies.data} key={v4()} />

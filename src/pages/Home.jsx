@@ -16,7 +16,7 @@ const Home = () => {
                 <BannerSwiper />
                 {homeShelf.map(({ title, item }) => (
                     <div key={v4()}>
-                        <p className="movie__shelf-heading">{title}</p>
+                        <h1 className="movie__shelf-heading">{title}</h1>
                         <div className="movie__rows">
                             {item.map((movie) => (
                                 <div key={v4()}>
