@@ -22,7 +22,7 @@ function MovieCard({
 
             <div className="card__info-extra">
                 <span className="rating">
-                    <FaStar className="icon" /> {vote_average}
+                    <FaStar className="icon-star" /> {vote_average}
                 </span>
                 <span className="card__date">
                     {release_date && releaseYear(release_date)}

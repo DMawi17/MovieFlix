@@ -6,10 +6,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
 }
 
 body {
+    font-family: "Poppins", sans-serif;
     background: $clr-bg-dark;
 }
 
@@ -52,9 +52,18 @@ a {
 .movie__shelf-heading {
     max-width: 1440px;
     margin: auto;
-    // outline: auto;
 }
 
 .main__container {
     margin-top: 17vh;
+}
+
+.home {
+    .main__container {
+        margin-top: 5vh;
+    }
+}
+
+.icon-star {
+    color: $clr-primary;
 }

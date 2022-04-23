@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
-import { BsPersonFill } from "react-icons/bs";
+import { BsPersonCircle } from "react-icons/bs";
 import { AiOutlineBars } from "react-icons/ai";
 import { useMovie } from "../helpers/movie-hooks";
 import Nav from "./Nav";
@@ -40,7 +40,7 @@ const Header = () => {
                     </div>
 
                     <div className="nav__login" onClick={handleToggleLogin}>
-                        <BsPersonFill className="nav__login-icon " />
+                        <BsPersonCircle className="nav__login-icon " />
                         <Link className="nav__login-link nav__link" to="login">
                             Login / Register
                         </Link>

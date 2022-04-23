@@ -33,7 +33,7 @@ const Banner = ({ bannerInfo }) => {
                     <div className="tags">
                         <span className="tag tag-date">{release_date}</span>
                         <span className="tag tag-rate">
-                            <FaStar /> {vote_average}
+                            <FaStar className="banner__icons icon-star"/> {vote_average}
                         </span>{" "}
                         <span className="tag tag-runtime">{runtime} min</span>
                         <div className="tag tag-genres">
