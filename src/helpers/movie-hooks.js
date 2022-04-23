@@ -25,24 +25,23 @@ export const MovieProvider = ({ children }) => {
     const [topRated, setTopRated] = useState([]);
     const [nowPlayingMovies, setNowPlayingMovies] = useState([]);
     const [nowPlayingTv, setNowPlayingTv] = useState([]);
-    // console.log("topRated", topRated);
 
     /* Genre Page */
     const [genresList, setGenresList] = useState([]);
     const [genreName, setGenreName] = useState([]);
-    // const [customGenre, setCustomGenre] = useState([]);
     const [genreData, setGenreData] = useState([]);
-    // console.log("genreList", customGenre);
 
+    /* Movie and TV Pages */
     const [fetchMoviesPages, setFetchMoviesPages] = useState([]);
     const [fetchTvPages, setFetchTvPages] = useState([]);
-    // console.log("multipleFetchTv", multipleFetchTv);
 
-    /* ***************************USE EFFECT***********************************/
+    /* ************************** USE EFFECT **********************************/
 
-    /* HOME */
+    /* ************** HOME **********************/
+
+    // BANNER MOVIES:
+
     useEffect(() => {
-        // BANNER MOVIES:
         api.fetchMovies(media_type.movie, queries.popular)
             .then((res) => res.data.results)
             .then((data) =>
@@ -54,29 +53,39 @@ export const MovieProvider = ({ children }) => {
             .then((id) =>
                 fetchDetailData(media_type.movie, id, setDetailedBannerData)
             );
+    }, [media_type.movie, queries.popular]);
 
-        //  TOP RATED:  FIXME: FIX REPETITION
+    //  TOP RATED:
+
+    useEffect(() => {
         api.fetchMovies(media_type.movie, queries.top_rated)
             .then((res) => res.data.results)
             .then((data) => data.map((movieId) => movieId.id))
             .then((id) => fetchDetailData(media_type.movie, id, setTopRated));
+    }, [media_type.movie, queries.top_rated]);
 
-        // NOW PLAYING MOVIES:
+    // NOW PLAYING MOVIES:
+
+    useEffect(() => {
         api.fetchMovies(media_type.movie, queries.playing)
             .then((res) => res.data.results)
             .then((data) => data.map((movieId) => movieId.id))
             .then((id) =>
                 fetchDetailData(media_type.movie, id, setNowPlayingMovies)
             );
+    }, [media_type.movie, queries.playing]);
 
-        // NOW PLAYING TV:
+    // NOW PLAYING TV:
+
+    useEffect(() => {
         api.fetchMovies(media_type.tv, queries.on_air)
             .then((res) => res.data.results)
             .then((data) => data.map((tvId) => tvId.id))
             .then((id) => fetchDetailData(media_type.tv, id, setNowPlayingTv));
-    }, [media_type, queries]);
+    }, [media_type.tv, queries.on_air]);
 
-    /* MOVIE */
+    /* **************** MOVIE ********************/
+
     useEffect(() => {
         const fetchPage = async () => {
             setLoading(true);
@@ -97,7 +106,8 @@ export const MovieProvider = ({ children }) => {
         fetchPage();
     }, [media_type.movie, queries.top_rated]);
 
-    /* TV */
+    /* ****************** TV *********************/
+
     useEffect(() => {
         const fetchPage = async () => {
             setLoading(true);
@@ -118,7 +128,8 @@ export const MovieProvider = ({ children }) => {
         fetchPage();
     }, [media_type.tv, queries.top_rated]);
 
-    /* GENRE */
+    /* **************** GENRE ********************/
+
     useEffect(() => {
         const fetchPage = async () => {
             setLoading(true);
@@ -132,7 +143,7 @@ export const MovieProvider = ({ children }) => {
         fetchPage();
     }, []);
 
-    /* ******************************LOGIC************************************/
+    /* ****************************** LOGIC ***********************************/
 
     /* Fetch details for multiple  */
     const fetchDetailData = async (mediaType, id, cb) => {
@@ -140,6 +151,7 @@ export const MovieProvider = ({ children }) => {
         return cb(data);
     };
 
+    /* Call me from the nav genre */
     const fetchGenre = async (id, str) => {
         const genreWithId = await api
             .fetchMultipleGenre(media_type.movie, id)
@@ -154,25 +166,8 @@ export const MovieProvider = ({ children }) => {
         setGenreName(str);
     };
 
-    // const fetchGenre = async (id) => {
-    //     const genreWithId = await api
-    //         .fetchGenre(media_type.movie, id)
-    //         .then((genres) => ({
-    //             id,
-    //             genres: genres.data.results,
-    //         }));
+    /* **************** Nav functions ********************/
 
-    //     setCustomGenre(genreWithId);
-    // };
-
-    // const filteredGenre = (id, list) => {
-    //     return list.filter((list) => list.id === id);
-    // };
-
-    // const genreName = filteredGenre(customGenre.id, genresList);
-    // console.log(genreName);
-
-    /* Nav functions  */
     const handleToggleMenu = () => {
         setToggleMenu(!toggleMenu);
     };
@@ -181,7 +176,7 @@ export const MovieProvider = ({ children }) => {
         setToggleLogin(!toggleLogin);
     };
 
-    /* General functions */
+    /* **************** General functions ********************/
 
     // Truncate:
     const truncate = (str, maxLength = 150) => {
@@ -194,7 +189,8 @@ export const MovieProvider = ({ children }) => {
         const [year] = date;
         return year;
     };
-    /* **********************SORT BEFORE DISPATCH****************************/
+
+    /* ********************** SORT BEFORE DISPATCH ****************************/
 
     // Home:
     const homeShelf = [
@@ -202,14 +198,6 @@ export const MovieProvider = ({ children }) => {
         { title: "Latest Movies", item: nowPlayingMovies },
         { title: "Latest TV-Series", item: nowPlayingTv },
     ];
-
-    // console.log(homeShelf);
-
-    // Movies:
-
-    // const movieShelf = [...multipleFetchMovies];
-
-    // console.log(movieShelf);
 
     /* **************************RETURN*************************************/
 
@@ -219,7 +207,6 @@ export const MovieProvider = ({ children }) => {
                 loading,
                 toggleMenu,
                 toggleLogin,
-                // navElements,
                 handleToggleMenu,
                 handleToggleLogin,
                 IMG_URL,
@@ -228,16 +215,11 @@ export const MovieProvider = ({ children }) => {
                 truncate,
                 releaseYear,
                 homeShelf,
-                // movieShelf,
                 genresList,
-                // customGenre,
                 fetchGenre,
-                // filteredGenre,
                 genreName,
                 fetchMoviesPages,
                 fetchTvPages,
-                // currentPage,
-                // moviesPerPage,
                 genreData,
             }}
         >
