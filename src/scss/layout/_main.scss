@@ -5,19 +5,19 @@
         font-size: 27px;
         font-weight: 500;
         color: #fff;
-        margin: 1.5rem;
+        padding-left: $mb-15;
     }
 
     &__rows {
         display: grid;
         grid-template-columns: repeat(auto-fill, 160px);
         justify-content: center;
-        gap: 2rem 1rem;
-        margin: 1rem auto;
-        padding: 1rem;
+
+        gap: $mb-20 $mb-10;
+        margin-block: $mb-25;
 
         &__title {
-            color: #fff;
+            color: #fff; //  FIXME:
         }
     }
 

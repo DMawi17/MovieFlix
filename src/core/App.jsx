@@ -3,7 +3,6 @@ import Home from "../pages/Home";
 import Genre from "../pages/Genre";
 import Movies from "../pages/Movies";
 import Series from "../pages/Series";
-import Imdb from "../pages/Imdb";
 import Whoops404 from "../pages/Whoops404";
 
 function App() {
@@ -14,7 +13,6 @@ function App() {
                 <Route path="genre" element={<Genre />} />
                 <Route path="movies" element={<Movies />} />
                 <Route path="series" element={<Series />} />
-                <Route path="topImdb" element={<Imdb />} />
                 <Route path="*" element={<Whoops404 />} />
             </Routes>
         </div>

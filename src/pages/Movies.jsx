@@ -17,14 +17,14 @@ const Movies = () => {
         <section className="movies">
             <Header />
 
-            <main>
+            <div className="main__container">
                 <h1 className="movie__shelf-heading">Movies</h1>
-                <div className="movie__rows">
+                <main className="movie__rows">
                     {moviesPage.map((movies) => (
                         <MovieColls {...movies.data} key={v4()} />
                     ))}
-                </div>
-            </main>
+                </main>
+            </div>
 
             <Footer />
         </section>

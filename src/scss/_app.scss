@@ -44,3 +44,17 @@ a {
 .nav__link:hover {
     color: $clr-primary !important;
 }
+
+.banner__info-container,
+.movie__rows,
+.footer,
+.nav,
+.movie__shelf-heading {
+    max-width: 1440px;
+    margin: auto;
+    // outline: auto;
+}
+
+.main__container {
+    margin-top: 17vh;
+}

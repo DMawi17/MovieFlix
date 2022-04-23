@@ -17,14 +17,14 @@ const Series = () => {
         <section className="movies">
             <Header />
 
-            <>
+            <div className="main__container">
                 <h1 className="movie__shelf-heading">Tv-Series</h1>
-                <div className="movie__rows">
+                <main className="movie__rows">
                     {tvPage.map((movies) => (
                         <MovieColls {...movies.data} key={v4()} />
                     ))}
-                </div>
-            </>
+                </main>
+            </div>
 
             <Footer />
         </section>

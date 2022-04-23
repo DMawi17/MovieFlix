@@ -25,36 +25,38 @@ const Banner = ({ bannerInfo }) => {
             }}
         >
             <div className="banner__content" id="Banner_Contents">
-                <h1 className="banner__title" id="Banner_Title">
-                    {original_title}
-                </h1>
+                <div className="banner__info-container">
+                    <h1 className="banner__title" id="Banner_Title">
+                        {original_title}
+                    </h1>
 
-                <div className="tags">
-                    <span className="tag tag-date">{release_date}</span>
-                    <span className="tag tag-rate">
-                        <FaStar /> {vote_average}
-                    </span>{" "}
-                    <span className="tag tag-runtime">{runtime} min</span>
-                    <div className="tag tag-genres">
-                        {genres.map((genre) => (
-                            <span className="tag-genre" key={v4()}>
-                                {genre.name}
-                            </span>
-                        ))}
+                    <div className="tags">
+                        <span className="tag tag-date">{release_date}</span>
+                        <span className="tag tag-rate">
+                            <FaStar /> {vote_average}
+                        </span>{" "}
+                        <span className="tag tag-runtime">{runtime} min</span>
+                        <div className="tag tag-genres">
+                            {genres.map((genre) => (
+                                <span className="tag-genre" key={v4()}>
+                                    {genre.name}
+                                </span>
+                            ))}
+                        </div>
                     </div>
-                </div>
 
-                <p className="banner__description" id="Banner_Description">
-                    {truncate(overview)}
-                </p>
+                    <p className="banner__description" id="Banner_Description">
+                        {truncate(overview)}
+                    </p>
 
-                <div className="banner__buttons">
-                    <button className="banner__button banner__button-play">
-                        <FaPlay className="banner__icons" /> Watch now
-                    </button>
-                    <button className="banner__button banner__button-list">
-                        <FaHeart className="banner__icons" /> Add to list
-                    </button>
+                    <div className="banner__buttons">
+                        <button className="banner__button banner__button-play">
+                            <FaPlay className="banner__icons" /> Watch now
+                        </button>
+                        <button className="banner__button banner__button-list">
+                            <FaHeart className="banner__icons" /> Add to list
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>

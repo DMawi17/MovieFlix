@@ -25,11 +25,6 @@ const Nav = () => {
                     TV-Series
                 </Link>
             </li>
-            <li className="nav__item">
-                <Link to="/topImdb" className="nav__link">
-                    Top IMDB
-                </Link>
-            </li>
         </ul>
     );
 };
