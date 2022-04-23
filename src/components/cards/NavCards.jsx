@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { v4 } from "uuid";
 import { useMovie } from "../../helpers/movie-hooks";
 
 function GenreCard() {
@@ -15,7 +16,7 @@ function GenreCard() {
                         onClick={() => {
                             fetchGenre(genre.id, genre.name);
                         }}
-                        key={genre.id}
+                        key={v4()}
                         className="card__genre-item"
                     >
                         <Link to="/genre">{genre.name}</Link>
@@ -33,7 +34,9 @@ function CountryCard() {
         <section className="card__genre">
             <ul className="card__genre-list">
                 {genres.map((genre) => (
-                    <li className="card__genre-item">{genre.name}</li>
+                    <li key={v4()} className="card__genre-item">
+                        {genre.name}
+                    </li>
                 ))}
             </ul>
         </section>

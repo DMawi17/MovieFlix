@@ -7,6 +7,7 @@ import "swiper/css/pagination";
 
 import Banner from "./Banner";
 import { useMovie } from "../../helpers/movie-hooks";
+import { v4 } from "uuid";
 
 const BannerSwiper = () => {
     const { detailedBannerData } = useMovie();
@@ -26,7 +27,7 @@ const BannerSwiper = () => {
                 modules={[Autoplay, Pagination]}
             >
                 {detailedBannerData.map((bannerInfo) => (
-                    <SwiperSlide key={bannerInfo.data.id}>
+                    <SwiperSlide key={v4()}>
                         <Banner bannerInfo={bannerInfo.data} />
                     </SwiperSlide>
                 ))}

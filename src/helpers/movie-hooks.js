@@ -88,7 +88,6 @@ export const MovieProvider = ({ children }) => {
 
     useEffect(() => {
         const fetchPage = async () => {
-            setLoading(true);
             const getMultiple = await api
                 .fetchMultiplePages(media_type.movie, queries.top_rated)
                 .then((res) => res.map((dataArr) => dataArr.data.results))
@@ -99,8 +98,6 @@ export const MovieProvider = ({ children }) => {
             // Flatten the arrays to one array
             const idArr = getMultiple.flat();
             fetchDetailData(media_type.movie, idArr, setFetchMoviesPages);
-
-            setLoading(false);
         };
 
         fetchPage();
@@ -110,7 +107,6 @@ export const MovieProvider = ({ children }) => {
 
     useEffect(() => {
         const fetchPage = async () => {
-            setLoading(true);
             const getMultiple = await api
                 .fetchMultiplePages(media_type.tv, queries.top_rated)
                 .then((res) => res.map((dataArr) => dataArr.data.results))
@@ -121,8 +117,6 @@ export const MovieProvider = ({ children }) => {
             // Flatten the arrays to one array
             const idArr = getMultiple.flat();
             fetchDetailData(media_type.tv, idArr, setFetchTvPages);
-
-            setLoading(false);
         };
 
         fetchPage();
@@ -132,12 +126,9 @@ export const MovieProvider = ({ children }) => {
 
     useEffect(() => {
         const fetchPage = async () => {
-            setLoading(true);
-            await api.fetchGenreList().then((res) => {
+            return await api.fetchGenreList().then((res) => {
                 setGenresList(res.data.genres);
             });
-
-            setLoading(false);
         };
 
         fetchPage();
@@ -176,7 +167,7 @@ export const MovieProvider = ({ children }) => {
         setToggleLogin(!toggleLogin);
     };
 
-    /* **************** General functions ********************/
+    /* ************** General functions *****************/
 
     // Truncate:
     const truncate = (str, maxLength = 150) => {

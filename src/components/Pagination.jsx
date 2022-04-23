@@ -1,3 +1,4 @@
+import { v4 } from "uuid";
 import { useMovie } from "../helpers/movie-hooks";
 
 const Pagination = ({ totalMovies }) => {
@@ -16,7 +17,7 @@ const Pagination = ({ totalMovies }) => {
             <nav>
                 <ul>
                     {pageNumber.map((num) => (
-                        <li key={num} className="page__item">
+                        <li key={v4()} className="page__item">
                             <a href="!#">{num}</a>
                         </li>
                     ))}

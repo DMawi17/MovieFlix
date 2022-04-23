@@ -9,7 +9,7 @@ function GenrePages({ props }) {
             <div className="movie__shelf-heading">{props.heading}</div>
             <div className="movie__page">
                 {props.genres?.map((item) => (
-                    <div key={item.id} className="movie__colls">
+                    <div key={4()} className="movie__colls">
                         <img
                             className="movie__img"
                             src={IMG_URL + item.poster_path}

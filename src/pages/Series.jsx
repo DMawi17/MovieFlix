@@ -2,6 +2,7 @@ import { useMovie } from "../helpers/movie-hooks";
 import Footer from "../layout/Footer";
 import Header from "../layout/Header";
 import MovieColls from "../components/movies/MovieColls";
+import { v4 } from "uuid";
 
 const Series = () => {
     const { fetchTvPages } = useMovie();
@@ -14,7 +15,7 @@ const Series = () => {
                 <h2 className="movie__shelf-heading">Tv-Series</h2>
                 <div className="movie__rows">
                     {fetchTvPages.map((movies) => (
-                        <MovieColls {...movies.data} key={movies.data.id} />
+                        <MovieColls {...movies.data} key={v4()} />
                     ))}
                 </div>
             </>
