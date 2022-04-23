@@ -11,7 +11,7 @@ function App() {
         <div className="app">
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/genre" element={<Genre />} />
+                <Route path="genre" element={<Genre />} />
                 <Route path="movies" element={<Movies />} />
                 <Route path="series" element={<Series />} />
                 <Route path="topImdb" element={<Imdb />} />

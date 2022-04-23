@@ -3,6 +3,7 @@ import BannerSwiper from "../components/banner/BannerSwiper";
 import MovieColls from "../components/movies/MovieColls";
 import Footer from "../layout/Footer";
 import { useMovie } from "../helpers/movie-hooks";
+import { v4 } from "uuid";
 
 const Home = () => {
     const { homeShelf } = useMovie();
@@ -14,11 +15,11 @@ const Home = () => {
             <>
                 <BannerSwiper />
                 {homeShelf.map(({ title, item }) => (
-                    <div key={title}>
+                    <div key={v4()}>
                         <p className="movie__shelf-heading">{title}</p>
                         <div className="movie__rows">
                             {item.map((movie) => (
-                                <div key={movie.data.id}>
+                                <div key={v4()}>
                                     <MovieColls {...movie.data} />
                                 </div>
                             ))}

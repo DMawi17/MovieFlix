@@ -1,4 +1,5 @@
 import { FaHeart, FaPlay, FaStar } from "react-icons/fa";
+import { v4 } from "uuid";
 import { useMovie } from "../../helpers/movie-hooks";
 
 const Banner = ({ bannerInfo }) => {
@@ -13,7 +14,6 @@ const Banner = ({ bannerInfo }) => {
         overview,
     } = bannerInfo;
 
-    // Background img
     const bg_image = `url(${IMG_BG_URL}${backdrop_path}`;
 
     return (
@@ -37,7 +37,7 @@ const Banner = ({ bannerInfo }) => {
                     <span className="tag tag-runtime">{runtime} min</span>
                     <div className="tag tag-genres">
                         {genres.map((genre) => (
-                            <span className="tag-genre" key={genre.id}>
+                            <span className="tag-genre" key={v4()}>
                                 {genre.name}
                             </span>
                         ))}

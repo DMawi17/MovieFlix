@@ -2,7 +2,7 @@ import axios from "axios";
 
 const API_KEY = process.env.REACT_APP_MOVIE_DATABASE_API_KEY;
 const API_BASE_URL = "https://api.themoviedb.org/3";
-const IMG_URL = "https://image.tmdb.org/t/p/w200";
+const IMG_URL = "https://image.tmdb.org/t/p/w300";
 const IMG_BG_URL = "https://image.tmdb.org/t/p/original";
 
 const media_type = { tv: "/tv", movie: "/movie" };
@@ -23,9 +23,6 @@ const queries = {
 
 const client = axios.create({
     baseURL: API_BASE_URL,
-    headers: {
-        "Content-Type": "application/json",
-    },
 });
 
 const params = new URLSearchParams();
@@ -36,7 +33,7 @@ const request = {
     params: params,
 };
 
-const endpoints = Array.from({ length: 5 }, (_, i) => i + 1);
+const endpoints = Array.from({ length: 2 }, (_, i) => i + 1);
 
 /* ************************************************************************/
 
@@ -64,14 +61,11 @@ const fetchGenre = (mediaType, id, params = request) => {
     return client.get(`/discover${mediaType}`, params);
 };
 
-// https://api.themoviedb.org/3/discover/movie?api_key={{movieDB}}&with_genres=28
-
 const fetchMultipleGenre = (mediaType, id, params = request) => {
     request.params.append("with_genres", id);
     return axios.all(
         endpoints.map((endpoint) => {
             request.params.append("page", endpoint);
-            // request.params.forEach((a) => console.log(a));
             return client.get(`/discover${mediaType}`, params);
         })
     );
@@ -82,7 +76,6 @@ const fetchMultiplePages = (mediaType, queryStr, params = request) => {
     return axios.all(
         endpoints.map((endpoint) => {
             request.params.append("page", endpoint);
-            // request.params.forEach((a) => console.log(a));
             return client.get(`${mediaType}${queryStr}`, params);
         })
     );
@@ -99,7 +92,6 @@ export {
     time_window,
     queries,
     fetchMovies,
-    // fetchDetail,
     fetchDetails,
     fetchGenreList,
     fetchGenre,
