@@ -1,35 +1,33 @@
-import Header from "../layout/Header";
-import BannerSwiper from "../components/banner/BannerSwiper";
 import MovieColls from "../components/movies/MovieColls";
 import Footer from "../layout/Footer";
 import { useMovie } from "../helpers/movie-hooks";
 import { v4 } from "uuid";
+import BannerSwiper from "../components/banner/BannerSwiper";
 
 const Home = () => {
     const { homeShelf } = useMovie();
 
     return (
-        <main className="home">
-            <Header />
+        <section className="home">
+            <BannerSwiper />
 
-            <>
-                <BannerSwiper />
+            <div className="main__container">
                 {homeShelf.map(({ title, item }) => (
                     <div key={v4()}>
-                        <p className="movie__shelf-heading">{title}</p>
-                        <div className="movie__rows">
+                        <h1 className="movie__shelf-heading">{title}</h1>
+                        <main className="movie__rows">
                             {item.map((movie) => (
                                 <div key={v4()}>
                                     <MovieColls {...movie.data} />
                                 </div>
                             ))}
-                        </div>
+                        </main>
                     </div>
                 ))}
-            </>
+            </div>
 
             <Footer />
-        </main>
+        </section>
     );
 };
 

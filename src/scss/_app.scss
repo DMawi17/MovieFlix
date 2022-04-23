@@ -6,10 +6,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
 }
 
 body {
+    font-family: "Poppins", sans-serif;
     background: $clr-bg-dark;
 }
 
@@ -41,12 +41,29 @@ a {
 
 // GENERAL STYLE:
 
-.app {
+.nav__link:hover {
+    color: $clr-primary !important;
+}
+
+.banner__info-container,
+.movie__rows,
+.footer,
+.nav,
+.movie__shelf-heading {
+    max-width: 1440px;
+    margin: auto;
+}
+
+.main__container {
+    margin-top: 17vh;
 }
 
 .home {
-    // background: $clr-bg-dark;
+    .main__container {
+        margin-top: 5vh;
+    }
 }
 
-.container {
+.icon-star {
+    color: $clr-primary;
 }

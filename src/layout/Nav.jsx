@@ -10,7 +10,7 @@ const Nav = () => {
                 </Link>
             </li>
             <li className="nav__item">
-                <Link to="/genre" className="nav__link genre">
+                <Link to="" className="nav__link genre">
                     Genre
                 </Link>
                 <GenreCard />
@@ -23,11 +23,6 @@ const Nav = () => {
             <li className="nav__item">
                 <Link to="/series" className="nav__link">
                     TV-Series
-                </Link>
-            </li>
-            <li className="nav__item">
-                <Link to="/topImdb" className="nav__link">
-                    Top IMDB
                 </Link>
             </li>
         </ul>

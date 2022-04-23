@@ -11,14 +11,14 @@ function Genre() {
         <section className="genre">
             <Header />
 
-            <main>
-                <h2 className="row__title">{genreName}</h2>
-                <div className="movie__rows">
+            <div className="main__container">
+                <h1 className="movie__shelf-heading">{genreName}</h1>
+                <main className="movie__rows">
                     {genreData.map((movies) => (
                         <MovieColls {...movies.data} key={v4()} />
                     ))}
-                </div>
-            </main>
+                </main>
+            </div>
 
             <Footer />
         </section>

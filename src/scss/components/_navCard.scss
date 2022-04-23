@@ -1,8 +1,8 @@
 @use "../utils/" as *;
 
 .card__genre {
-    width: 350px;
-    padding: 1rem 2rem 0;
+    width: 300px;
+    padding: 1rem;
     background-color: $clr-bg-med;
     color: $clr-txt-secondary;
     border-radius: 0.4rem;
@@ -13,10 +13,21 @@
 
     &-list {
         display: grid;
-        grid-template-columns: repeat(2, 175px);
+        grid-template-columns: repeat(2, 130px);
+        justify-content: space-between;
     }
 
     &-item {
-        margin-bottom: 1rem;
+        padding: 0.5rem;
+        text-align: left;
+        border-radius: 0.5rem;
+
+        &:hover {
+            background: rgb(31, 31, 31);
+
+            .card__genre-name {
+                color: $clr-primary;
+            }
+        }
     }
 }
