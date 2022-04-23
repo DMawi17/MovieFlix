@@ -10,11 +10,15 @@ function GenreCard() {
             <ul className="card__genre-list">
                 {genresList.map((genre) => (
                     <li
-                        onClick={detailedGenreFetch(genre.id, genre.name)}
+                        onClick={() => {
+                            detailedGenreFetch(genre.id, genre.name);
+                        }}
                         key={v4()}
                         className="card__genre-item"
                     >
-                        <Link to="genre">{genre.name}</Link>
+                        <Link to="/genre" className="card__genre-name">
+                            {genre.name}
+                        </Link>
                     </li>
                 ))}
             </ul>

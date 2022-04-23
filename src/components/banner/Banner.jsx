@@ -14,7 +14,6 @@ const Banner = ({ bannerInfo }) => {
         overview,
     } = bannerInfo;
 
-    // Background img
     const bg_image = `url(${IMG_BG_URL}${backdrop_path}`;
 
     return (

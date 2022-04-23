@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { GenreCard } from "../components/cards/NavCards";
+import GenreCard from "../components/cards/GenreCard";
 
 const Nav = () => {
     return (
@@ -10,7 +10,7 @@ const Nav = () => {
                 </Link>
             </li>
             <li className="nav__item">
-                <Link to="/" className="nav__link genre">
+                <Link to="/genre" className="nav__link genre">
                     Genre
                 </Link>
                 <GenreCard />
