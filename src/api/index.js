@@ -36,7 +36,7 @@ const request = {
     params: params,
 };
 
-const endpoints = Array.from({ length: 5 }, (_, i) => i + 1);
+const endpoints = Array.from({ length: 2 }, (_, i) => i + 1);
 
 /* ************************************************************************/
 
