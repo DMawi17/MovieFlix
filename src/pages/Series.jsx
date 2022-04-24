@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { useMovie } from "../helpers/movie-hooks";
 import Footer from "../layout/Footer";
 import Header from "../layout/Header";
-import MovieColls from "../components/movies/MovieColls";
+import MovieColls from "../components/MovieColls";
 import { v4 } from "uuid";
 
 const Series = () => {
