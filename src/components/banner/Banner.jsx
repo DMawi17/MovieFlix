@@ -3,7 +3,7 @@ import { v4 } from "uuid";
 import { useMovie } from "../../helpers/movie-hooks";
 
 const Banner = ({ bannerInfo }) => {
-    const { truncate, IMG_BG_URL } = useMovie();
+    const { truncate, IMG_URL, img_size } = useMovie();
     const {
         backdrop_path,
         original_title,
@@ -14,7 +14,7 @@ const Banner = ({ bannerInfo }) => {
         overview,
     } = bannerInfo;
 
-    const bg_image = `url(${IMG_BG_URL}${backdrop_path}`;
+    const bg_image = `url(${IMG_URL}${img_size.l}${backdrop_path}`;
 
     return (
         <div
@@ -33,7 +33,8 @@ const Banner = ({ bannerInfo }) => {
                     <div className="tags">
                         <span className="tag tag-date">{release_date}</span>
                         <span className="tag tag-rate">
-                            <FaStar className="banner__icons icon-star"/> {vote_average}
+                            <FaStar className="banner__icons icon-star" />{" "}
+                            {vote_average}
                         </span>{" "}
                         <span className="tag tag-runtime">{runtime} min</span>
                         <div className="tag tag-genres">

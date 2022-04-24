@@ -2,10 +2,10 @@
 
 .card__genre {
     width: 300px;
-    padding: 1rem;
+    padding: $mb-10;
     background-color: $clr-bg-med;
     color: $clr-txt-secondary;
-    border-radius: 0.4rem;
+    border-radius: 0.5rem;
     position: absolute;
     z-index: 3;
 

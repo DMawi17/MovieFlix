@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import { FaSearch } from "react-icons/fa";
 import { BsPersonCircle } from "react-icons/bs";
 import { AiOutlineBars } from "react-icons/ai";
 import { useMovie } from "../helpers/movie-hooks";
 import Nav from "./Nav";
+import Search from "../components/Search";
 
 const Header = () => {
     const { handleToggleLogin, handleToggleMenu } = useMovie();
@@ -25,19 +25,7 @@ const Header = () => {
                     </Link>
 
                     <Nav />
-
-                    <div to="search" className="nav__search ">
-                        <FaSearch className="nav__search-icon" />
-                        <label htmlFor="" className="nav__search-label">
-                            <input
-                                type="text"
-                                name="search"
-                                id="search"
-                                className="nav__search-input"
-                                placeholder="Enter your keywords..."
-                            />
-                        </label>
-                    </div>
+                    <Search />
 
                     <div className="nav__login" onClick={handleToggleLogin}>
                         <BsPersonCircle className="nav__login-icon " />

@@ -5,12 +5,12 @@
 @use "./components/banner";
 @use "./components/movieCard";
 @use "./components/navCard";
+@use "./components/searchCard";
 
 // Layout
 @use "./layout/nav";
 @use "./layout/main";
 @use "./layout/footer";
-
 
 // Media Query
 @use "./media-query/large";

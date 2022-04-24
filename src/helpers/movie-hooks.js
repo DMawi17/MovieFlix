@@ -8,11 +8,7 @@ export const useMovie = () => useContext(MovieContext);
 
 export const MovieProvider = ({ children }) => {
     /* General */
-    const { IMG_URL, IMG_BG_URL, media_type, queries } = api;
-
-    /* Pagination */
-    // const [currentPage, setCurrentPage] = useState(1);
-    // const [moviesPerPage, setMoviesPerPage] = useState(20);
+    const { IMG_URL, img_size, media_type, queries } = api;
 
     /* Nav */
     const [toggleMenu, setToggleMenu] = useState(false);
@@ -35,6 +31,10 @@ export const MovieProvider = ({ children }) => {
     const [moviesPage, setMoviesPage] = useState([]);
     const [tvPage, setTvPage] = useState([]);
 
+    /* Search */
+    const [searchTerm, setSearchTerm] = useState("");
+    const [searchResults, setSearchResults] = useState();
+
     /* ************************** USE EFFECT **********************************/
 
     /* ************** HOME **********************/
@@ -47,12 +47,10 @@ export const MovieProvider = ({ children }) => {
                 media_type.movie,
                 queries.popular
             );
-            const data = request.data.results;
-            const id = data
-                .sort((a, b) => b.vote_average - a.vote_average)
-                .filter((v, i) => i < 10)
-                .map((movieId) => movieId.id);
 
+            const data = request.data.results;
+            // Extract top 10 movies ids for the swiper:
+            const id = extractTopRated(data, 10).map((movieId) => movieId.id);
             fetchDetailData(media_type.movie, id, setDetailedBannerData);
         };
 
@@ -155,7 +153,7 @@ export const MovieProvider = ({ children }) => {
     /* Call me from the nav genre */
     const detailedGenreFetch = async (id, str) => {
         const genreWithId = await api
-            .fetchMultipleGenre(media_type.movie, id)
+            .fetchMultipleGenre(queries.discover, media_type.movie, id)
             .then((res) => res.map((dataArr) => dataArr.data.results))
             .then((moviesArr) =>
                 moviesArr.map((movies) => movies.map((movie) => movie.id))
@@ -167,6 +165,46 @@ export const MovieProvider = ({ children }) => {
         setGenreName(str);
 
         return genreWithId;
+    };
+
+    /* ****************** SEARCH *********************/ // FIXME:
+
+    const detailedSearchFetch = async (term) => {
+        if (term !== "") {
+            return await api
+                .fetchSearch(queries.search, media_type.multi, term)
+                .then((res) => res.data.results)
+                .then((movies) => {
+                    const resultsOfFive = extractTopRated(movies);
+                    setSearchResults(resultsOfFive);
+                });
+        }
+
+        // const movieRes = getMultiSearch.map(async (item) => {
+        //     switch (item.media_type) {
+        //         case "movie":
+        //             const request = await api
+        //                 .fetchDetail(media_type.movie, item.id)
+        //                 .then((res) => res.data);
+        //             setSearchMovieResults(request);
+        //             break;
+        //         case "tv":
+        //             api.fetchDetail(media_type.tv, item.id).then((res) =>
+        //                 setSearchTvResults(res.data)
+        //             );
+        //             break;
+        //         case "person":
+        //             api.fetchDetail(media_type.person, item.id).then((res) =>
+        //                 setSearchPersonResults(res.data)
+        //             );
+        //             break;
+        //         default:
+        //             console.log("No match!");
+        //             break;
+        //     }
+        // });
+
+        // return getMultiSearch;
     };
 
     /* ****************************** LOGIC ***********************************/
@@ -196,9 +234,14 @@ export const MovieProvider = ({ children }) => {
 
     // Extract the year out of date:
     const releaseYear = (date = "2022-01-01") => {
-        date = date.split("-");
-        const [year] = date;
-        return year;
+        return date.split("-").slice(0, 1);
+    };
+
+    // Sort and filter top rated:
+    const extractTopRated = (data, top = 5) => {
+        return data
+            .sort((a, b) => b.vote_average - a.vote_average)
+            .filter((v, i) => i < top);
     };
 
     /* ********************** SORT BEFORE DISPATCH ****************************/
@@ -221,7 +264,7 @@ export const MovieProvider = ({ children }) => {
                 handleToggleMenu,
                 handleToggleLogin,
                 IMG_URL,
-                IMG_BG_URL,
+                img_size,
                 detailedBannerData,
                 truncate,
                 releaseYear,
@@ -231,13 +274,17 @@ export const MovieProvider = ({ children }) => {
                 genresList,
                 genreName,
                 genreData,
-                //
+                searchTerm,
+                searchResults,
+
                 detailedMoviesFetch,
                 detailedTvsFetch,
                 detailedGenreFetch,
+                detailedSearchFetch,
 
-                //
                 setGenreData,
+                setSearchTerm,
+                setSearchResults,
             }}
         >
             {children}
