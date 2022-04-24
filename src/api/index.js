@@ -7,7 +7,7 @@ const IMG_URL = "https://image.tmdb.org/t/p";
 /* ************************************************************************/
 
 const time_window = { day: "/day", week: "/week" };
-const img_size = { s: "/w92", m: "/w154", l: "/original" };
+const img_size = { xs: "/w92", s: "/w200", m: "/w500", l: "/original" };
 
 const media_type = {
     tv: "/tv",
@@ -54,9 +54,6 @@ const fetchMovies = (mediaType, queryStr, params = request) => {
     return client.get(mediaType + queryStr, params);
 };
 
-// https://api.themoviedb.org/3/movie/{movie_id}?api_key={{movieDB}}
-// https://api.themoviedb.org/3/tv/{tv_id}?api_key={{movieDB}}
-// https://api.themoviedb.org/3/person/{person_id}?api_key={{movieDB}}
 
 // Fetch detail of a single movie/tv/person:
 const fetchDetail = (mediaType, id, params = request) => {

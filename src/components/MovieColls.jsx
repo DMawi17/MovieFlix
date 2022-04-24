@@ -19,7 +19,7 @@ function MovieColls(item) {
         <div className="movie__colls">
             <img
                 className="movie__img"
-                src={IMG_URL + img_size.m + poster_path}
+                src={IMG_URL + img_size.s + poster_path}
                 alt={title}
             />
 
