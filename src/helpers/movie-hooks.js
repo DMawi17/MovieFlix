@@ -203,8 +203,6 @@ export const MovieProvider = ({ children }) => {
         //             break;
         //     }
         // });
-
-        // return getMultiSearch;
     };
 
     /* ****************************** LOGIC ***********************************/
@@ -258,7 +256,6 @@ export const MovieProvider = ({ children }) => {
     return (
         <MovieContext.Provider
             value={{
-                // loading,
                 toggleMenu,
                 toggleLogin,
                 handleToggleMenu,

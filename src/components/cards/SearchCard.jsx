@@ -36,7 +36,7 @@ function GenreCard({ props }) {
                                         className="item__img"
                                         src={
                                             poster_path &&
-                                            IMG_URL + img_size.s + poster_path
+                                            IMG_URL + img_size.xs + poster_path
                                         }
                                         alt={title}
                                     />
