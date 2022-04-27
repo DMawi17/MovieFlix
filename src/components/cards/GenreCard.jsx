@@ -1,9 +1,14 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useMovie } from "../../helpers/movie-hooks";
 import { v4 } from "uuid";
 
 function GenreCard() {
     const { genresList, detailedGenreFetch } = useMovie();
+
+    useEffect(() => {
+        detailedGenreFetch();
+    }, [detailedGenreFetch]);
 
     return (
         <section className="card__genre">

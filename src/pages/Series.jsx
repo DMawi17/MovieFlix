@@ -1,6 +1,4 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useMovie } from "../helpers/movie-hooks";
 import Footer from "../layout/Footer";
 import Header from "../layout/Header";
@@ -12,7 +10,7 @@ const Series = () => {
 
     useEffect(() => {
         detailedTvsFetch();
-    }, []);
+    }, [detailedTvsFetch]);
 
     return (
         <section className="movies">

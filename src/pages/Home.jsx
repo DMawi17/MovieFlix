@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import MovieColls from "../components/MovieColls";
 import Footer from "../layout/Footer";
 import { useMovie } from "../helpers/movie-hooks";
@@ -5,7 +6,33 @@ import { v4 } from "uuid";
 import BannerSwiper from "../components/banner/BannerSwiper";
 
 const Home = () => {
-    const { homeShelf } = useMovie();
+    const {
+        homeShelf,
+        detailedBannerFetch,
+        detailedRatedFetch,
+        detailedPlayingMoviesFetch,
+        detailedPlayingTvsFetch,
+    } = useMovie();
+
+    // BANNER MOVIES:
+    useEffect(() => {
+        detailedBannerFetch();
+    }, [detailedBannerFetch]);
+
+    //  TOP RATED:
+    useEffect(() => {
+        detailedRatedFetch();
+    }, [detailedRatedFetch]);
+
+    // NOW PLAYING MOVIES:
+    useEffect(() => {
+        detailedPlayingMoviesFetch();
+    }, [detailedPlayingMoviesFetch]);
+
+    // NOW PLAYING TV:
+    useEffect(() => {
+        detailedPlayingTvsFetch();
+    }, [detailedPlayingTvsFetch]);
 
     return (
         <section className="home">

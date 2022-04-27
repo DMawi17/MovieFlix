@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useState, useEffect } from "react";
+import { useState, useCallback } from "react";
 import { createContext, useContext } from "react";
 import * as api from "../api";
 
@@ -35,89 +35,68 @@ export const MovieProvider = ({ children }) => {
     const [searchTerm, setSearchTerm] = useState("");
     const [searchResults, setSearchResults] = useState();
 
-    /* ************************** USE EFFECT **********************************/
-
     /* ************** HOME **********************/
+    // BANNER MOVIES:
+    const detailedBannerFetch = useCallback(async () => {
+        const request = await api.fetchMovies(
+            media_type.movie,
+            queries.popular
+        );
 
-    useEffect(() => {
-        // BANNER MOVIES:
+        const data = request.data.results;
+        const id = extractTopRated(data, 10).map((movieId) => movieId.id);
+        fetchDetailData(media_type.movie, id, setDetailedBannerData);
+    }, []);
 
-        const detailedBannerFetch = async () => {
-            const request = await api.fetchMovies(
-                media_type.movie,
-                queries.popular
-            );
+    //  TOP RATED:
+    const detailedRatedFetch = useCallback(async () => {
+        const request = await api
+            .fetchMovies(media_type.movie, queries.top_rated)
+            .then((res) => res.data.results)
+            .then((data) => data.map((movieId) => movieId.id))
+            .then((id) => fetchDetailData(media_type.movie, id, setTopRated))
+            .catch((err) => console.log(err));
+        return request;
+    }, []);
 
-            const data = request.data.results;
-            // Extract top 10 movies ids for the swiper:
-            const id = extractTopRated(data, 10).map((movieId) => movieId.id);
-            fetchDetailData(media_type.movie, id, setDetailedBannerData);
-        };
+    // NOW PLAYING MOVIES:
+    const detailedPlayingMoviesFetch = useCallback(async () => {
+        const request = await api
+            .fetchMovies(media_type.movie, queries.playing)
+            .then((res) => res.data.results)
+            .then((data) => data.map((movieId) => movieId.id))
+            .then((id) =>
+                fetchDetailData(media_type.movie, id, setNowPlayingMovies)
+            )
+            .catch((err) => console.log(err));
+        return request;
+    }, []);
 
-        //  TOP RATED:
+    // NOW PLAYING TV:
+    const detailedPlayingTvsFetch = useCallback(async () => {
+        const request = await api
+            .fetchMovies(media_type.tv, queries.on_air)
+            .then((res) => res.data.results)
+            .then((data) => data.map((tvId) => tvId.id))
+            .then((id) => fetchDetailData(media_type.tv, id, setNowPlayingTv))
+            .catch((err) => console.log(err));
+        return request;
+    }, []);
 
-        const detailedRatedFetch = async () => {
-            const request = await api
-                .fetchMovies(media_type.movie, queries.top_rated)
-                .then((res) => res.data.results)
-                .then((data) => data.map((movieId) => movieId.id))
-                .then((id) =>
-                    fetchDetailData(media_type.movie, id, setTopRated)
-                )
-                .catch((err) => console.log(err));
-            return request;
-        };
-
-        // NOW PLAYING MOVIES:
-
-        const detailedPlayingMoviesFetch = async () => {
-            const request = await api
-                .fetchMovies(media_type.movie, queries.playing)
-                .then((res) => res.data.results)
-                .then((data) => data.map((movieId) => movieId.id))
-                .then((id) =>
-                    fetchDetailData(media_type.movie, id, setNowPlayingMovies)
-                )
-                .catch((err) => console.log(err));
-            return request;
-        };
-
-        // NOW PLAYING TV:
-
-        const detailedPlayingTvsFetch = async () => {
-            const request = await api
-                .fetchMovies(media_type.tv, queries.on_air)
-                .then((res) => res.data.results)
-                .then((data) => data.map((tvId) => tvId.id))
-                .then((id) =>
-                    fetchDetailData(media_type.tv, id, setNowPlayingTv)
-                )
-                .catch((err) => console.log(err));
-            return request;
-        };
-
-        // GENRE LIST:
-
-        const fetchGenreList = async () => {
-            const request = await api
-                .fetchGenreList()
-                .then((res) => {
-                    setGenresList(res.data.genres);
-                })
-                .catch((err) => console.log(err));
-            return request;
-        };
-
-        detailedBannerFetch();
-        detailedRatedFetch();
-        detailedPlayingMoviesFetch();
-        detailedPlayingTvsFetch();
-        fetchGenreList();
+    // GENRE LIST:
+    const fetchGenreList = useCallback(async () => {
+        const request = await api
+            .fetchGenreList()
+            .then((res) => {
+                setGenresList(res.data.genres);
+            })
+            .catch((err) => console.log(err));
+        return request;
     }, []);
 
     /* **************** MOVIE ********************/
 
-    const detailedMoviesFetch = async () => {
+    const detailedMoviesFetch = useCallback(async () => {
         const getMultiple = await api
             .fetchMultiplePages(media_type.movie, queries.top_rated)
             .then((res) => res.map((dataArr) => dataArr.data.results))
@@ -129,11 +108,11 @@ export const MovieProvider = ({ children }) => {
         const idArr = getMultiple.flat();
         fetchDetailData(media_type.movie, idArr, setMoviesPage);
         return getMultiple;
-    };
+    }, []);
 
     /* ****************** TV *********************/
 
-    const detailedTvsFetch = async () => {
+    const detailedTvsFetch = useCallback(async () => {
         const getMultiple = await api
             .fetchMultiplePages(media_type.tv, queries.top_rated)
             .then((res) => res.map((dataArr) => dataArr.data.results))
@@ -146,12 +125,12 @@ export const MovieProvider = ({ children }) => {
         fetchDetailData(media_type.tv, idArr, setTvPage);
 
         return getMultiple;
-    };
+    }, []);
 
     /* ****************** GENRE *********************/
 
     /* Call me from the nav genre */
-    const detailedGenreFetch = async (id, str) => {
+    const detailedGenreFetch = useCallback(async (id, str) => {
         const genreWithId = await api
             .fetchMultipleGenre(queries.discover, media_type.movie, id)
             .then((res) => res.map((dataArr) => dataArr.data.results))
@@ -165,11 +144,11 @@ export const MovieProvider = ({ children }) => {
         setGenreName(str);
 
         return genreWithId;
-    };
+    }, []);
 
-    /* ****************** SEARCH *********************/ // FIXME:
+    /* ****************** SEARCH *********************/
 
-    const detailedSearchFetch = async (term) => {
+    async function detailedSearchFetch(term) {
         if (term !== "") {
             return await api
                 .fetchSearch(queries.search, media_type.multi, term)
@@ -179,31 +158,7 @@ export const MovieProvider = ({ children }) => {
                     setSearchResults(resultsOfFive);
                 });
         }
-
-        // const movieRes = getMultiSearch.map(async (item) => {
-        //     switch (item.media_type) {
-        //         case "movie":
-        //             const request = await api
-        //                 .fetchDetail(media_type.movie, item.id)
-        //                 .then((res) => res.data);
-        //             setSearchMovieResults(request);
-        //             break;
-        //         case "tv":
-        //             api.fetchDetail(media_type.tv, item.id).then((res) =>
-        //                 setSearchTvResults(res.data)
-        //             );
-        //             break;
-        //         case "person":
-        //             api.fetchDetail(media_type.person, item.id).then((res) =>
-        //                 setSearchPersonResults(res.data)
-        //             );
-        //             break;
-        //         default:
-        //             console.log("No match!");
-        //             break;
-        //     }
-        // });
-    };
+    }
 
     /* ****************************** LOGIC ***********************************/
 
@@ -278,6 +233,11 @@ export const MovieProvider = ({ children }) => {
                 detailedTvsFetch,
                 detailedGenreFetch,
                 detailedSearchFetch,
+                detailedBannerFetch,
+                detailedRatedFetch,
+                detailedPlayingMoviesFetch,
+                detailedPlayingTvsFetch,
+                fetchGenreList,
 
                 setGenreData,
                 setSearchTerm,

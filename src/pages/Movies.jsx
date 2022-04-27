@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from "react";
 import Header from "../layout/Header";
 import MovieColls from "../components/MovieColls";
@@ -11,7 +10,7 @@ const Movies = () => {
 
     useEffect(() => {
         detailedMoviesFetch();
-    }, []);
+    }, [detailedMoviesFetch]);
 
     return (
         <section className="movies">
