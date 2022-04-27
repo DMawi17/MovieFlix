@@ -6,11 +6,11 @@ import { useMovie } from "../helpers/movie-hooks";
 import { v4 } from "uuid";
 
 const Movies = () => {
-    const { moviesPage, detailedMoviesFetch } = useMovie();
+    const { moviesPage, fetchDetailedMovies } = useMovie();
 
     useEffect(() => {
-        detailedMoviesFetch();
-    }, [detailedMoviesFetch]);
+        fetchDetailedMovies();
+    }, [fetchDetailedMovies]);
 
     return (
         <section className="movies">

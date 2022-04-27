@@ -6,6 +6,7 @@ function GenreCard({ props }) {
     const { searchResults, setSearchResults, searchTerm, setSearchTerm } =
         props;
     const { IMG_URL, img_size, releaseYear, truncate } = useMovie();
+    
 
     return (
         <section className="card__search">
@@ -52,9 +53,10 @@ function GenreCard({ props }) {
                                         {vote_average || popularity}
                                     </span>
                                     <span className="year">
-                                        {releaseYear(
-                                            release_date || first_air_date
-                                        )}
+                                        {(release_date || first_air_date) &&
+                                            releaseYear(
+                                                release_date || first_air_date
+                                            )}
                                     </span>
                                     <span className="media_type">
                                         {media_type.toUpperCase()}

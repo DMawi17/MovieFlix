@@ -34,7 +34,6 @@ const client = axios.create({
     baseURL: API_BASE_URL,
     headers: {
         "Content-Type": "application/json",
-        // Authorization: "Bearer " + token,
     },
 });
 
@@ -53,7 +52,6 @@ const endpoints = Array.from({ length: 2 }, (_, i) => i + 1);
 const fetchMovies = (mediaType, queryStr, params = request) => {
     return client.get(mediaType + queryStr, params);
 };
-
 
 // Fetch detail of a single movie/tv/person:
 const fetchDetail = (mediaType, id, params = request) => {
@@ -92,7 +90,6 @@ const fetchMultiplePages = (mediaType, queryStr, params = request) => {
 
 // Search
 const fetchSearch = (queries, mediaType, term, params = request) => {
-    request.params.append("query", term);
     request.params.append("query", term);
     return client.get(queries + mediaType, params);
 };

@@ -4,11 +4,11 @@ import { useMovie } from "../../helpers/movie-hooks";
 import { v4 } from "uuid";
 
 function GenreCard() {
-    const { genresList, detailedGenreFetch } = useMovie();
+    const { genresList, fetchDetailedGenre } = useMovie();
 
     useEffect(() => {
-        detailedGenreFetch();
-    }, [detailedGenreFetch]);
+        fetchDetailedGenre();
+    }, [fetchDetailedGenre]);
 
     return (
         <section className="card__genre">
@@ -16,7 +16,7 @@ function GenreCard() {
                 {genresList.map((genre) => (
                     <li
                         onClick={() => {
-                            detailedGenreFetch(genre.id, genre.name);
+                            fetchDetailedGenre(genre.id, genre.name);
                         }}
                         key={v4()}
                         className="card__genre-item"

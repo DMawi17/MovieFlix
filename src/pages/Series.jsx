@@ -6,11 +6,11 @@ import MovieColls from "../components/MovieColls";
 import { v4 } from "uuid";
 
 const Series = () => {
-    const { tvPage, detailedTvsFetch } = useMovie();
+    const { tvPage, fetchDetailedTvs } = useMovie();
 
     useEffect(() => {
-        detailedTvsFetch();
-    }, [detailedTvsFetch]);
+        fetchDetailedTvs();
+    }, [fetchDetailedTvs]);
 
     return (
         <section className="movies">
