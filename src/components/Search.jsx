@@ -1,3 +1,4 @@
+
 import { FaSearch } from "react-icons/fa";
 import { useMovie } from "../helpers/movie-hooks";
 import SearchCard from "./cards/SearchCard";
@@ -6,10 +7,15 @@ const Search = () => {
     const {
         searchTerm,
         setSearchTerm,
-        detailedSearchFetch,
         searchResults,
         setSearchResults,
+        fetchDetailedSearch,
     } = useMovie();
+
+    const handleChange = (e) => {
+        fetchDetailedSearch(e.target.value);
+        setSearchTerm(e.target.value);
+    };
 
     return (
         <>
@@ -23,10 +29,7 @@ const Search = () => {
                         name="search"
                         className="nav__search-input"
                         placeholder="Enter your keywords..."
-                        onChange={(e) => {
-                            detailedSearchFetch(e.target.value);
-                            setSearchTerm(e.target.value);
-                        }}
+                        onChange={handleChange}
                     />
                 </label>
 

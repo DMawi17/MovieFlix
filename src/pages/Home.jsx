@@ -1,11 +1,56 @@
+import { useEffect } from "react";
 import MovieColls from "../components/MovieColls";
 import Footer from "../layout/Footer";
 import { useMovie } from "../helpers/movie-hooks";
 import { v4 } from "uuid";
 import BannerSwiper from "../components/banner/BannerSwiper";
+import * as api from "../api";
 
 const Home = () => {
-    const { homeShelf } = useMovie();
+    const {
+        homeShelf,
+        setTopRated,
+        setNowPlayingMovies,
+        setNowPlayingTv,
+        fetchDetailedBanner,
+        fetchDetailedCategory,
+    } = useMovie();
+
+    const { media_type, queries } = api;
+
+    // BANNER MOVIES:
+    useEffect(() => {
+        fetchDetailedBanner();
+    }, [fetchDetailedBanner]);
+
+    //  TOP RATED:
+    useEffect(() => {
+        fetchDetailedCategory(media_type.movie, queries.top_rated, setTopRated);
+    }, [
+        fetchDetailedCategory,
+        media_type.movie,
+        queries.top_rated,
+        setTopRated,
+    ]);
+
+    // NOW PLAYING MOVIES:
+    useEffect(() => {
+        fetchDetailedCategory(
+            media_type.movie,
+            queries.playing,
+            setNowPlayingMovies
+        );
+    }, [
+        fetchDetailedCategory,
+        media_type.movie,
+        queries.playing,
+        setNowPlayingMovies,
+    ]);
+
+    // NOW PLAYING TV:
+    useEffect(() => {
+        fetchDetailedCategory(media_type.tv, queries.on_air, setNowPlayingTv);
+    }, [fetchDetailedCategory, media_type.tv, queries.on_air, setNowPlayingTv]);
 
     return (
         <section className="home">
