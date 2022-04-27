@@ -6,7 +6,6 @@ function GenreCard({ props }) {
     const { searchResults, setSearchResults, searchTerm, setSearchTerm } =
         props;
     const { IMG_URL, img_size, releaseYear, truncate } = useMovie();
-    
 
     return (
         <section className="card__search">
@@ -27,7 +26,6 @@ function GenreCard({ props }) {
                                 key={v4()}
                                 className="card__search-item"
                                 onClick={() => {
-                                    console.log(title, name);
                                     setSearchResults([]);
                                     setSearchTerm("");
                                 }}
